@@ -1,0 +1,86 @@
+<html>
+<head><title>Turbo Pascal Help - 04C9</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04C9</i></center></td>
+</tr></table>
+<pre>
+ Reset (procedure)
+ ------------------
+Opens an existing file.
+
+ Declaration:
+ procedure Reset(var F [: File; Recsize: Word ] );
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+F is a variable of any file type associated with an external file using
+Assign. RecSize is an optional expression of type Word, which can be
+specified only if F is an untyped file. If F is an untyped file, RecSize
+specifies the record size to be used in data transfers. If RecSize is
+omitted, a default record size of 128 bytes is assumed.
+
+Reset opens the existing external file with the name assigned to F. An
+error results if no existing external file of the given name exists. If F
+is already open, it is first closed and then reopened. The current file
+position is set to the beginning of the file.
+
+If F is assigned an empty name, such as Assign(F, ''), then after the call
+to Reset, F refers to the standard input file (standard handle number 0).
+
+If F is a text file, F becomes read-only. After a call to Reset, Eof(F) is
+True if the file is empty; otherwise, Eof(F) is False.
+
+With {$I-}, IOResult returns 0 if the operation was successful; otherwise,
+it returns a nonzero error code.
+
+ See Also:
+ <a href="0525.html">Append</a>
+ <a href="0528.html">Assign</a>
+ <a href="0535.html">Close</a>
+ <a href="04CB.html">Rewrite</a>
+ <a href="0517.html">Truncate</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Reset.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Reset procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>function</b></font> FileExists(FileName: <font color="#ffffff"><b>String</b></font>): Boolean;
+ <font color="#c0c0c0">{ Boolean function that returns True if the file exists;otherwise,
+  it returns False. Closes the file if it exists. }</font>
+ <font color="#ffffff"><b>var</b></font>
+  F: <font color="#ffffff"><b>file</b></font>;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#c0c0c0">{$I-}</font>
+  Assign(F, FileName);
+  FileMode := <font color="#00ffff">0</font>;  ( <font color="#ffffff"><b>Set</b></font> <font color="#ffffff"><b>file</b></font> access <font color="#ffffff"><b>to</b></font> read only }
+  Reset(F);
+  Close(F);
+  <font color="#c0c0c0">{$I+}</font>
+  FileExists := (IOResult = <font color="#00ffff">0</font>) <font color="#ffffff"><b>and</b></font> (FileName <> <font color="#00ffff">''</font>);
+ <font color="#ffffff"><b>end</b></font>;  <font color="#c0c0c0">{ FileExists }</font>
+
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>if</b></font> FileExists(ParamStr(<font color="#00ffff">1</font>)) <font color="#ffffff"><b>then</b></font> <font color="#c0c0c0">{Get file name from command line}</font>
+    Writeln(<font color="#00ffff">'File exists'</font>)
+  <font color="#ffffff"><b>else</b></font>
+    Writeln(<font color="#00ffff">'File not found'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head><title>Turbo Pascal Help - 044F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>044F</i></center></td>
+</tr></table>
+<pre>
+ local labels
+ -------------
+A local label is a label that is known only within the <a href="05DE.html">asm statement</a> that
+defines it.
+
+Local labels
+  - begin with an at-sign (@)
+  - are followed by one or more
+    letters (A..Z)
+    digits (0..9)
+    underscores (_)
+    at-signs (@)
+  - end with a colon (:)
+
+Because an at-sign cannot be part of a Pascal identifier, local labels are
+automatically restricted to use within asm statements.
+
+The scope of a local label extends from the "asm" keyword to the "end"
+keyword of the asm statement that contains it. Because of this limited
+scope, the same local label name can be used in different asm statements.
+
+A local label does not have to be declared in a label declaration part
+before it is used.
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<head><title>Turbo Pascal Help - 03BE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>03BE</i></center></td>
+</tr></table>
+<pre>
+ +----------------------------------+
+ | Invalid register combination     |
+ +----------------------------------+
+
+Valid index register combinations are [BX],
+[BP], [SI], [DI], [BX+SI], [BX+DI], [BP+SI],
+and [BP+DI]. Other index register
+combinations, such as [AX], [BP+BX], and
+[SI+DX], are not allowed.
+
+Local variables are always allocated on the
+stack and accessed via the BP register. The
+assembler automatically adds [BP] in
+references to such variables, so even though
+a construct like Local[BX] (where Local is a
+local variable) appears valid, it is not
+since the final operand would become
+Local[BP+BX].
+- eof -</pre></body>
+</html>

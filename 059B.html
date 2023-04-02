@@ -1,0 +1,101 @@
+<html>
+<head><title>Turbo Pascal Help - 059B</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>059B</i></center></td>
+</tr></table>
+<pre>
+ InitGraph (procedure)     <a href="064F.html">(Graph unit)</a>
+ ---------------------------------------
+Initializes the graphics system and puts the hardware into graphics mode.
+
+ Declaration:
+ procedure InitGraph(var GraphDriver:Integer; var GraphMode: Integer;
+    PathToDriver: string);
+
+ Target:
+Real, Protected
+
+ Remarks:
+If GraphDriver is equal to Detect, a call is made to any user-defined
+autodetect routines and then DetectGraph. If graphics hardware is detected,
+the appropriate graphics driver is initialized, and a graphics mode is
+selected.
+
+If GraphDriver is not equal to 0, the value of GraphDriver is assumed to be
+a driver number. That driver is then selected, and the system is put into
+the mode specified by GraphMode procedure If you override autodetection in
+this manner, you must supply a valid GraphMode parameter for the driver
+requested.
+
+PathToDriver specifies the directory path where the graphics drivers can be
+found. If PathToDriver is null, the driver files must be in the current
+directory.
+
+Normally, InitGraph loads a graphics driver by allocating memory for the
+driver (through GraphGetMem), then loads the appropriate .BGI file from
+disk. As an alternative to this dynamic loading scheme, you can link a
+graphics driver file (or several of them) directly into your executable
+program file.
+
+Do this by first converting the .BGI file to an .OBJ file (using the BINOBJ
+utility), then place calls to RegisterBGIdriver in your source code (before
+the call to InitGraph) to register the graphics driver(s). When you build
+your program, you must link the .OBJ files for the registered drivers. You
+can also load a BGI driver onto the heap and then register it using
+RegisterBGIdriver.
+
+If memory for the graphics driver is allocated on the heap using
+GraphGetMem, that memory is released when a call is made to CloseGraph.
+
+After calling InitGraph, GraphDriver is set to the current graphics driver,
+and GraphMode is set to the current graphics mode.
+
+If an error occurs, both GraphDriver and GraphResult (a function) return one
+of the following grXXXX constant values: grNotDetected, grFileNotFound,
+grInvalidDriver, grNoLoadMem, or grInvalidMode.
+
+ See Also:
+ <a href="0536.html">CloseGraph</a>
+ <a href="0544.html">DetectGraph</a>
+ <a href="0593.html">GraphResult</a>
+ <a href="04CA.html">RestoreCrtMode</a>
+ <a href="04E1.html">SetGraphBufSize</a>
+ <a href="04E2.html">SetGraphMode</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Initgrf.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Initgrf procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  grDriver: Integer;
+  grMode: Integer;
+  ErrCode: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  grDriver := Detect;
+  InitGraph(grDriver, grMode,<font color="#00ffff">' '</font>);
+  ErrCode := GraphResult;
+  <font color="#ffffff"><b>if</b></font> ErrCode = grOk <font color="#ffffff"><b>then</b></font>
+  <font color="#ffffff"><b>begin</b></font>  <font color="#c0c0c0">{ Do graphics }</font>
+    Line(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, GetMaxX, GetMaxY);
+    Readln;
+    CloseGraph;
+  <font color="#ffffff"><b>end</b></font>
+  <font color="#ffffff"><b>else</b></font>
+    Writeln(<font color="#00ffff">'Graphics error:'</font>, GraphErrorMsg(ErrCode));
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

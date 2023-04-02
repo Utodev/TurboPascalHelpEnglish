@@ -1,0 +1,67 @@
+<html>
+<head><title>Turbo Pascal Help - 058A</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>058A</i></center></td>
+</tr></table>
+<pre>
+ GetTime (procedure)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ ---------------------------------------------------
+Returns the current time set in the operating system.
+
+ Declaration:
+ procedure GetTime(var Hour, Minute, Second, Sec100: Word);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Ranges of the values returned are Hour 0..23, Minute 0..59, Second 0..59,
+and Sec100 (hundredths of seconds) 0..99.
+
+ See Also:
+ <a href="0571.html">GetDate</a>
+ <a href="04DC.html">SetDate</a>
+ <a href="04E9.html">SetTime</a>
+ <a href="0519.html">UnPackTime</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{GetTime.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetTime procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos, WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>var</b></font>
+   h, m, s, hund : Word;
+ <font color="#ffffff"><b>function</b></font> LeadingZero(w : Word) : <font color="#ffffff"><b>String</b></font>;
+ <font color="#ffffff"><b>var</b></font>
+   s : <font color="#ffffff"><b>String</b></font>;
+ <font color="#ffffff"><b>begin</b></font>
+   Str(w:<font color="#00ffff">0</font>,s);
+   <font color="#ffffff"><b>if</b></font> Length(s) = <font color="#00ffff">1</font> <font color="#ffffff"><b>then</b></font>
+     s := <font color="#00ffff">'0'</font> + s;
+   LeadingZero := s;
+ <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>begin</b></font>
+   GetTime(h,m,s,hund);
+   Writeln(<font color="#00ffff">'It is now '</font>,LeadingZero(h),<font color="#00ffff">':'</font>,
+           LeadingZero(m),<font color="#00ffff">':'</font>,LeadingZero(s),
+           <font color="#00ffff">'.'</font>,LeadingZero(hund));
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

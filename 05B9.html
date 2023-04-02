@@ -1,0 +1,49 @@
+<html>
+<head><title>Turbo Pascal Help - 05B9</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05B9</i></center></td>
+</tr></table>
+<pre>
+ Procedural types
+ ------------------
+Standard Pascal treats procedures and functions strictly as program parts
+that can be executed through procedure or function calls.
+
+Borland Pascal has a much broader treatment of procedures and functions.
+Through procedural types, it allows procedures and functions to be treated
+as objects that can be assigned to <a href="0620.html">variables</a> and passed as <a href="060E.html">parameters</a>.
+
+A procedural-type declaration specifies parameters and, for a function,
+result type.
+
+The syntax for a procedural-type declaration is identical to procedure or
+function header, except that it omits the identifier after the procedure or
+function keyword.
+
+ Examples:
+ type
+   Proc = procedure;
+   SwapProc = procedure(var X, Y: Integer);
+   StrProc = procedure(S: string);
+   MathFunc = function(X: Real): Real;
+   DeviceFunc = function(var F: text): Integer;
+   MaxFunc = function(A, B: Real; F: MathFunc): Real;
+
+Parameter names in a procedural-type declaration to not affect the meaning
+of the declaration.
+
+Borland Pascal does not let you declare functions that return
+procedural-type values.
+
+A function result value must be a <a href="061B.html">string</a>, <a href="0615.html">Real,</a> <a href="0600.html">Integer,</a> <a href="05E4.html">Char,</a> <a href="05E2.html">Boolean,</a>
+<a href="0610.html">Pointer,</a> or a user-defined <a href="05EE.html">enumeration</a>.
+
+ See Also:
+ <a href="05C3.html">Procedural-type constants</a>
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head><title>Turbo Pascal Help - 05CF</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05CF</i></center></td>
+</tr></table>
+<pre>
+ Character strings
+ -------------------
+A character string is a sequence of characters from the extended ASCII
+character set, written on one line in the program and enclosed by
+apostrophes.
+
+A character string with nothing between the apostrophes is a null string.
+Two sequential apostrophes in a character string denote a single character,
+an apostrophe.
+
+The length attribute of a character string is the actual number of
+characters within the apostrophes.
+
+ Control characters:
+As an extension to standard Pascal, Borland Pascal allows control characters
+to be embedded in character strings.
+
+The # character followed by an unsigned integer constant between 0 and 255
+denotes a character of the corresponding ASCII value.
+
+There must be no separators between the # character and the integer
+constant.
+
+Likewise, if several control characters are part of a character string,
+there must be no separators between them.
+
+  - A character string of length 0 (the null string) is compatible only with
+    <a href="061B.html">string types</a>.
+  - A character string of length 1 is compatible with any <a href="05E4.html">Char</a> and string
+    type.
+  - A character string of length N, where N is greater than or equal to 2,
+    is compatible with the following:
+  - any string type
+  - packed arrays of N characters
+  - the <a href="0610.html">PChar type</a> when extended syntax is enabled with the
+    <a href="0485.html">{$X+}compiler directive</a>.
+
+- eof -</pre></body>
+</html>

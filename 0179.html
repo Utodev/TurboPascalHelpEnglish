@@ -1,0 +1,44 @@
+<html>
+<head><title>Turbo Pascal Help - 0179</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0179</i></center></td>
+</tr></table>
+<pre>
+
+ +-------------------------------------+
+ | [X] Load.TPL  file (or LOAD.TPL)    |
+ +-------------------------------------+
+
+[X] When you check Load.TPL (and click
+OK in the Startup Options dialog box), the
+IDE loads the file TURBO.TPL the next time
+you start TURBO.EXE or TPX.EXE or LOAD.TPL the
+next time you start BP.EXE.
+
+For BP, this option loads the appropriate run-time library depending
+on the specified target.
+
+  Real             Windows            Protected Mode
+ ---------------------------------------------------
+ TURBO.TPL         TPW.TPL              TPP.TPL
+
+[ ] If the option is not checked, run-time library
+is not loaded at startup, and the System unit
+file must be available when you
+attempt to compile or debug your programs.
+
+To increase the DOS IDE's capacity, turn off this
+option and use the <a href="01CA.html">TPUMOVER</a> to extract
+SYSTEM.TPU from the run-time library.
+
+ +-----------------------------------+
+ | Default setting: On ([X] or /T+)  |
+ |<a href="01C4.html"> Command-line equivalent: /T       </a>|
+ +-----------------------------------+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,56 @@
+<html>
+<head><title>Turbo Pascal Help - 0543</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0543</i></center></td>
+</tr></table>
+<pre>
+ DelLine (procedure)     <a href="0694.html">(Crt unit)</a>
+ -----------------------------------
+Deletes the line containing the cursor.
+
+ Declaration:
+ procedure  DelLine;
+
+ Target:
+Real, Protected
+
+ Remarks:
+The line containing the cursor is deleted, and all lines below are moved one
+line up (using the BIOS scroll routine). A new line is added at the bottom.
+
+All character positions are set to blanks with the currently defined text
+attributes. Thus, if TextBackground is not black, the new line becomes the
+background color.
+
+ See Also:
+ <a href="059E.html">Insline</a>
+ <a href="051E.html">Window</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Delline.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Delline procedure.}</font>
+
+ <font color="#c0c0c0">{DelLine is window-relative.  The following example will delete the first
+   line in the window, which is the tenth line on the screen.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>begin</b></font>
+  Window(<font color="#00ffff">1</font>, <font color="#00ffff">10</font>, <font color="#00ffff">60</font>, <font color="#00ffff">20</font>);
+  DelLine;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

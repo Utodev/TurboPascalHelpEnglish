@@ -1,0 +1,61 @@
+<html>
+<head><title>Turbo Pascal Help - 051B</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>051B</i></center></td>
+</tr></table>
+<pre>
+ Val (procedure)
+ ----------------
+Converts a string value to its numeric representation.
+
+ Declaration:
+ procedure Val(S; var V; var Code: Integer);
+where:
+  S     string-type variable; must be a sequence of characters that
+        form a signed whole number
+  V     integer-type or real-type variable
+  Code  variable of type Integer.
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Converts the string value (S) to its numeric representation, as if it were
+read from a text file with Read.
+
+ See Also:
+ <a href="04F7.html">Str</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Val.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Val procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>var</b></font> I, Code: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+ <font color="#c0c0c0">{ Get text from command line }</font>
+  Val(ParamStr(<font color="#00ffff">1</font>), I, Code);
+  <font color="#c0c0c0">{ Error during conversion to integer? }</font>
+  <font color="#ffffff"><b>if</b></font> code <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Writeln(<font color="#00ffff">'Error at position: '</font>, Code)
+  <font color="#ffffff"><b>else</b></font>
+    Writeln(<font color="#00ffff">'Value = '</font>, I);
+  Readln;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

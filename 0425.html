@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 0425</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0425</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Register Symbols
+ ------------------------------------
+In Turbo Pascal's built-in assembler, the following reserved symbols denote
+CPU registers:
+
+   Symbols     | Registers
+   ======================================
+   AX BX CX DX | 16-bit general purpose
+   AL BL CL DL | 8-bit low registers
+   AH BH CH DH | 8-bit high registers
+   SP BP SI DI | 16-bit pointer or index
+   CS DS SS ES | 16-bit segment registers
+   ST          | 8087 register stack
+
+When an operand consists solely of a register name, it is called a register
+operand. All registers can be used as register operands.
+
+ Register Indexing:
+The base registers (BX and BP) and the index registers (SI and DI) can be
+written within square brackets to indicate indexing.
+
+These are valid index register combinations:
+
+ [BP]
+ [BP+DI]
+ [BP+SI]
+ [BX]
+ [BX+DI]
+ [BX+SI]
+ [DI]
+ [SI]
+
+ Segment Overriding:
+The segment registers (ES, CS, SS, and DS) can be used in conjunction with
+the colon (:) <a href="043B.html">segment override operator</a> to indicate a different segment
+than the one the processor selects by default.
+
+
+- eof -</pre></body>
+</html>

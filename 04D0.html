@@ -1,0 +1,81 @@
+<html>
+<head><title>Turbo Pascal Help - 04D0</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04D0</i></center></td>
+</tr></table>
+<pre>
+ Sector (procedure)     <a href="064F.html">(Graph unit)</a>
+ ------------------------------------
+Draws and fills an elliptical sector.
+
+ Declaration:
+ procedure Sector(x, y: Integer; StAngle,EndAngle, XRadius, YRadius: Word);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Using (X, Y) as the center point, XRadius and YRadius specify the
+horizontal and vertical radii, respectively; Sector draws from StAngle to
+EndAngle, outlined in the current color and filled with the pattern and
+color defined by SetFillStyle or SetFillPattern.
+
+A start angle of 0 and an end angle of 360 will draw and fill a complete
+ellipse. The angles for Arc, Ellipse, FillEllipse, PieSlice, and Sector are
+counter-clock-wise with 0 degrees at 3 o'clock, 90 degrees at 12 o'clock,
+and so on.
+
+If an error occurs while filling the sector, GraphResult returns a value of
+grNoScanMem.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0526.html">Arc</a>
+ <a href="0532.html">Circle</a>
+ <a href="054D.html">Ellipse</a>
+ <a href="0569.html">GetArcCoords</a>
+ <a href="056C.html">GetAspectRatio</a>
+ <a href="04B7.html">PieSlice</a>
+ <a href="04DE.html">SetFillPattern</a>
+ <a href="04DF.html">SetFillStyle</a>
+ <a href="04E1.html">SetGraphBufSize</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Sector.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Sector procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>const</b></font> R = <font color="#00ffff">50</font>;
+ <font color="#ffffff"><b>var</b></font>
+  Driver, Mode: Integer;
+  Xasp, Yasp: Word;
+ <font color="#ffffff"><b>begin</b></font>
+  Driver := Detect;<font color="#c0c0c0">{ Put in graphics mode }</font>
+  InitGraph(Driver, Mode, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  Sector(GetMaxX <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, GetMaxY <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, <font color="#00ffff">0</font>, <font color="#00ffff">45</font>, R, R);
+  GetAspectRatio(Xasp, Yasp);<font color="#c0c0c0">{ Draw circular sector }</font>
+  Sector(GetMaxX <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, GetMaxY <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>,<font color="#c0c0c0">{ Center point }</font>
+    <font color="#00ffff">180</font>, <font color="#00ffff">135</font>,<font color="#c0c0c0">{ Mirror angle above }</font>
+    R, R * Longint(Xasp) <font color="#ffffff"><b>div</b></font> Yasp);<font color="#c0c0c0">{ Circular }</font>
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

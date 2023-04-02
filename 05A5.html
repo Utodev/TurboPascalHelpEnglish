@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 05A5</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05A5</i></center></td>
+</tr></table>
+<pre>
+ KeyPressed (function)     <a href="0694.html">(Crt unit</a> and WinCrt unit)
+ -----------------------------------------------------
+Determines if a key has been pressed on the keyboard.
+
+ Declaration:
+ function KeyPressed: Boolean;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+The key can be read using the ReadKey function.
+
+ Return Value:
+True If key has been pressed
+False If key has not been pressed
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{KeyPress.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the KeyPressed function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>repeat</b></font>
+    Write(<font color="#00ffff">'Xx'</font>);
+  <font color="#ffffff"><b>until</b></font> KeyPressed;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

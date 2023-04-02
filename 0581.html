@@ -1,0 +1,56 @@
+<html>
+<head><title>Turbo Pascal Help - 0581</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0581</i></center></td>
+</tr></table>
+<pre>
+ GetMaxX (function)     <a href="064F.html">(Graph unit)</a>
+ ------------------------------------
+Gets current X resolution.
+
+ Declaration:
+ function GetMaxX: Integer;
+
+ Target:
+Real, Protected
+
+ Remarks:
+Returns the rightmost column (X resolution) of the current graphics driver
+and mode.
+
+ See Also:
+ <a href="0582.html">GetMaxY</a>
+ <a href="058D.html">GetX</a>
+ <a href="058E.html">GetY</a>
+ <a href="04A2.html">MoveTo</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getmxx.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetMaxX function.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  Rectangle(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, GetMaxX, GetMaxY);   <font color="#c0c0c0">{ Draw a full-screen box }</font>
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

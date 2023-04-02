@@ -1,0 +1,58 @@
+<html>
+<head><title>Turbo Pascal Help - 0473</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0473</i></center></td>
+</tr></table>
+<pre>
+ $A:  Align Data Switch
+ ------------------------
+
+Switches between byte- and word-alignment of variables and typed constants.
+
+   Syntax:        {$A+} or {$A-}
+   Default:       {A+}
+   Type:          Global
+   Menu Command:  Options|Compiler|<a href="00FD.html">Align Data</a>
+
+ Remarks:
+Word alignment has no effect on the 8088 CPU.
+
+On all 80x86 CPUs, word alignment means faster execution.
+  - Word-sized items on even addresses are accessed in one memory cycle.
+  - Words on odd addresses are accessed in two memory cycles.
+
+ The $A+ State:
+In the $A+ state, all variables and typed constants larger than 1 byte are
+aligned on a machine-word boundary (an even-numbered address).
+
+If required, unused bytes are inserted between variables to achieve word
+alignment.
+
+$A+ does not affect byte-sized variables, fields of record structures, or
+elements of arrays.
+
+A field in a record will align on a word boundary only if the total size of
+all fields before it is even.
+
+For every element of an array to align on a word boundary, the size of the
+elements must be even.
+
+ The $A- State:
+In the $A- state, no alignment measures are taken.
+
+Variables and typed constants are simply placed at the next available
+address, regardless of their size.
+
+NOTE: Regardless of the state of $A, each global var and const declaration
+section always starts at a word boundary.
+
+The compiler always keeps the stack pointer (SP) word-aligned by allocating
+an extra unused byte in a procedure's stack frame if required.
+
+
+- eof -</pre></body>
+</html>

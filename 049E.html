@@ -1,0 +1,56 @@
+<html>
+<head><title>Turbo Pascal Help - 049E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>049E</i></center></td>
+</tr></table>
+<pre>
+ MemAvail (function)
+ --------------------
+Returns the amount of all free memory in the heap.
+
+ Declaration:
+ function MemAvail: Longint;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+MemAvail returns the sum of the sizes of all free blocks in the heap. Note
+that a contiguous block of storage the size of the returned value is
+unlikely to be available due to fragmentation of the heap. To find the
+largest free block, call MaxAvail.
+
+In DOS real mode, MemAvail is calculated by adding the sizes of all free
+blocks below the heap pointer to the size of free memory above the heap
+pointer. Your program can specify minimum and maximum heap requirements
+using the $M directive.
+
+In DOS protected mode and Windows, MemAvail calculates the amount of free
+memory available by calling the GetFreeSpace function and adding to that
+the size of each free block in the heap manager's sub-allocation space.
+
+ See Also:
+ <a href="049B.html">MaxAvail</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Memavail.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the MemAvail function.}</font>
+
+ <font color="#ffffff"><b>begin</b></font>
+  Writeln(MemAvail, <font color="#00ffff">' bytes available'</font>);
+  Writeln(<font color="#00ffff">'Largest free block is '</font>, MaxAvail, <font color="#00ffff">' bytes'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

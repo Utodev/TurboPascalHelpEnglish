@@ -1,0 +1,35 @@
+<html>
+<head><title>Turbo Pascal Help - 0481</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0481</i></center></td>
+</tr></table>
+<pre>
+ $S:  Stack-Overflow Checking Switch
+ -------------------------------------
+Enables and disables the generation of stack-overflow checking code.
+
+   Syntax:        {$S+} or {$S-}
+   Default:       {$S+}
+   Type:          Local
+   Menu Command:  Options|Compiler|<a href="0102.html">Stack Checking</a>
+
+ The $S+ State:
+In the $S+ state, the compiler generates code at the beginning of each
+procedure or function to check whether there is sufficient stack space for
+the local variables and other temporary storage.
+
+When there is not enough stack space, a call to a procedure or function
+compiled with $S+ causes the program to terminate and display a run-time
+error message.
+
+ The $S- State:
+When there is not enough stack space in the $S- state, a call to a procedure
+or function is likely to cause a system crash.
+
+
+- eof -</pre></body>
+</html>

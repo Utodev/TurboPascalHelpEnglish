@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 051A</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>051A</i></center></td>
+</tr></table>
+<pre>
+ UpCase (function)
+ ------------------
+Converts a character to uppercase.
+
+ Declaration:
+ function UpCase(Ch: Char): Char;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Ch is an expression of type Char. The result of type Char is Ch converted
+to uppercase. Character values not in the range a..z are unaffected.
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{UpCase.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the UpCase function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>var</b></font>
+   s : <font color="#ffffff"><b>string</b></font>;
+   i : Integer;
+ <font color="#ffffff"><b>begin</b></font>
+   Write(<font color="#00ffff">'Enter a string: '</font>);
+   Readln(s);
+   <font color="#ffffff"><b>for</b></font> i := <font color="#00ffff">1</font> <font color="#ffffff"><b>to</b></font> Length(s) <font color="#ffffff"><b>do</b></font>
+     s[i] := UpCase(s[i]);
+   Writeln(<font color="#00ffff">'Here it is in all uppercase: '</font>,s);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

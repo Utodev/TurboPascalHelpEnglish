@@ -1,0 +1,42 @@
+<html>
+<head><title>Turbo Pascal Help - 0305</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0305</i></center></td>
+</tr></table>
+<pre>
+
+ - GREP-like wildcards
+ ----------------------
+ +-----Â-----Â-----Â-----Â-----Â-------Â-----+
+ |  ^  |  $  |  .  |  *  |  +  |  [ ]  |  \  |
+ +-----Á-----Á-----Á-----Á-----Á-------Á-----+
+ ----Â----------------------------------------------------------------
+  ^  | A circumflex at the start of the string matches the start of a
+     |   line.
+  $  | A dollar sign at the end of the expression matches the end of
+     |   a line.
+  .  | A period matches any character.
+  *  | An asterisk after a character matches any number of occurrences
+     |   (including zero) of that character.
+     |   For example, bo* matches bot, b, boo, and also be.
+  +  | A plus sign after a character matches one or more occurrences
+     |   (but not zero occurences) of that character.
+     |   For example, bo+ matches bot and boo, but not b or be.
+  [ ]| Characters in brackets match any one character that appears in
+     |   the brackets, but no others.
+     |   For example [bot] matches b, o, or t.
+  [^]| A circumflex at the start of the string in brackets means NOT.
+     |   Hence, [^bot] matches any characters except b, o, or t.
+  [-]| A hyphen within the brackets signifies a range of characters.
+     |   For example, [b-o] matches any character from b through o.
+  \  | A backslash before a wildcard character tells <i> Turbo </i> Pascal to
+     |  treat that character literally, not as a wildcard.
+     |  For example, \^ matches ^ and does not look for the start
+     |  of a line.
+
+- eof -</pre></body>
+</html>

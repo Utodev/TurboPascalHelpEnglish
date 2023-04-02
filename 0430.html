@@ -1,0 +1,36 @@
+<html>
+<head><title>Turbo Pascal Help - 0430</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0430</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Statement
+ -----------------------------
+The syntax of an assembler statement is
+
+
+   [Label:] &lt;Prefix&gt; [Opcode [Operand &lt;,Operand&gt;]]
+   asm AsmStatement &lt; Separator Asmstatement &gt; end
+
+where
+  - AsmStatement is an assembler statement
+  - Separator is a semicolon; a new line, or a Pascal comment
+  - <a href="0431.html">Label</a> is a label identifier
+  - <a href="042B.html">Prefix</a> is an assembler prefix opcode (operation code)
+  - <a href="042C.html">Opcode</a> is an assembler instruction opcode or directive
+  - <a href="031A.html">Operand</a> is an assembler express
+
+You can put multiple assembler statements on one line if they are separated
+by semicolons. A semicolon is not required between two assembler statements
+if they are on separate lines.
+
+Comments must be written in Pascal style, using { and } or (* and*).
+
+Comments are allowed between assembler statements, but not within them.
+
+- eof -</pre></body>
+</html>

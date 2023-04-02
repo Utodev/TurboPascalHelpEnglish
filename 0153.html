@@ -1,0 +1,47 @@
+<html>
+<head><title>Turbo Pascal Help - 0153</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0153</i></center></td>
+</tr></table>
+<pre>
+
+ +----------------+
+ | [ ] Group Undo |
+ +----------------+
+
+[X] When Group Undo is on, Edit|<a href="002D.html">Undo</a> reverses
+the effects of the previous command and all
+immediately preceding commands of the same
+type.
+
+These are "groupable" commands:
+ &raquo; insertions
+ &raquo; deletions
+ &raquo; overwrites
+ &raquo; cursor movements
+
+For example, if you type ABC and Group Undo
+is on, you can choose Undo one time to delete
+the group ABC.
+
+[ ] When Group Undo is off, Edit|Undo
+reverses the effect of a single editor
+command or keystroke.
+
+For example, if you type ABC and Grouped Undo
+is off, you must choose Undo three times to
+delete the characters: C, then B, then A.
+
+In terms of groups, inserting a carriage
+return is considered an insertion followed by
+a cursor movement.
+
+ See Also:
+<a href="015B.html">  Editor Options dialog box</a>
+
+- eof -</pre></body>
+</html>

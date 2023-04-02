@@ -1,0 +1,83 @@
+<html>
+<head><title>Turbo Pascal Help - 0683</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0683</i></center></td>
+</tr></table>
+<pre>
+ Heap variables     <a href="0673.html">(System unit)</a>
+ ---------------------------------
+HeapBlock, HeapError, HeapLimit, and HeapList, HeapAllocFlags, HeapEnd,
+HeapOrg, HeapPtr:
+
+The heap manager uses HeapList, HeapLimit, HeapBlock, and HeapError to
+implement dynamic memory allocation routines.
+
+The HeapLimit variable defines the threshold between "small" and "large"
+heap blocks. The HeapBlock variable defines the size the heap manager uses
+when allocating blocks assigned to the sub-allocator.
+
+You should have no reason to change the values of HeapLimit and HeapBlock,
+but should you decide to do so, make sure that HeapBlock is at least 4
+times the size of HeapLimit.
+
+HeapError variables contain the address of a heap error function,which gets
+called whenever the heap manager cannot complete an allocation request.
+
+HeapError is a pointer that points to a function with this header:
+
+  function HeapFunc (Size: Word): Integer; far;
+
+The heap error function is installed by assigning its address to the
+HeapError variable as follows:
+
+  HeapError := @HeapFunc;
+
+The heap error function gets called whenever a call to <a href="04A4.html">New</a> or <a href="0583.html">GetMem</a> cannot
+complete the request.
+
+The Size parameter contains the size of the block that could not be
+allocated, and the heap error function should attempt to free a block of a
+least that size.
+
+Before calling the heap error function, the heap manager attempts to
+allocate the block within its sub-allocation free space as well as through
+a direct call to the Windows GlobalAlloc function.
+
+The HeapError function returns
+ - 0 to indicate failure, and causes a run-time error to occur immediately.
+ - 1 to indicate failure, and causes New or GetMem to return a nil pointer.
+ - 2 to indicate success, and causes a retry (which could also cause
+   another call to the heap error function).
+
+HeapAllocFlags is used with gmem_Moveable.
+
+HeapEnd, HeapOrg, HeapPtr are pointers to the heap end, origin and
+pointer, respectively.
+
+
+Heap variables for Windows:
+ HeapList
+ HeapLimit
+ HeapBlock
+ HeapAllocFlags
+ HeapError
+
+Heap variables for real mode:
+ HeapEnd
+ HeapOrg
+ HeapPtr
+ HeapError
+
+Heap variables for protected mode:
+ HeapList
+ HeapLimit
+ HeapBlock
+ HeapAllocFlags
+
+
+- eof -</pre></body>
+</html>

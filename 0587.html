@@ -1,0 +1,62 @@
+<html>
+<head><title>Turbo Pascal Help - 0587</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0587</i></center></td>
+</tr></table>
+<pre>
+ GetPaletteSize (function)     <a href="064F.html">(Graph unit)</a>
+ -------------------------------------------
+Returns the size of the palette color lookup table.
+
+ Declaration:
+ function GetPaletteSize: Integer;
+
+ Target:
+Real, Protected
+
+ Remarks:
+GetPaletteSize reports how many palette entries can be set for the current
+graphics mode; for example, the EGA in color mode returns a value of 16.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="057F.html">GetMaxColor</a>
+ <a href="0586.html">GetPalette</a>
+ <a href="04E5.html">SetPalette</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Getpltsz.PAS}</font>
+
+
+ <font color="#c0c0c0">{ Example for GetPaletteSize }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+ <font color="#ffffff"><b>var</b></font>
+   Driver, Mode : Integer;
+ <font color="#ffffff"><b>begin</b></font>
+   Driver := Detect;
+   InitGraph(Driver, Mode, <font color="#00ffff">' '</font>);
+   <font color="#ffffff"><b>if</b></font> GraphResult < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font> Halt(<font color="#00ffff">1</font>);
+   SetColor(<font color="#00ffff">1</font>);
+   OutText(<font color="#00ffff">'Color = 1, '</font>);
+   SetColor(GetPaletteSize - <font color="#00ffff">1</font>);
+   OutText(<font color="#00ffff">'Color = Max'</font>);
+   ReadLn;
+   Closegraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<head><title>Turbo Pascal Help - 0420</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0420</i></center></td>
+</tr></table>
+<pre>
+ NEAR and FAR
+ -------------
+The NEAR and FAR pseudo-types are used by procedure and function symbols to
+indicate their call model.
+
+You can use NEAR and FAR in typecasts just like other symbols. For example,
+if FarProc is a FAR procedure
+
+ procedure FarProc; far;
+
+and you're writing built-in assembler code in the same module as FarProc,
+you can use the more efficient NEAR call instruction to call FarProc:
+
+ asm
+   PUSH    CS
+   CALL    NEAR PTR FarProc
+ end;
+
+
+- eof -</pre></body>
+</html>

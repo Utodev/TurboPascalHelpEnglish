@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 05D7</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05D7</i></center></td>
+</tr></table>
+<pre>
+  PChar Operators
+ -----------------
+The extended syntax (enabled using a <a href="0485.html">{$X+} compiler directive</a>) supports a
+number of new operations on character pointers.
+
+The plus (+) and minus (-) operators can be used to increment and decrement
+the offset part of a pointer value.
+
+The minus operator can be used to calculate the distance (difference)
+between the offset parts of two character pointers.
+
+Assuming that P and Q are values of type PChar and I is a value of type
+Word, these constructs are allowed:
+
+   Construct     Result
+   P + I         Add I to the offset part of P
+   I + P         Add I to the offset part of P
+   P - I         Subtract I from the offset part of P
+   P - Q         Subtract offset part of Q from offset part of P
+
+ P + I, I + P:
+The operations P + I and I + P add I to the address given by P, producing a
+pointer that points I characters after P.
+
+ P - I:
+The operation P - I subtracts I from the address given by P, producing a
+pointer that points I characters before P.
+
+ P - Q:
+The operation P - Q computes the distance between Q (the lower address) and
+P (the higher address), resulting in a value of type Word that gives the
+number of characters between Q and P.
+
+This operation assumes that P and Q point within the same character array.
+If the two character pointers point into different character arrays, the
+result is undefined.
+
+
+- eof -</pre></body>
+</html>

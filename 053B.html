@@ -1,0 +1,53 @@
+<html>
+<head><title>Turbo Pascal Help - 053B</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>053B</i></center></td>
+</tr></table>
+<pre>
+ Copy (function)
+ ----------------
+Returns a substring of a string.
+
+ Declaration:
+ function Copy(S: String; Index: Integer; Count: Integer): String;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+S is a string-type expression. Index and Count are integer-type expressions.
+Copy returns a string containing Count characters starting with the Indexth
+character in S.
+
+If Index is larger than the length of S, Copy returns an empty string. If
+Count specifies more characters than remain starting at the Indexth
+position, only the remainder of the string is returned.
+
+ See Also:
+ <a href="0539.html">Concat</a>
+ <a href="0542.html">Delete</a>
+ <a href="059D.html">Insert</a>
+ <a href="0490.html">Length</a>
+ <a href="04B8.html">Pos</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Copy.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Copy function.}</font>
+
+ <font color="#ffffff"><b>var</b></font> S: <font color="#ffffff"><b>String</b></font>;
+ <font color="#ffffff"><b>begin</b></font>
+   S := <font color="#00ffff">'ABCDEF'</font>;
+   S := Copy(S, <font color="#00ffff">2</font>, <font color="#00ffff">3</font>); <font color="#c0c0c0">{ 'BCD' }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

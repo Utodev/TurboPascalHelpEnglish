@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 0485</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0485</i></center></td>
+</tr></table>
+<pre>
+ $X:  Extended Syntax Switch
+ -----------------------------
+Enables or disables Turbo Pascal's extended syntax.
+
+   Syntax:        {$X+} or {$X-}
+   Default:       {$X+}
+   Type:          Global
+   Menu Command:  Options|Compiler|<a href="0107.html">Extended Syntax </a>
+
+ The $X+ State:
+In the $X+ state, function calls can be used as statements; the result of a
+function call can be discarded.
+
+Generally, computations performed by a function are represented through its
+result, so it makes little sense to discard the result. However, in some
+cases, a function can carry out multiple operations based on its parameters.
+Some of those cases might not produce a sensible result.
+
+In such cases, the $X+ extensions allow the function to be treated as a
+procedure.
+
+The $X+ directive does not apply to built-in functions (functions defined in
+the <a href="0673.html">System</a> unit).
+
+The $X+ mode also enables support for null-terminated strings by activating
+the special rules that apply to the built-in PChar type and zero-based
+character arrays. See the <a href="0671.html">Strings unit</a> Help screen for more information.
+
+
+ The $X- State:
+In the default state, $X-, extended syntax is disabled. Attempting to use it
+will cause an error.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<head><title>Turbo Pascal Help - 0649</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0649</i></center></td>
+</tr></table>
+<pre>
+  $MEM(Kb to reserve)
+ ----------------------
+This macro tells the IDE how much memory to try to give the transfer
+program.
+
+ $MEM(256K)  /* Tells IDE to give up 256K bytes of memory to the transfer
+    program, if possible. */
+
+The IDE gives up as much memory as possible, up to either the amount
+specified or the maximum available, whichever is smaller. You'll get an
+error if no memory is specified.
+
+If you use $MEM(), you can specify (on a program-by-program basis) how much
+memory the IDE should give to the transfer programs.
+
+The less memory you devote to a transfer program, the quicker the transfer
+to and from the program occurs.
+
+In cases where the IDE can't give up as much memory as you request, it gives
+up as much as it can.
+
+Certain states in the IDE require more memory than others. For example,
+while debugging a program, the IDE will tie up more resources than when not
+debugging.
+
+In cases where you want the IDE to give up all of its memory, give $MEM() a
+large number, like 640K.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head><title>Turbo Pascal Help - 05F1</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05F1</i></center></td>
+</tr></table>
+<pre>
+ Object types     (object: reserved word)
+ ------------------------------------------
+An object type is a data structure that contains a fixed number of
+components.
+
+ Syntax:
+ object
+   Field;
+   Field;
+   ...
+   Method;
+   Method;
+ end;
+
+ Remarks:
+Objects consist of an identifier, a colon and a data type. In addition,
+object contain <a href="0606.html">method</a> headers.
+
+Each component is either a field (which contains data of a particular type)
+or a method, which performs an operation on the object.
+
+The declaration of a field specifies an identifier that names the field, and
+its data type.
+The declaration of a <a href="0606.html">method</a> specifies a <a href="0612.html">procedure</a>, <a href="05F7.html">function</a>, <a href="05E7.html">constructor</a>, or
+<a href="05E8.html">destructor</a> heading.
+
+   Field  = FieldName(s): type;
+   Method = procedure MethodName(&lt;parameter(s)&gt;:type);
+     or   = function MethodName(&lt;parameter(s)&gt;:type):type;
+     or   = constructor MethodName(&lt;parameter(s)&gt;: type [;&lt;parameter(s)&gt;:
+            type]); [virtual];
+     or   = destructor MethodName[(&lt;parameters&gt;: type)];[virtual];
+
+An object type can inherit components from another object type. The
+inheriting object is a descendant and the object inherited from is an
+ancestor.
+
+The domain of an object type consists of itself and all its descendants.
+
+ See Also:
+ <a href="05C1.html">object-type constants</a>
+
+- eof -</pre></body>
+</html>

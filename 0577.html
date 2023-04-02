@@ -1,0 +1,74 @@
+<html>
+<head><title>Turbo Pascal Help - 0577</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0577</i></center></td>
+</tr></table>
+<pre>
+ GetFAttr (procedure)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ ----------------------------------------------------
+Returns the attributes of a file.
+
+ Declaration:
+ procedure GetFAttr(var F; var Attr: Word);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+F must be a file variable (typed, untyped, or text file) that has been
+assigned but not opened.
+
+ See Also:
+ <a href="057A.html">GetFTime</a>
+ <a href="04DD.html">SetFAttr</a>
+ <a href="04E0.html">SetFTime</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getfattr.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetFAttr procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos,WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>var</b></font>
+  F: <font color="#ffffff"><b>file</b></font>;
+  Attr: Word;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#c0c0c0">{ Get file name from command line }</font>
+  Assign(F, ParamStr(<font color="#00ffff">1</font>));
+  GetFAttr(F, Attr);
+  Writeln(ParamStr(<font color="#00ffff">1</font>));
+  <font color="#ffffff"><b>if</b></font> DosError <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Writeln(<font color="#00ffff">'DOS error code = '</font>, DosError)
+  <font color="#ffffff"><b>else</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    Write(<font color="#00ffff">'Attribute = '</font>, Attr);
+    <font color="#c0c0c0">{ Determine attribute type using file attribute constants }</font>
+    <font color="#ffffff"><b>if</b></font> Attr <font color="#ffffff"><b>and</b></font> ReadOnly <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>      <font color="#c0c0c0">{ For Windows: faReadOnly }</font>
+      Writeln(<font color="#00ffff">'Read only file'</font>);
+    <font color="#ffffff"><b>if</b></font> Attr <font color="#ffffff"><b>and</b></font> Hidden <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>          <font color="#c0c0c0">{ For Windows: faHidden }</font>
+      Writeln(<font color="#00ffff">'Hidden file'</font>);
+    <font color="#ffffff"><b>if</b></font> Attr <font color="#ffffff"><b>and</b></font> SysFile <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>        <font color="#c0c0c0">{ For Windows: faSysFile }</font>
+      Writeln(<font color="#00ffff">'System file'</font>);
+    <font color="#ffffff"><b>if</b></font> Attr <font color="#ffffff"><b>and</b></font> VolumeID <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>      <font color="#c0c0c0">{ For Windows: faVolumeID }</font>
+      Writeln(<font color="#00ffff">'Volume ID'</font>);
+    <font color="#ffffff"><b>if</b></font> Attr <font color="#ffffff"><b>and</b></font> Directory <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>    <font color="#c0c0c0">{ For Windows: faDirectory }</font>
+      Writeln(<font color="#00ffff">'Directory name'</font>);
+    <font color="#ffffff"><b>if</b></font> Attr <font color="#ffffff"><b>and</b></font> Archive <> <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>        <font color="#c0c0c0">{ For Windows: faArchive }</font>
+      Writeln(<font color="#00ffff">'Archive (normal file)'</font>);
+  <font color="#ffffff"><b>end</b></font>; <font color="#c0c0c0">{ else }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

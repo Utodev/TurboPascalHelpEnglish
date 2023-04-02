@@ -1,0 +1,48 @@
+<html>
+<head><title>Turbo Pascal Help - 04E6</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04E6</i></center></td>
+</tr></table>
+<pre>
+ SetRGBPalette (procedure)     <a href="064F.html">(Graph unit)</a>
+ -------------------------------------------
+Modifies palette entries for the IBM 8514 and VGA drivers.
+
+ Declaration:
+ procedure SetRGBPalette(ColorNum, RedValue, GreenValue, BlueValue:
+    Integer);
+
+ Target:
+Real, Protected
+
+ Remarks:
+ColorNum defines the palette entry to be loaded, while RedValue,
+GreenValue, and BlueValue define the component colors of the palette entry.
+
+For the IBM 8514 display, ColorNum is in the range 0..255. For VGA,
+ColorNum is in the range 0..15. Only the lower byte of RedValue, GreenValue
+or BlueValue is used, and out of this byte, only the 6 most-significant
+bits are loaded in the palette.
+
+ Restrictions:
+SetRGBPalette can be used only with the IBM 8514 driver and the VGA.
+
+ See Also:
+ <a href="056D.html">GetBkColor</a>
+ <a href="056F.html">GetColor</a>
+ <a href="0586.html">GetPalette</a>
+ <a href="0593.html">GraphResult</a>
+ <a href="04D6.html">SetAllPalette</a>
+ <a href="04D8.html">SetBkColor</a>
+ <a href="04DA.html">SetColor</a>
+ <a href="04E5.html">SetPalette</a>
+
+ Sample Code:
+ <a href="0315.html">Setrgbpl.PAS</a>
+
+- eof -</pre></body>
+</html>

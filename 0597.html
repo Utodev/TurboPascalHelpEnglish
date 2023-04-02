@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 0597</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0597</i></center></td>
+</tr></table>
+<pre>
+ HighVideo (procedure)     <a href="0694.html">(Crt unit)</a>
+ -------------------------------------
+Selects high-intensity characters.
+
+ Declaration:
+ procedure procedure HighVideo;
+
+ Target:
+Real, Protected
+
+ Remarks:
+There is a Byte variable in Crt TextAttr that is used to hold the current
+video attribute. HighVideo sets the high intensity bit of TextAttr's
+fore-ground color, thus mapping colors 0-7 onto colors 8-15.
+
+ See Also:
+ <a href="0499.html">LowVideo</a>
+ <a href="04A5.html">NormVideo</a>
+ <a href="0510.html">TextBackground</a>
+ <a href="0511.html">TextColor</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Hivideo.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the HighVideo procedure.}</font>
+ <font color="#ffffff"><b>uses</b></font> Crt;
+ <font color="#ffffff"><b>begin</b></font>
+  TextAttr := LightGray;
+  HighVideo;   <font color="#c0c0c0">{ Color is now white }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

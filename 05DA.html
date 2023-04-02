@@ -1,0 +1,88 @@
+<html>
+<head><title>Turbo Pascal Help - 05DA</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05DA</i></center></td>
+</tr></table>
+<pre>
+  The @ ("at") operator: Pointer operation
+ ------------------------------------------
+ You can create a pointer to a variable with the @ operator.
+
+   Operator|Operation        |Operand types         |Result type
+  =========================================================================
+   @       |Pointer formation|Variable reference,   |Pointer (same as nil)
+           |                 |procedure identifier, |
+           |                 |or function identifier|
+
+@ is a unary operator. Special rules apply to use of the @ operator with a
+<a href="05B9.html">procedural variable.</a>
+
+The type of the value is the same as the type of nil, so it can be assigned
+to any pointer variable.
+
+ @ with a variable:
+Using @ with an ordinary variable (not a parameter) is not complicated. For
+example, given these declarations:
+
+   type
+     TwoChar = array[0..1] of Char;
+   var
+     Int: Integer;
+     TwoCharPtr: ^TwoChar;
+
+this statement causes TwoCharPtr to point to Int:
+   TwoCharPtr := @Int;
+
+TwoCharPtr^ becomes a reinterpretation of the value of Int, as if it were an
+array[0..1] of Char.
+
+ @ with a value parameter:
+Applying @ to a formal value parameter results in a pointer to the stack
+location containing the actual value.
+
+For example, suppose Fred is a formal value parameter in a procedure and
+FredPtr is a pointer variable.
+
+If the procedure executes this statement
+   FredPtr := @Fred;
+
+FredPtr^ references Fred's value.
+
+However, FredPtr^ does not reference Fred itselfit references the value that
+was taken from Fred and stored on the stack.
+
+ @ with a variable parameter:
+Applying @ to a formal variable parameter results in a pointer to the actual
+ parameter (the pointer is taken from the stack).
+
+The type of resulting pointer value is controlled through the $T compiler
+directive.
+
+For example, suppose the following:
+  - One is a formal variable parameter of a procedure,
+  - Two is a variable passed to the procedure as One's actual parameter
+  - OnePtr is a pointer variable.
+
+If the procedure executes this statement
+   OnePtr := @One;
+
+OnePtr is a pointer to Two, and OnePtr^ is a reference to Two itself.
+
+ @ with a procedure or function:
+You can apply @ to a procedure or a function to produce a pointer to its
+entry point. Turbo Pascal does not give you a mechanism for using such a
+pointer.
+
+The only use for a procedure pointer is to pass it to an assembly language
+routine or to use it in an <a href="05FF.html">inline</a> statement.
+
+ @ with a method:
+You can apply @ to a qualified method identifier to produce a pointer to the
+method's entry point.
+
+- eof -</pre></body>
+</html>

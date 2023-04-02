@@ -1,0 +1,63 @@
+<html>
+<head><title>Turbo Pascal Help - 010B</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>010B</i></center></td>
+</tr></table>
+<pre>
+
+ +----------------------+
+ | [X] Local Symbols    |
+ +----------------------+
+
+[X] When checked, the Local Symbols option
+enables the compiler to generate local symbol
+information.
+
+Local symbol information consists of
+
+ &raquo; the symbols in the module's implementation
+   part (names and types of all local
+   variables and constants in a module)
+                  and
+ &raquo; the symbols within the module's procedures
+   and functions
+
+For units, the local symbol information is
+recorded in the unit file, along with the
+unit's object code.
+
+When local symbols are on for a given program
+or unit, you can:
+ &raquo; use the integrated debugger to examine and
+     modify the module's local variables
+ &raquo; examine calls to the module's procedures
+     and functions through the <a href="01DC.html">Call stack</a>
+     window.
+
+The <a href="0120.html">Options|Debugger [X] Standalone</a> option and
+<a href="0118.html">Options|Linker, Map File</a> options produce
+local symbol information for a given module
+only if that module was compiled with Local
+Symbols checked (on).
+
+Local symbol information increases the size
+of unit files, and takes up additional room
+when you compile programs that use the unit,
+but it does not affect the size or speed of
+the executable program.
+
+The Local Symbols option is usually used with
+the <a href="010A.html">Debug Information</a> option.
+
+&raquo; NOTE: The Local Symbols directive is
+ignored if Debug Information is off.
+
+Local Symbols is equivalent to <a href="047B.html">{$L+}</a>.
+
+
+- eof -</pre></body>
+</html>

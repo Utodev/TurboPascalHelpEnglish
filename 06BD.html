@@ -1,0 +1,40 @@
+<html>
+<head><title>Turbo Pascal Help - 06BD</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06BD</i></center></td>
+</tr></table>
+<pre>
+ File-attribute constants     <a href="06AA.html">(WinDos unit</a> and <a href="06AB.html">Dos unit)</a>
+ --------------------------------------------------------
+These constants test, set, and clear file-attribute bits in connection with
+the <a href="0577.html">GetFAttr</a>, <a href="04DD.html">SetFAttr</a>, <a href="0561.html">FindFirst</a>, and <a href="0562.html">FindNext</a> procedures.
+
+These constants are additive. The faAnyFile constant is the sum of all
+attributes.
+
+ WinDos Constant | Value
+ =========================
+ faReadOnly      |  $01
+ faHidden        |  $02
+ faSysFile       |  $04
+ faVolumeID      |  $08
+ faDirectory     |  $10
+ faArchive       |  $20
+ faAnyFile       |  $3F
+
+ Dos Constant | Value
+ ======================
+ ReadOnly     |  $01
+ Hidden       |  $02
+ SysFile      |  $04
+ VolumeID     |  $08
+ Directory    |  $10
+ Archive      |  $20
+ AnyFile      |  $3F
+
+- eof -</pre></body>
+</html>

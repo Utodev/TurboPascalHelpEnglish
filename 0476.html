@@ -1,0 +1,48 @@
+<html>
+<head><title>Turbo Pascal Help - 0476</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0476</i></center></td>
+</tr></table>
+<pre>
+ {$E} Emulation Switch
+ -----------------------
+Enables or disables linking with an 80x87-emulating run-time library
+
+   Syntax: {$E+} or {$E-}
+   Default: {$E+}
+   Type: Global
+   Menus: <a href="010E.html">[X] Emulation</a>
+
+ Target:
+
+ Real mode, Protected mode
+The $E directive enables or disables linking with a run-time library that
+emulates the 80x87 numeric coprocessor if one is not present.
+
+ The {$N+,E+} State:
+When you compile a program in the {$N+,E+} state, the compiler links with
+the full 80x87 emulator.
+
+The resulting .EXE file can be run on any machine, regardless of whether
+that machine has an 80x87. If an 80x87 is present, the program will use it;
+otherwise, the run-time library emulates it.
+
+ The {$N+,E-} State:
+In the {$N+,E-} state, the compiler links with a substantially smaller
+floating-point library, which can only be used if an 80x87 is present at run
+time.
+
+The {$E} (80x87 emulation) switch has no effect if used in a unit; it
+applies only to the compilation of a program.
+
+ The {$N-,E+} State:
+If the program is compiled in the {$N-} state, and if all the units used by
+the program were compiled with {$N-}, then an 80x87 run-time library is not
+required, and the 80x87 emulation switch is ignored.
+
+- eof -</pre></body>
+</html>

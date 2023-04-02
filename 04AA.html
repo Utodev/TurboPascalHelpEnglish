@@ -1,0 +1,129 @@
+<html>
+<head><title>Turbo Pascal Help - 04AA</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04AA</i></center></td>
+</tr></table>
+<pre>
+ OutText (procedure)     <a href="064F.html">(Graph unit)</a>
+ -------------------------------------
+Sends a string to the output device at the current pointer.
+
+ Declaration:
+ procedure OutText(TextString: string);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Displays TextString at the CP using the current justification settings.
+
+TextString is truncated at the viewport border if it is too long.
+ - If one of the stroked fonts is active, TextString is truncated at the
+   screen boundary if it is too long.
+ - If the default (bit-mapped) font is active and the string is too long to
+   fit on the screen, no text is displayed.
+
+OutText uses the font set by SetTextStyle. To maintain code compatibility
+when using several fonts, use the TextWidth and TextHeight calls to
+determine the dimensions of the string.
+
+OutText uses the output options set by SetTextJustify (justify, center,
+rotate 90 degrees, and so on).
+
+The CP is only updated by OutText if the direction is horizontal with left
+justification. Text output direction is set by SetTextStyle (horizontal or
+vertical); text justification is set by SetTextJustify (CP at the left of
+the string, centered around CP, or CP at the right of the string--written
+above CP, below CP, or centered around CP). In the following example, block
+#1 outputs ABCDEF and moves CP (text is both horizontally output and
+left-justified); block #2 outputs ABC with DEF written right on top of it
+because text is right-justified; and, block #3 outputs ABC with DEF written
+right on top of it because text is written vertically.
+
+  program CPupdate;
+  uses Graph;
+  var Driver, Mode: Integer;
+  begin
+    Driver := Detect;
+    InitGraph(Driver, Mode, '');
+    if GraphResult &lt; 0 then
+      Halt(1);
+    { #1 }
+    MoveTo(0, 0);
+    SetTextStyle(DefaultFont, HorizDir, 1);   { CharSize = 1 }
+    SetTextJustify(LeftText, TopText);
+    OutText('ABC');                           { CP is updated }
+    OutText('DEF');                           { CP is updated }
+    { #2 }
+    MoveTo(100, 50);
+    SetTextStyle(DefaultFont, HorizDir, 1);   { CharSize = 1 }
+    SetTextJustify(RightText, TopText);
+    OutText('ABC');                           { CP is updated }
+    OutText('DEF');                           { CP is updated }
+    { #3 }
+    MoveTo(100, 100);
+    SetTextStyle(DefaultFont, VertDir, 1);    { CharSize = 1 }
+    SetTextJustify(LeftText, TopText);
+    OutText('ABC');                           { CP is NOT updated }
+    OutText('DEF');                           { CP is NOT updated }
+    Readln;
+    CloseGraph;
+  end.
+
+The CP is never updated by OutTextXY.
+
+The default font (8X8) is not clipped at the screen edge. Instead, if any
+part of the string would go off the screen, no text is output. For example,
+the following statements would have no effect:
+
+  SetViewPort(0, 0, GetMaxX, GetMaxY, ClipOn);
+  SetTextJustify(LeftText, TopText);
+  OutTextXY(-5, 0);  _{ -5,0 not onscreen }
+  OutTextXY(GetMaxX - 1, 0, 'ABC'); _{ Part of 'A', }
+  _{ All of 'BC' off screen }
+
+The stroked fonts are clipped at the screen edge, however.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0589.html">GetTextSettings</a>
+ <a href="04AB.html">OutTextXY</a>
+ <a href="04E7.html">SetTextJustify</a>
+ <a href="04E8.html">SetTextStyle</a>
+ <a href="04EB.html">SetUserCharSize</a>
+ <a href="0512.html">TextHeight</a>
+ <a href="0514.html">TextWidth</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{OutTxt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the OutText procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  OutText(<font color="#00ffff">'Easy to use'</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<head><title>Turbo Pascal Help - 02BE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>02BE</i></center></td>
+</tr></table>
+<pre>
+ +----------------------+
+ | Stack overflow error |
+ +----------------------+
+
+The program reports this error on entry to a
+procedure or function compiled in <a href="0481.html">the {$S+}</a>
+state when there is not enough stack space to
+allocate the subprogram's local variables.
+
+Increase the size of the stack by using the
+<a href="0489.html">$M compiler directive</a>.
+
+The Stack Overflow error can also be caused
+by infinite recursion, or by an assembly
+language procedure that doesn't maintain the
+stack properly.
+
+- eof -</pre></body>
+</html>

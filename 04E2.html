@@ -1,0 +1,73 @@
+<html>
+<head><title>Turbo Pascal Help - 04E2</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04E2</i></center></td>
+</tr></table>
+<pre>
+ SetGraphMode (procedure)     <a href="064F.html">(Graph unit)</a>
+ ------------------------------------------
+Sets the system to graphics mode and clears the screen.
+
+ Declaration:
+ procedure SetGraphMode(Mode: Integer);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Mode must be a valid mode for the current device driver. SetGraphMode is
+used to select a graphics mode different than the default one set by
+InitGraph.
+
+SetGraphMode can also be used in conjunction with RestoreCrtMode to switch
+back and forth between text and graphics modes.
+
+SetGraphMode resets all graphics settings to their defaults (current
+pointer, palette, color, viewport, and so on).
+
+GetModeRange returns the lowest and highest valid modes for the current
+driver.
+
+If an attempt is made to select an invalid mode for the current device
+driver, GraphResult returns a value of grInvalidMode.
+
+ Restrictions:
+A successful call to InitGraph must have been made before calling this
+routine.
+
+ See Also:
+ <a href="0533.html">ClearDevice</a>
+ <a href="0536.html">CloseGraph</a>
+ <a href="0544.html">DetectGraph</a>
+ <a href="057B.html">GetGraphMode</a>
+ <a href="0593.html">GraphResult</a>
+ <a href="059B.html">InitGraph</a>
+ <a href="04CA.html">RestoreCrtMode</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{GetMdRng.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetModeRange procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Lowest, Highest: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  GetModeRange(EGA64, Lowest, Highest);
+  Write(<font color="#00ffff">'Lowest = '</font>, Lowest);
+  Write(<font color="#00ffff">' Highest = '</font>, Highest);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

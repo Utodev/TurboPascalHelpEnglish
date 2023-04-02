@@ -1,0 +1,61 @@
+<html>
+<head><title>Turbo Pascal Help - 0041</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0041</i></center></td>
+</tr></table>
+<pre>
+
+ - Run|Run  (Ctrl+F9)
+ ---------------------
+The Run command runs your program, using
+any parameters you pass to it with the
+Run|<a href="0046.html">Parameters</a> command.
+
+If the source code has been modified since
+the last compilation, the compiler will
+automatically do a make and link your
+program.
+
+If you don't want to debug your program, make
+sure the Options|Compiler|<a href="010A.html">Debug Information</a>
+check box is checked (on).
+
+If you compile your program with the
+<a href="011F.html">Integrated</a> Debugging check box checked, the
+resulting executable code will contain
+debugging information that affects the Run|Run
+command in the following ways:
+
+1. If you HAVE NOT modified your source code
+since the last compilation:
+
+ &raquo; The Run|Run command causes your program to
+   run to the next breakpoint, or to the end
+   if no breakpoints have been set.
+
+2. If you HAVE modified your source code since
+the last compilation, and:
+
+ &raquo; If you ARE NOT stepping through your
+   program, the compiler recompiles your
+   program and sets it to run from the
+   beginning.
+
+ &raquo; If you ARE already stepping through your
+   program, using the Run|<a href="0045.html">Step Over</a> or Run|
+   <a href="0044.html">Trace Into</a> commands, Run|Run prompts you
+   whether you want to rebuild the program.
+
+   &raquo;&raquo; If you answer Yes, the compiler makes
+      and links your program, and sets it to
+      run from the beginning.
+   &raquo;&raquo; If you answer No, your program runs to
+      the next breakpoint--or to the end if
+      no breakpoints are set.
+
+- eof -</pre></body>
+</html>

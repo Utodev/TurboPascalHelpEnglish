@@ -1,0 +1,52 @@
+<html>
+<head><title>Turbo Pascal Help - 04A6</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04A6</i></center></td>
+</tr></table>
+<pre>
+ NoSound (procedure)     <a href="0694.html">(Crt unit)</a>
+ -----------------------------------
+Turns off the computer's internal speaker.
+
+ Declaration:
+ procedure NoSound;
+
+ Target:
+Real, Protected
+
+ Remarks:
+The following program fragment emits a 440-hertz tone for half a second:
+
+  Sound(440);
+  Delay(500);
+  NoSound;
+
+ See Also:
+ <a href="04F2.html">Sound</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Delay.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Delay, NoSound, and Sound  procedures.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>begin</b></font>
+   Sound(<font color="#00ffff">220</font>);        <font color="#c0c0c0">{ Beep }</font>
+   Delay(<font color="#00ffff">200</font>);        <font color="#c0c0c0">{ For 200 ms }</font>
+   NoSound;           <font color="#c0c0c0">{ Relief! }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

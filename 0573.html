@@ -1,0 +1,62 @@
+<html>
+<head><title>Turbo Pascal Help - 0573</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0573</i></center></td>
+</tr></table>
+<pre>
+ GetDir (procedure)
+ -------------------
+Returns the current directory of a specified drive.
+
+ Declaration:
+ procedure GetDir(D: Byte; var S: String);
+where D is set to:
+   0     Default
+   1     Drive A
+   2     Drive B
+   3     Drive C
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Performs no error checking. If the drive specified by D is invalid, S
+returns X:\ as if it were the root directory of the invalid drive.
+
+<a href="0570.html">GetCurDir</a> performs the same function as GetDir but it takes a
+null-terminated string as an argument instead of a Pascal-style string.
+
+ See Also:
+ <a href="0530.html">ChDir</a>
+ <a href="049F.html">MkDir</a>
+ <a href="04CC.html">RmDir</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{GetDir.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetDir procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>var</b></font>
+   s : <font color="#ffffff"><b>String</b></font>;
+ <font color="#ffffff"><b>begin</b></font>
+   GetDir(<font color="#00ffff">0</font>,s); <font color="#c0c0c0">{ 0 = Current drive }</font>
+   Writeln(<font color="#00ffff">'Current drive and directory: '</font>,
+           s);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head><title>Turbo Pascal Help - 04CD</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04CD</i></center></td>
+</tr></table>
+<pre>
+ Round (function)
+ -----------------
+Rounds a Real-type value to an Integer-type value.
+
+ Declaration:
+ function Round(X: Real): Longint;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+X is a real-type expression. Round returns a Longint value that is the
+value of X rounded to the nearest whole number. If X is exactly halfway
+between two whole numbers, the result is the number with the greatest
+absolute magnitude. A run-time error occurs if the rounded value of X is
+not within the Longint range.
+
+ See Also:
+ <a href="05A1.html">Int</a>
+ <a href="0516.html">Trunc</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Round.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Round function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>begin</b></font>
+   Writeln(<font color="#00ffff">14</font>, <font color="#00ffff">' rounds to '</font>, Round(<font color="#00ffff">14</font>));
+   Writeln(<font color="#00ffff">15</font>, <font color="#00ffff">' rounds to '</font>, Round(<font color="#00ffff">15</font>));
+   Writeln(-<font color="#00ffff">14</font>, <font color="#00ffff">' rounds to '</font>, Round(-<font color="#00ffff">14</font>));
+   Writeln(-<font color="#00ffff">15</font>, <font color="#00ffff">' rounds to '</font>, Round(-<font color="#00ffff">15</font>));
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

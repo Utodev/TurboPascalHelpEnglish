@@ -1,0 +1,86 @@
+<html>
+<head><title>Turbo Pascal Help - 0426</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0426</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Expression Symbols
+ --------------------------------------
+The built-in assembler provides access to almost all Pascal symbols in
+assembler expressions, including labels, constants, types, variables,
+procedures, and functions.
+
+The built-in assembler also provides several <a href="031F.html">predefined type symbols</a>.
+
+   Symbol    | Value                | Class     | Type
+   ===========================================================
+   Label     | Address of label     | Memory    | Short
+   Constant  | Value of constant    | Immediate | 0
+   Type      | 0                    | Memory    | Size of type
+   Field     | Offset of field      | Memory    | Size of type
+   Variable  | Address of variable  | Memory    | Size of type
+   Procedure | Address of procedure | Memory    | Near or Far
+   Function  | Address of function  | Memory    | Near or Far
+   Unit      | 0                    | Immediate | 0
+   @Code     | Code segment address | Memory    | 0FFF0H
+   @Data     | Data segment address | Memory    | 0FFF0H
+   @Result   | Result var offset    | Memory    | Size of type
+
+ Symbols that cannot be used in Built-in Assembler Expressions:
+The following symbols cannot be used in built-in assembler expressions:
+  - Standard procedures and functions (for  example, WriteLn, Chr)
+  - The special arrays Mem, MemW, MemL, Port and PortW
+  - String, floating-point, and set constants
+  - Procedures and functions declared with the <a href="05FF.html">inline directive</a>
+  - <a href="0431.html">Labels</a> that are not declared in the current block
+  - The @Result symbol outside a function.
+
+ Local Variables:
+Local variables (variables declared in procedures and functions) are always
+allocated on the stack and accessed relative to SS:BP.
+
+The value of a local-variable symbol is its signed offset from SS:BP.
+
+The built-in assembler automatically adds [BP] in references to local
+variables.
+
+ Var Parameter:
+The built-in assembler always treats a var parameter as a 32-bit pointer,
+and the size of a var parameter is always 4 (the size of a 32-bit pointer).
+
+To access the contents of a var parameter, you must first load the 32-bit
+pointer and then access the location it points to.
+
+ Scope:
+A scope is provided by type, field, and variable symbols of a record or
+object type.
+
+In addition, a unit identifier opens the scope of a particular unit, just
+like a fully-qualified identifier in Pascal.
+
+ Operator:
+Some symbols, such as record types and variables, have a scope that can be
+accessed using the <a href="0436.html">structure member selector</a> (.) operator.
+
+ Type Identifier:
+You can use a type identifier to construct variables as you write your
+program.
+
+Each of these instructions generates the same machine code, which loads the
+contents of ES:[DI+4] into AX:
+
+ asm
+   MOV     AX,(Rect PTR ES:[DI]).B.X
+   MOV     AX,Rect(ES:[DI]).B.X
+   MOV     AX,ES:Rect[DI].B.X
+   MOV     AX,Rect[ES:DI].B.X
+   MOV     AX,ES:[DI].Rect.B.X
+ end;
+
+
+- eof -</pre></body>
+</html>

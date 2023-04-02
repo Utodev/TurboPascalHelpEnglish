@@ -1,0 +1,62 @@
+<html>
+<head><title>Turbo Pascal Help - 057E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>057E</i></center></td>
+</tr></table>
+<pre>
+ GetLineSettings (procedure)     <a href="064F.html">(Graph unit)</a>
+ ---------------------------------------------
+Returns the current line style, line pattern, and line thickness, as set by
+SetLineStyle.
+
+ Declaration:
+ procedure GetLineSettings(var LineInfo: LineSettingsType);
+
+ Target:
+Real, Protected
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="054B.html">DrawPoly</a>
+ <a href="04E4.html">SetLineStyle</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getlnset.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetLineSetting procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  OldStyle: LineSettingsType;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  Line(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">100</font>, <font color="#00ffff">0</font>);
+  GetLineSettings(OldStyle);
+  SetLineStyle(DottedLn, <font color="#00ffff">0</font>, ThickWidth);   <font color="#c0c0c0">{ New style }</font>
+  Line(<font color="#00ffff">0</font>, <font color="#00ffff">10</font>, <font color="#00ffff">100</font>, <font color="#00ffff">10</font>);
+  <font color="#ffffff"><b>with</b></font> OldStyle <font color="#ffffff"><b>do</b></font>          <font color="#c0c0c0">{ Restore old line style }</font>
+    SetLineStyle(LineStyle, Pattern, Thickness);
+  Line(<font color="#00ffff">0</font>, <font color="#00ffff">20</font>, <font color="#00ffff">100</font>, <font color="#00ffff">20</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

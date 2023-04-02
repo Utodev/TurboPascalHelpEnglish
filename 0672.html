@@ -1,0 +1,33 @@
+<html>
+<head><title>Turbo Pascal Help - 0672</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0672</i></center></td>
+</tr></table>
+<pre>
+ Null-terminated Strings
+ -------------------------
+
+ What is a null-terminated string?:
+A null-terminated string consists of
+  - a sequence of non-null characters followed by a NULL (#0) character.
+  - an upper limit 65535 characters.
+
+ Using null-terminated strings:
+Null-terminated strings are stored as arrays of characters with a zero-based
+integer index type, like
+
+ array[0..X] of Char
+
+ where X   = a positive non-zero integer.
+
+This is called a zero-based character array.
+
+The Extended Syntax compiler directive (<a href="0485.html">$X </a>) must be enabled when you use
+the <a href="0671.html">Strings unit</a> in your program.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<head><title>Turbo Pascal Help - 00B9</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>00B9</i></center></td>
+</tr></table>
+<pre>
+ + Filter Path ------------------------+
+ |                                     |
+ +-------------------------------------+
+
+The Filter Path input box allows you to specify a path for printer
+filter information. The default setting is PRNFLTR.
+
+You can indicate an Epson, HP LaserJet or PostScript printer.
+
+ Default:
+ $NOSWAP /ASCII
+
+ Epson:
+ $NOSWAP /EPSON
+
+ HP LaserJet:
+ $NOSWAP /HP
+
+ PostScript:
+ $NOSWAP /PS
+
+ /Lxxx        - Lines per page (default = 55)
+ /Txx         - Tab size (default = 8)
+ /O[filename] - Output to file or device (default = LPT1)
+
+If you have a different kind of printer, you can modify PRNFLTR.PAS
+to send the codes your printer accepts.
+
+To print to a text file, use the syntax:
+ /O&lt;filename&gt; (no space after the /O)
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,113 @@
+<html>
+<head><title>Turbo Pascal Help - 059F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>059F</i></center></td>
+</tr></table>
+<pre>
+ InstallUserDriver (function)     <a href="064F.html">(Graph unit)</a>
+ ----------------------------------------------
+Installs a vendor-added device driver to the BGI device driver table
+
+ Declaration:
+ function InstallUserDriver(Name: string; AutoDetectPtr: pointer): integer;
+
+ Target:
+Real, Protected
+
+ Remarks:
+InstallUserDriver lets you use a vendor-added device driver. The Name
+parameter is the file name of the new device driver. AutoDetectPtr is a
+pointer to an optional autodetect function that might accompany the new
+driver. This autodetect function takes no parameters and returns an integer
+value.
+
+If the internal driver table is full, InstallUserDriver returns a value of
+-11 (grError); otherwise, InstallUserDriver assigns and returns a driver
+number for the new device driver.
+
+There are two ways to use this vendor-supplied driver. Suppose you have a
+ new video card called the Spiffy Graphics Array (SGA) and that the SGA
+manufacturer provided you with a BGI device driver (SGA.BGI). The easiest
+way to use this driver is to install it by calling InstallUserDriver and
+then passing the return value (the assigned driver number) directly to
+InitGraph:
+
+ var Driver, Mode: Integer;
+ begin
+   Driver := InstallUserDriver('SGA', nil);
+   if Driver = grError then     { Table full? }
+     Halt(1);
+   Mode := 0;                    { Every driver supports mode of 0 }
+   InitGraph(Driver, Mode, '');  { Override autodetection }
+   ...                           { Do graphics ... }
+ end.
+
+The nil value for the AutoDetectPtr parameter in the InstallUserDriver call
+indicates there isn't an autodetect function for the SGA.
+
+The other, more general way to use this driver is to link in an autodetect
+function that will be called by InitGraph as part of its hardware-detection
+logic. Presumably, the manufacturer of the SGA gave you an autodetect
+function that looks something like this:
+
+ {$F+}
+ function DetectSGA: Integer;
+ var Found: Boolean;
+ begin
+   DetectSGA := grError;  { Assume it's not there }
+   Found := ...           { Look for the hardware }
+   if not Found then
+     Exit;                { Returns -11 }
+   DetectSGA := 3;        { Return recommended default video mode }
+ end;
+ {$F-}
+
+DetectSGA's job is to look for the SGA hardware at run time. If an SGA is
+not detected, DetectSGA returns a value of -11 (grError); otherwise, the
+return value is the default video mode for the SGA (usually the best mix of
+color and resolution available on this hardware).
+
+This function takes no parameters, returns a signed, integer-type value, and
+must be a far call. When you install the driver (by calling
+InstallUserDriver), you pass the address of DetectSGA along with the device
+driver's file name:
+
+ var Driver, Mode: Integer;
+   begin
+     Driver := InstallUserDriver('SGA', @@DetectSGA);
+     if Driver = grError then { Table full? }
+       Halt(1);
+     Driver := Detect;
+     { Discard SGA driver #; trust autodetection }
+     InitGraph(Driver, Mode, '');
+     ...
+ end.
+
+After you install the device driver file name and the SGA autodetect
+function, you call InitGraph and let it go through its normal autodetection
+process. Before InitGraph calls its built-in autodetection function
+(DetectGraph), it first calls DetectSGA. If DetectSGA doesn't find the SGA
+hardware, it returns a value of -11 (grError) and InitGraph proceeds with
+its normal hardware detection logic (which might include calling any other
+vendor-supplied autodetection functions in the order in which they were
+"installed").
+
+If, however, DetectSGA determines that an SGA is present, it returns a
+nonnegative mode number, and InitGraph locates and loads SGA.BGI, puts the
+hardware into the default graphics mode recom-mended by DetectSGA, and
+finally returns control to your program.
+
+ See Also:
+ <a href="059B.html">InitGraph</a>
+ <a href="04C4.html">RegisterBGIdriver</a>
+
+ Sample Code:
+ <a href="0317.html">InstUdrv.PAS</a>
+
+
+- eof -</pre></body>
+</html>

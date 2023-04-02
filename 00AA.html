@@ -1,0 +1,73 @@
+<html>
+<head><title>Turbo Pascal Help - 00AA</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>00AA</i></center></td>
+</tr></table>
+<pre>
+
+ - Help on Open a File Dialog Box
+ ---------------------------------
+The Open a File dialog box contains an input
+box, a file list, a file information panel,
+the standard buttons Cancel and Help, two
+other action buttons (Open and Replace), plus
+a <a href="030B.html">history list</a> that's attached to the Name
+input box.
+
+ +- <a href="00A6.html">Name</a> --------------------------+
+ |                                 |
+ +---------------------------------+
+The Name input box is where you enter the name
+of the file to load, or the file-name mask to
+use as a filter for the Files list box.
+
+ + <a href="00A7.html">Files</a> --------------------------+
+ |                                 |
+ |  FILENM01.PAS  |  FILENM09.PAS  |
+ |  FILENM02.PAS  |  FILENM10.PAS  |
+ |  FILENM03.PAS  |  FILENM11.PAS  |
+ |  FILENM04.PAS  |  FILENM12.PAS  |
+ |  FILENM05.PAS  |  ..            |
+ |  FILENM06.PAS  |  \MOREXAMP     |
+ |  FILENM07.PAS  |  \TOURS        |
+ |  FILENM08.PAS  |  \ANSWERS.DIR  |
+ |  ±±±&raquo;±±±±±±±±±±±±±±±±±±±±±±   |
+ +---------------------------------+
+The Files list box lists the names of files in
+the current directory that match the file-name
+mask in the Name input box, plus the parent
+directory and all subdirectories.
+
+If Options|Environment|Preferences|<a href="014A.html">Change Dir on Open</a> is set, the current
+directory will be changed when you open a file from another directory.
+
+ +------------------------------------------+
+ | C:\TP\EXAMPLES\*.PAS                     |
+ | HELLO.PAS       52  May 14,1992  12:00pm |
+ +------------------------------------------+
+The File information panel shows the path
+name, file name, date, time, and size of the
+selected file.
+
+None of the items on this information panel
+are selectable.
+
+ +----------+
+ | [ <a href="00A8.html">Open</a> ] |
+ +----------+
+The Open button opens a new Edit window and
+places the selected file in that window.
+
+ +-------------+
+ | [ <a href="00A9.html">Replace</a> ] |
+ +-------------+
+The Replace button replaces the file in the
+active Edit window with the selected file,
+instead of opening a new Edit window.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,58 @@
+<html>
+<head><title>Turbo Pascal Help - 0616</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0616</i></center></td>
+</tr></table>
+<pre>
+ record (reserved word)
+ ----------------------
+A record contains a number of components, or fields, that can be of
+different types.
+
+ Syntax:
+ record
+   fields;
+   fields;
+   ...
+   fields
+ end;
+
+  OR
+
+ record
+   fields;
+   ...
+   case tag: type of
+   case: ( fields );
+   ...
+   case: ( fields )
+ end;
+
+ Remarks:
+Each field list is a comma-separated list of <a href="05F9.html">identifiers</a>, followed by a
+colon and a <a href="061D.html">type</a>.
+
+ Example:
+ { Record Type Definitions }
+ type
+   Class  = (Num, Dat, Str);
+   Date   = record
+      D, M, Y: Integer;
+   end;
+   Facts = record
+     Name: string[10];
+     case Kind: Class of
+       Num: (N: real);
+       Dat: (D: Date);
+       Str: (S: string);
+   end;
+
+ See Also:
+ <a href="05C4.html">record-type constants</a>
+
+- eof -</pre></body>
+</html>

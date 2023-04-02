@@ -1,0 +1,69 @@
+<html>
+<head><title>Turbo Pascal Help - 055F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>055F</i></center></td>
+</tr></table>
+<pre>
+ FillEllipse (procedure)     <a href="064F.html">(Graph unit)</a>
+ -----------------------------------------
+Draws a filled ellipse
+
+ Declaration:
+ procedure FillEllipse(X, Y: Integer; XRadius, YRadius: Word)
+
+ Target:
+Real, Protected
+
+ Remarks:
+(X,Y) is the center point; XRadius and YRadius are the horizontal and
+vertical axes.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0526.html">Arc</a>
+ <a href="0532.html">Circle</a>
+ <a href="054D.html">Ellipse</a>
+ <a href="0569.html">GetArcCoords</a>
+ <a href="056C.html">GetAspectRatio</a>
+ <a href="04B7.html">PieSlice</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Fillelps.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the FillEllipse procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>const</b></font> R = <font color="#00ffff">30</font>;
+ <font color="#ffffff"><b>var</b></font>
+  Driver, Mode: Integer;
+  Xasp, Yasp: Word;
+ <font color="#ffffff"><b>begin</b></font>
+  Driver := Detect;   <font color="#c0c0c0">{ Put in graphics mode }</font>
+  InitGraph(Driver, Mode, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  <font color="#c0c0c0">{ Draw ellipse }</font>
+  FillEllipse(GetMaxX <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, GetMaxY <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, <font color="#00ffff">50</font>, <font color="#00ffff">50</font>);
+  GetAspectRatio(Xasp, Yasp);
+  <font color="#c0c0c0">{ Circular ellipse }</font>
+  FillEllipse(R, R, R, R * Longint(Xasp) <font color="#ffffff"><b>div</b></font> Yasp);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

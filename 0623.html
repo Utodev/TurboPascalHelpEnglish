@@ -1,0 +1,37 @@
+<html>
+<head><title>Turbo Pascal Help - 0623</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0623</i></center></td>
+</tr></table>
+<pre>
+ with (reserved word)
+ ----------------------
+The with statement is a shorthand method for referencing the fields of a
+<a href="0616.html">record</a>.
+
+ Syntax::
+   with var, var, ... var do statement
+
+ Remarks:
+Within the <a href="061A.html">statement</a> after do, the fields of one or more record <a href="0620.html">variables</a>
+can be accessed using only their field identifiers.
+
+ Example:
+ { "with" statement }
+   with Date[I] do
+   begin
+     month := 1;
+     year  := year + 1;
+   end;
+
+This is equivalent to:
+   Date[I].month := 1;
+   Date[I].year  := Date[I].year + 1;
+
+
+- eof -</pre></body>
+</html>

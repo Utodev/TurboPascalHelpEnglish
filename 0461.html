@@ -1,0 +1,51 @@
+<html>
+<head><title>Turbo Pascal Help - 0461</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0461</i></center></td>
+</tr></table>
+<pre>
+ Switch Directives
+ -------------------
+Switch directives turn compiler features on or off.
+
+They are local or global.
+  - Local variables can appear anywhere in a program unit; they affect only
+    part of the compilation.
+  - Global variables must appear before the declaration part of the program
+    or unit being compiled; they affect the entire compilation.
+
+   Switch | Meaning
+   ====================================================
+   <a href="0473.html">$A</a>     | Align Data
+   <a href="0474.html">$B</a>     | Boolean Evaluation
+   <a href="0475.html">$D</a>     | Debug Information
+   <a href="0476.html">$E</a>     | Emulation
+   <a href="0477.html">$F</a>     | Force FAR Calls
+   <a href="0478.html">$G</a>     | Generate 286 Instructions
+   <a href="0479.html">$I</a>     | Input/Output Checking
+   <a href="047A.html">$K</a>     | Smart Callbacks (Windows only)
+   <a href="047B.html">$L</a>     | Local Symbol Information
+   <a href="047C.html">$N</a>     | Numeric Coprocessor
+   <a href="047D.html">$O</a>     | Overlay Code Generation (Real mode only)
+   <a href="047E.html">$P</a>     | Open string parameters
+   <a href="047F.html">$Q</a>     | Overflow Checking
+   <a href="0480.html">$R</a>     | Range Checking
+   <a href="0481.html">$S</a>     | Stack-Overflow Checking
+   <a href="0482.html">$T</a>     | Type-Checked Pointers
+   <a href="0483.html">$V</a>     | Var-String Checking
+   <a href="0484.html">$W</a>     | Windows Stack Frame (Windows only)
+   <a href="0485.html">$X</a>     | Extended Syntax
+   <a href="0486.html">$Y</a>     | Symbol Reference Information (not in TPC and Turbo)
+
+You can group multiple switch directives, separating them with commas. For
+example:
+
+ {$F+,R+,E-,D-}
+
+
+- eof -</pre></body>
+</html>

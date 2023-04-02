@@ -1,0 +1,34 @@
+<html>
+<head><title>Turbo Pascal Help - 061C</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>061C</i></center></td>
+</tr></table>
+<pre>
+ Subrange types
+ ----------------
+A subrange type is a range of values from an <a href="060C.html">ordinal</a> type called the host
+type.
+
+ Syntax:
+   Constant1 .. Constant2
+
+ Remarks:
+The definition of a subrange type specifies the least and the largest value
+in the subrange.
+
+Both constants must be of the same ordinal type, and the first constant must
+be less than or equal to the second constant.
+
+The <a href="0480.html">$R compiler directive</a> controls range checking of subrange types.
+
+ Examples:
+ { Subranges }
+  0..99
+  -128..127
+
+- eof -</pre></body>
+</html>

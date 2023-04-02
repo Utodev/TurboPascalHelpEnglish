@@ -1,0 +1,84 @@
+<html>
+<head><title>Turbo Pascal Help - 0566</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0566</i></center></td>
+</tr></table>
+<pre>
+ FreeMem (procedure)
+ --------------------
+Disposes of a dynamic variable of a given size.
+
+ Declaration:
+ procedure FreeMem(var P: Pointer; Size: Word);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+P is a variable of any pointer type previously assigned by the GetMem
+procedure or assigned a meaningful value by an assignment statement.
+
+Size is an expression specifying the size in bytes of the dynamic variable
+ to dispose of; it must be exactly the number of bytes previously allocated
+to that variable by GetMem.
+
+FreeMem destroys the variable referenced by P and returns its memory region
+to the heap. If P does not point to a memory region in the heap, a run-time
+error occurs. After a call to FreeMem, the value of P becomes undefined, and
+an error occurs if you subsequently reference P^.
+
+ Restrictions:
+Should not be used with Mark or Release
+
+
+ See Also:
+ <a href="0547.html">Dispose</a>
+ <a href="0583.html">GetMem</a>
+ <a href="049A.html">Mark</a>
+ <a href="04A4.html">New</a>
+ <a href="04C6.html">Release</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{FreeMem.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the FreeMem and GetMem procedures and the MaxAvail
+   function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>type</b></font>
+   TFriendRec = <font color="#ffffff"><b>record</b></font>
+                 Name: <font color="#ffffff"><b>string</b></font>[<font color="#00ffff">30</font>];
+                 Age : Byte;
+               <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>var</b></font>
+   p: pointer;
+ <font color="#ffffff"><b>begin</b></font>
+   <font color="#ffffff"><b>if</b></font> MaxAvail < SizeOf(TFriendRec) <font color="#ffffff"><b>then</b></font>
+     Writeln(<font color="#00ffff">'Not enough memory'</font>)
+   <font color="#ffffff"><b>else</b></font>
+   <font color="#ffffff"><b>begin</b></font>
+     <font color="#c0c0c0">{ Allocate memory on heap }</font>
+     GetMem(p, SizeOf(TFriendRec));
+     <font color="#c0c0c0">{ ...}</font>
+     <font color="#c0c0c0">{ ...Use the memory... }</font>
+     <font color="#c0c0c0">{ ...}</font>
+     <font color="#c0c0c0">{ Then free it when done }</font>
+     FreeMem(p, SizeOf(TFriendRec));
+   <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,73 @@
+<html>
+<head><title>Turbo Pascal Help - 0635</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0635</i></center></td>
+</tr></table>
+<pre>
+ TEML non-terminating commands S - Z
+ ------------------------------------
+
+ Command                    | Action
+ ============================================================================
+ ScrollScreenDown           | Scrolls screen down one line, leaving cursor
+                            | position unchanged.
+ ScrollScreenUp             | Scrolls screen up one line, leaving cursor
+                            | position unchanged.
+ SetAutoIndent              | Sets Auto Indent option On.
+ SetAutoOutdent             | Sets Backspace Unindents option On.
+ SetBlockBeg                | Sets beginning of selected text to character
+                            | at current cursor location.
+ SetBlockEnd                | Sets end of selected text to character
+                            | at current cursor location.
+ SetCursorThroughTabMode    | Sets cursor through tabs option On.
+ SetInsertMode              | Sets Insert/Overwrite option to Insert.
+ SetMark                    | Sets a marker to point to character at current
+                            | cursor location, so a later MoveToMark(n)
+                            | comand can restore cursor.
+                            | Use the syntax SetMark(n), where n is a
+                            | one digit number, 0-9.
+ SetOptimalFillMode         | Sets Optimal Fill option On.
+ SetPrevPos                 | Sets a marker (the previous position marker)
+                            | to point to character at the current
+                            | cursor location. This marker location changes
+                            | only by a call to SetPrevPos or SwapPrevPos.
+ SetTabbingMode             | Sets Use Tab Char option On.
+ SetTempPos                 | Saves cursor location in a temporary
+                            | marker that can be used by some internal
+                            | editor commands. This is not recommended. Use
+                            | SetMark instead.
+ SmartRefreshScreen         | Redraws window, skipping any portions that
+                            | the editor is sure are unmodified since the
+                            | last redraw.
+ SmartTab                   | Inserts space or tab characters in accordance
+                            | with current settings of the Use Tab Char
+                            | option, Tab Width.
+ SwapPrevPos                | Exchanges the values of the cursor and the
+                            | "previous position marker."
+ ToggleAutoIndent           | Toggles state of the Auto Indent option.
+ ToggleAutoOutdent          | Toggles state of the Backspace Unindents
+                            | option.
+ ToggleCursorThroughTabMode | Toggles state of the Cursor Through Tabs
+                            | option.
+ ToggleHideBlock            | Toggles state of the selected text flag.
+ ToggleInsert               | Toggles state of Insert/Overwrite option.
+ ToggleOptimalFillMode      | Toggles state of Optimal Fill option.
+ ToggleTabbingMode          | Toggles state of Use Tab Char option.
+ TopOfScreen                | Moves cursor to the top line currently
+                            | displayed in window, leaving column unchanged.
+ UnDo                       | Performs an Undo operation. Undo action
+                            | depends on option settings.
+ WordLeft                   | Moves cursor to beginning of previous word, or
+                            | to end of previous line, whichever is first.
+ WordRight                  | Moves cursor to beginning of next word, or to
+                            | end of a line, whichever is first.
+
+ See Also:
+ <a href="0630.html">TEML non-terminating commands</a>
+
+- eof -</pre></body>
+</html>

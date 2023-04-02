@@ -1,0 +1,39 @@
+<html>
+<head><title>Turbo Pascal Help - 05E1</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05E1</i></center></td>
+</tr></table>
+<pre>
+ begin...end construct (reserved words)
+ ----------------------------------------
+This construct is a compound statement. The begin and end reserved words
+serve as statement brackets.
+
+ Syntax:
+ begin
+   statement;
+   statement;
+   ...
+   statement
+ end;
+
+ Remarks:
+When bracketed in this way, any number of consecutive <a href="061A.html">statements</a> are treated
+as a single statement.
+
+ Example:
+ (* Compound statement used within an "if" statement *)
+ if First &lt; Last then
+ begin
+   Temp := First;
+   First := Last;
+   Last := Temp;
+ end;
+
+
+- eof -</pre></body>
+</html>

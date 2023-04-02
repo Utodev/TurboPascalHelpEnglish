@@ -1,0 +1,70 @@
+<html>
+<head><title>Turbo Pascal Help - 05EB</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05EB</i></center></td>
+</tr></table>
+<pre>
+ end (reserved word)
+ ---------------------
+The reserved word end is used with
+  - <a href="05E1.html">begin</a> to form compound statements
+  - <a href="05E3.html">case</a> to form case statements
+  - <a href="0616.html">record</a> to declare record types
+  - <a href="05F1.html">object</a> to declare object types
+  - <a href="05DE.html">asm</a> to call the built-in assembler
+
+ Examples:
+ (* with "begin" to form compound statement *)
+ if First &lt; Last then
+ begin
+   Temp := First;
+   First := Last;
+   Last := Temp;
+ end;
+
+ (* with "case" statement *)
+ case Ch of
+   'A'..'Z', 'a'..'z':  WriteLn('Letter');
+   '0'..'9':            WriteLn('Digit');
+   '+', '-', '*', '/':  WriteLn('Operator');
+ else
+   WriteLn('Special character');
+ end;
+
+ (* with record type definitions *)
+ type
+   Class  = (Num, Dat, Str);
+   Date   = record
+     D, M, Y: Integer;
+   end;
+   Facts = record
+     Name: string[10];
+     case Kind: Class of
+       Num: (N: real);
+       Dat: (D: Date);
+       Str: (S: string);
+   end;
+
+ (* with object type definitions *)
+ type
+   LocationPtr = ^Location;
+   Location = object
+     X, Y: Integer;
+     procedure Init(PX, PY: Integer);
+     function GetX: Integer;
+     function GetY: Integer;
+   end;
+
+ (* with asm *)
+ asm
+   mov ax,1
+   mov cx, 100
+ end;
+
+
+- eof -</pre></body>
+</html>

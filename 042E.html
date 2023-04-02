@@ -1,0 +1,33 @@
+<html>
+<head><title>Turbo Pascal Help - 042E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>042E</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Jump Optimization
+ -------------------------------------
+The built-in assembler optimizes jump instructions by automatically
+selecting the most efficient form of a jump instruction.
+
+When the target is a label (not a procedure or function), this automatic
+jump sizing applies to JMP and to all conditional jump instructions.
+
+   Opcode      | Distance to Target Label     | Built-in Assembler Generates
+   =========================================================================
+   JMP         | Within -128 to 127 bytes <a href="044C.html">    | Short jump</a>
+               | NOT within -127 to 128 bytes | <a href="044D.html">Near jump</a>
+   Conditional | Within -128 to 127 bytes     | Short jump
+   Jumps       | NOT within -127 to 128 bytes | <a href="044E.html">Short inverse jump</a>
+
+Jumps to the entry points of procedures and functions are always either near
+or far, but never short.
+
+Conditional jumps to procedures and functions are not allowed.
+
+
+- eof -</pre></body>
+</html>

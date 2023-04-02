@@ -1,0 +1,49 @@
+<html>
+<head><title>Turbo Pascal Help - 0464</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0464</i></center></td>
+</tr></table>
+<pre>
+   Conditional Compilation Constructs
+ ------------------------------------
+You can use conditional compilation directives to produce different code
+from the same source text, based on the state of conditional symbols.
+
+You can use two constructs:
+  - {$IFxxx} ... {$ENDIF}
+  - {$IFxxx} ... {$ELSE} ... {$ENDIF}
+
+
+ IF ... ENDIF:
+The $IFxxx ... $ENDIF construct causes the source text between $IFxxx and
+$ENDIF to be compiled only if the condition specified in $IFxxx is True.
+
+If the condition is False, the source text between the two directives is
+ignored.
+
+
+ IF ... ELSE ... ENDIF:
+The $IFxxx ... $ELSE ... $ENDIF construct causes
+  - the source text between $IFxxx and $ELSE to be compiled if the $IFxxx
+    condition is True, or
+  - the source text between $ELSE and $ENDIF to be compiled if the $IFxxx
+    condition is not True.
+
+Conditional constructs can be nested to 16 levels deep.
+
+There must be an equal number of $IFxxx and $ENDIF directives in every
+source file.
+
+ See Also:
+  <a href="046B.html">$ELSE</a>
+  <a href="046C.html">$ENDIF</a>
+  <a href="0468.html">$IFDEF</a>
+  <a href="0469.html">$IFNDEF</a>
+  <a href="0463.html">conditional compilation directives</a>
+
+- eof -</pre></body>
+</html>

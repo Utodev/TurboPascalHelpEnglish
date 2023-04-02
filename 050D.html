@@ -1,0 +1,58 @@
+<html>
+<head><title>Turbo Pascal Help - 050D</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>050D</i></center></td>
+</tr></table>
+<pre>
+ Succ (function)
+ ----------------
+Returns the successor of the argument.
+
+ Declaration:
+ function Succ(X): (Same type as parameter);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+X is an ordinal-type expression. The result, of the same type as X, is the
+successor of X.
+
+ See Also:
+ <a href="0599.html">Inc</a>
+ <a href="04B9.html">Pred</a>
+ <a href="0540.html">Dec</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Pred.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Pred and Succ functions.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>type</b></font>
+   Colors = (RED,BLUE,GREEN);
+ <font color="#ffffff"><b>begin</b></font>
+   Writeln(<font color="#00ffff">'The predecessor of 5 is '</font>,
+           Pred(<font color="#00ffff">5</font>));
+   Writeln(<font color="#00ffff">'The successor of 10 is '</font>,
+           Succ(<font color="#00ffff">10</font>));
+   <font color="#ffffff"><b>if</b></font> Succ(RED) = BLUE <font color="#ffffff"><b>then</b></font>
+     Writeln(<font color="#00ffff">'In the type Colors, RED is '</font>,
+             <font color="#00ffff">'the predecessor of BLUE.'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

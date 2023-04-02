@@ -1,0 +1,32 @@
+<html>
+<head><title>Turbo Pascal Help - 0319</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0319</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Entry and Exit Code
+ ---------------------------------------
+The automatically-generated entry and exit code for an assembler procedure
+or function looks like this:
+
+ PUSH  BP         ;Present if Locals &lt;&gt; 0 or Params &lt;&gt; 0
+ MOV   BP,SP      ;Present if Locals &lt;&gt; 0 or Params &lt;&gt; 0
+ SUB   SP,Locals  ;Present if Locals &lt;&gt; 0
+
+ MOV   SP,BP      ;Present if Locals &lt;&gt; 0
+ POP   BP         ;Present if Locals &lt;&gt; 0 or Params &lt;&gt; 0
+ RET   Params     ;Always present
+
+where
+  - Locals is the size of the local variables
+  - Params is the size of the parameters
+
+If both Locals and Params are 0, there is no entry code, and the exit code
+consists simply of a RET instruction.
+
+- eof -</pre></body>
+</html>

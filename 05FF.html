@@ -1,0 +1,57 @@
+<html>
+<head><title>Turbo Pascal Help - 05FF</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05FF</i></center></td>
+</tr></table>
+<pre>
+ inline (reserved word)
+ ------------------------
+Inline statements and directives allow you to insert machine code
+instructions directly into the code of a program or unit.
+
+ Syntax:
+ inline ( data / data / ... data )
+
+ Remarks:
+When used as a <a href="061A.html">statement</a>, the inline data elements are inserted directly in
+the code.
+
+When used as a directive in a <a href="0612.html">procedure</a> or a <a href="05F7.html">function</a> declaration, the
+inline data elements are inserted in the code each time the procedure or
+function is called.
+
+An inline data element consists of a constant or variable identifier,
+optionally prefixed by a size specifier, &lt; or &gt;.
+
+A variable identifier can be followed by + (plus) or - (minus) and a
+constant to specify an offset from the variable's address.
+
+An inline element generates 1 byte of code if it is a constant within the
+range 0 and 255; otherwise, it generates one word.
+
+You use the &lt; and &gt; operators to override the automatic size selection:
+
+  &lt; means always generate a byte
+  &gt; means always generate a word.
+
+ Example:
+ (* "inline" statement *)
+ procedure FillWord(var Dest; Count: Word; Data: Word);
+ begin
+   inline(
+     $C4/$7E/&lt;Dest/    (* LES   DI,Dest[BP] *)
+     $8B/$4E/&lt;Count/   (* MOV   CX,Count[BP]*)
+     $8B/$46/&lt;Data/    (* MOV   AX,Data[BP] *)
+     $FC/              (* CLD               *)
+     $F3/$AB);         (* REP   STOSW       *)
+ end;
+
+ See Also:
+  <a href="0318.html">built-in assembler</a>
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+<head><title>Turbo Pascal Help - 0633</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0633</i></center></td>
+</tr></table>
+<pre>
+ TEML non-terminating commands I - N
+ ------------------------------------
+
+ Command                    | Action
+ ============================================================================
+ IndentBlock                | Inserts a space at the beginning of each line
+                            | in the highlighted (selected) text.
+ InsertText                 | Inserts the literal "string" in the buffer at
+                            | the current cursor location. Use the
+                            | syntax InsertText(string) to call this
+                            | command.
+ LeftOfLine                 | Moves cursor to beginning of the current line.
+ LiteralChar                | Inserts the character at the current
+                            | cursor location, without doing any special
+                            | processing  for newline, tab characters, etc.
+                            | Use the syntax LiteralChar(c), where c is a
+                            | character or integer value. Ths macro places
+                            | characters only into the editor and cannot be
+                            | used to control the IDE menu system.
+ MarkBufModified            | Sets a flag indicating that the contents of
+                            | the buffer are different than what is in the
+                            | corresponding disk file.
+ MarkBufUnModified          | Clears a flag, thus indicating that the
+                            | contents of the buffer can be assumed to
+                            | be identical to what is in the disk file.
+ MatchPairBackward          | Same as MatchPairForward except if the cursor
+                            | is on a ' or ", searches backward for
+                            | thematching character.
+ MatchPairForward           | If the cursor is on one of the characters
+                            | (, ), , , [, ], or on the first character of
+                            | one of the pairs /* or */, searches in the
+                            | appropriate direction for the closest
+                            | instance of the matching delimiter. If the
+                            | cursor is on the character ' or ", searches
+                            | forward for the matching character. If a
+                            | match is found, places the cursor there.
+ MoveBlock                  | Like CopyBlock, but also deletes the original
+                            | selected text.
+ MoveToBlockBeg             | Moves cursor to the location marked as the
+                            | beginning of the selected text.
+ MoveToBlockEnd             | Moves cursor to the location marked as the end
+                            | of the selected text.
+ MoveToMark                 | Moves the cursor to the location saved
+                            | with SetMark(n) command. Use syntax
+                            | MoveToMark(n), where n is a one-digit number,
+                            | 0-9.
+ MoveToPrevPos              | Moves the cursor to the location specified by
+                            | the "previous position marker."
+ MoveToTempPos              | Moves the cursor to the saved temporary
+                            | marker.
+ NullCmd                    | No operation. Calls the editor, but performs
+                            | no function. Can be used to cause a keystroke
+                            | to have no effect.
+
+ See Also:
+ <a href="0630.html">TEML non-terminating commands</a>
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<head><title>Turbo Pascal Help - 05DC</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05DC</i></center></td>
+</tr></table>
+<pre>
+ absolute (standard directive)
+ -------------------------------
+Use the reserved word absolute to declare an absolute <a href="0620.html">variable</a> (one that
+resides at a specific, or absolute, memory address).
+
+ Syntax:
+ var Ident: type absolute Seg:Ofs;
+ OR
+ var Ident: type absolute Variable;
+
+ Remarks:
+The first form directly specifies the address (segment and offset) of the
+variable. Both constants must be within the range of $0000 to $FFFF (0 to
+65,535).
+
+The second form declares a new variable on top of an existing variable (at
+the same address).
+
+The variable declaration's identifier list can only specify one identifier
+when an absolute clause is present.
+
+Caution
+Use the first form of the absolute clause cautiously. While Windows is
+running in protected mode, your application may not have access rights
+to memory areas outside your program. Attempting to access these memory
+areas will likely crash your program.
+
+The second form of the absolute clause is safe to use in Windows
+programming. Memory you access is within your program's domain.
+
+ Example:
+ type
+   VectorTable = array[0..255] of pointer;
+ var
+   IntVectors: VectorTable absolute 0:0;
+   CrtMode: Byte absolute $0040:$0049;
+   Str: string;
+   StrLen: Byte absolute Str;
+
+
+- eof -</pre></body>
+</html>

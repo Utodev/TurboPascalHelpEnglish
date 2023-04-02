@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 000C</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>000C</i></center></td>
+</tr></table>
+<pre>
+
+ - Register Window
+ ------------------
+The Register window is where you can view the
+contents of CPU registers and flags.
+
+  +------ CPU ----5-+
+  | AX 0000 DX 0000 |
+  | CX 0000 BX 0000 |  The top half of the
+  | IP 0000 CS 0000 |  window shows the
+  | SI 0000 DS 0000 |  contents of the CPU
+  | DI 0000 ES 0000 |  registers.
+  | SP 0000 SS 0000 |
+  | BP 0000         |
+  | c=0 z=0 s=0 o=0 |  The bottom half shows
+  | p=0 i=0 a=0 d=0 |  the contents of the
+  +-----------------+  8 CPU flags.
+
+  Flag | What It Is
+ =========================
+    C  | Carry flag
+    Z  | Zero flag
+    S  | Sign flag
+    O  | Overflow flag
+    P  | Parity flag
+    A  | Auxiliary flag
+    I  | interrupt flag
+    D  | Direction flag
+
+The Register window is useful when you want
+to look at the contents of the registers but
+don't need to see the rest of the CPU state.
+
+- eof -</pre></body>
+</html>

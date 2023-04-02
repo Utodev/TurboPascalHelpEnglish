@@ -1,0 +1,31 @@
+<html>
+<head><title>Turbo Pascal Help - 06A4</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06A4</i></center></td>
+</tr></table>
+<pre>
+ CheckSnow (variable)     <a href="0694.html">(Crt unit)</a>
+ ------------------------------------
+Enables and disables "snow-checking" when storing characters directly in
+video memory
+
+When a color text mode is selected, CheckSnow is set to True, and direct
+video-memory writes will occur only during the horizontal retrace intervals.
+
+If your program is running on a newer CGA, you might want to set CheckSnow
+to False at the program's beginning and after each call to <a href="0513.html">TextMode.</a>
+
+This will disable snow-checking, resulting in significantly higher output
+speeds.
+
+CheckSnow has no effect when <a href="06A5.html">DirectVideo</a> is False.
+
+ See Also:
+ <a href="0694.html">CRT.TPU</a>
+
+- eof -</pre></body>
+</html>

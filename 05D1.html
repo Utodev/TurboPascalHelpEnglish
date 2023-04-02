@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 05D1</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05D1</i></center></td>
+</tr></table>
+<pre>
+ Precedence of Operators
+ -------------------------
+   Operators   |Precedence  |ategory
+  ================================================
+   @ not       |First (high)|Unary operators
+   * / div mod |Second      |Multiplying operators
+   and shl shr |            |
+   + - or xor  |Third       |Adding operators
+   = &lt;&gt; &lt; &gt;    |Fourth (low)|Relational operators
+   &lt;= &gt;= in    |            |
+
+ Rules of precedence:
+  1. An operand between two operators of different precedence is bound to
+     the operator with higher precedence.
+  2. An operand between two equal operators is bound to the one on its left.
+  3. Expressions within parentheses are evaluated before being treated as a
+     single operand.
+
+Operations with equal precedence are normally performed from left to right,
+although the compiler might at times rearrange the operands to generate
+optimum code.
+
+ See Also:
+  <a href="05D2.html">Binary arithmetic operators</a>
+  <a href="05D3.html">Unary arithmetic operators</a>
+  <a href="05D5.html">Boolean operators</a>
+  <a href="05D4.html">Logical operators</a>
+  <a href="05D7.html">PChar operators</a>
+  <a href="05D9.html">Relational operators</a>
+  <a href="05D8.html">Set operators</a>
+  <a href="05D6.html">String operators</a>
+  <a href="05DA.html">The @ operator</a>
+
+- eof -</pre></body>
+</html>

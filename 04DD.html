@@ -1,0 +1,60 @@
+<html>
+<head><title>Turbo Pascal Help - 04DD</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04DD</i></center></td>
+</tr></table>
+<pre>
+ SetFAttr (procedure)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ ----------------------------------------------------
+Sets the attributes of a file.
+
+ Declaration:
+ procedure SetFAttr(var F; Attr: Word);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Errors are reported in <a href="06C7.html">DosError</a>. Possible error codes are
+ -  3 (Invalid Path)
+ -  5 (File Access Denied)
+
+ Restrictions:
+The file cannot be open.
+
+ See Also:
+ <a href="0577.html">GetFAttr</a>
+ <a href="057A.html">GetFTime</a>
+ <a href="04E0.html">SetFTime</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Setfattr.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the SetFAttr procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos, WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>var</b></font>
+   F: <font color="#ffffff"><b>file</b></font>;
+ <font color="#ffffff"><b>begin</b></font>
+   Assign(F, <font color="#00ffff">'C:\AUTOEXEC.BAT'</font>);
+   SetFAttr(F, Hidden);                <font color="#c0c0c0">{ For Windows: faHidden }</font>
+   Readln;
+   SetFAttr(F, Archive);          <font color="#c0c0c0">{ For Windows: faArchive }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

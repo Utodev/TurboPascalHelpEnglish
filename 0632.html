@@ -1,0 +1,43 @@
+<html>
+<head><title>Turbo Pascal Help - 0632</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0632</i></center></td>
+</tr></table>
+<pre>
+ TEML non-terminating commands E - H
+ ------------------------------------
+
+ Command                    | Action
+ ===========================================================================
+ EndCursor                  | Moves cursor to end of file buffer.
+ ExtendBlockBeg             | Initiates a series of commands that will
+                            | select a block of text between the initial
+                            | and ending positions of the cursor.
+ ExtendBlockEnd             | Ends a series of commands begun by
+                            | ExtendBlockBeg.
+ FixCursorPos               | Ensures that the cursor value specifies a row
+                            | between 1 and the number of lines in the
+                            | buffer, and a column greater than 0. If
+                            | the cursor through tab option is set, the
+                            | cursor is placed in the middle of a tab
+                            | character (see SetCursorThroughTabMode).
+ FixScreenPos               | Adjusts the screen display to ensure the
+                            | cursor is visible.
+ FullPaintScreen            | Redraws the entire window, making
+                            | noassumptions about what is onscreen.
+ HideBlock                  | Sets a flag indicating that the selected text
+                            | should not be highlighted.
+ HighlightBlock             | Sets a flag indicating that if the beginning
+                            | and end selected text markers are valid, the
+                            | selected text should be highlighted.
+ HomeCursor                 | Moves cursor to beginning of the file buffer.
+
+ See Also:
+ <a href="0630.html">TEML non-terminating commands</a>
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head><title>Turbo Pascal Help - 05F4</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05F4</i></center></td>
+</tr></table>
+<pre>
+ file (reserved word)
+ ----------------------
+A file type consists of a linear sequence of components of the component
+<a href="061D.html">type</a>, which can be any type except a file type.
+
+ Syntax:
+ file of type
+ OR
+ file
+
+ Remarks:
+If the word <a href="060B.html">of</a> and the component type are omitted, the type denotes an
+untyped file.
+
+The predefined file type Text signifies a file containing characters
+organized into lines.
+
+ Example:
+ (* File type declarations *)
+ type
+   Person = record
+     FirstName: string[15];
+     LastName : string[25];
+     Address  : string[35];
+   end;
+   PersonFile = file of Person;
+   NumberFile = file of Integer;
+   SwapFile = file;
+
+
+- eof -</pre></body>
+</html>

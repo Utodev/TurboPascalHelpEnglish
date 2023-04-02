@@ -1,0 +1,77 @@
+<html>
+<head><title>Turbo Pascal Help - 0596</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0596</i></center></td>
+</tr></table>
+<pre>
+ High (function)
+ ----------------
+Returns the highest value in the range of the argument.
+
+ Declaration:
+ function High(X)
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Result type is X, or the index type of X.
+
+X is either a type identifier or a variable reference. The type denoted by
+X, or the type of the variable denoted by X, must be one of the following
+types.
+
+ For this type   |High returns:
+ =========================================================================
+ Ordinal type    |the highest value in the range of the type
+ Array type      |the highest value within the range of the index type of
+                 |the array
+ String type     |the declared size of the string
+ Open array or   |a value of type Word giving the number of elements in the
+                 |actual
+ string parameter|parameter minus one
+
+ See Also:
+ <a href="0498.html">Low</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{High.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the High function.}</font>
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>function</b></font> Sum(<font color="#ffffff"><b>var</b></font> X: <font color="#ffffff"><b>array</b></font> <font color="#ffffff"><b>of</b></font> Real): Real;
+ <font color="#ffffff"><b>var</b></font>
+  I: Word;
+  S: Real;
+ <font color="#ffffff"><b>begin</b></font>
+  S := <font color="#00ffff">0</font>;  <font color="#c0c0c0">{ Note that open array index range is always zero-based. }</font>
+  <font color="#ffffff"><b>for</b></font> I := <font color="#00ffff">0</font> <font color="#ffffff"><b>to</b></font> High(X) <font color="#ffffff"><b>do</b></font> S := S + X[I];
+  Sum := S;
+ <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>var</b></font>
+  List1: <font color="#ffffff"><b>array</b></font>[<font color="#00ffff">0</font>..<font color="#00ffff">3</font>] <font color="#ffffff"><b>of</b></font> Real;
+  List2: <font color="#ffffff"><b>array</b></font>[<font color="#00ffff">5</font>..<font color="#00ffff">17</font>] <font color="#ffffff"><b>of</b></font> Real;
+  X: Word;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>for</b></font> X := Low(List1) <font color="#ffffff"><b>to</b></font> High(List1) <font color="#ffffff"><b>do</b></font>
+      List1[X] := X * <font color="#00ffff">34</font>;
+  <font color="#ffffff"><b>for</b></font> X := Low(List2) <font color="#ffffff"><b>to</b></font> High(List2) <font color="#ffffff"><b>do</b></font>
+     List2[X] := X * <font color="#00ffff">00123</font>;
+  Writeln (Sum(List1));
+  Writeln (<font color="#00ffff">'Sum of List2:'</font>, Sum(List2));
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

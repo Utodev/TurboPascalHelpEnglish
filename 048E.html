@@ -1,0 +1,48 @@
+<html>
+<head><title>Turbo Pascal Help - 048E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>048E</i></center></td>
+</tr></table>
+<pre>
+ $G:  Group Unit Segments Directive     (Windows and Protected mode)
+ ---------------------------------------------------------------------
+Specifies the groups of units you want the linker to place in the same
+segment.
+
+   Syntax:        {$G UnitName, UnitName ...}
+   Type:          Local
+
+ Target:
+Windows and Protected mode
+
+ Remarks:
+The $G directive specifies the groups of units you want the linker to place
+in the same segment. Grouping units in the same segment ensures that the
+units swap in and out of memory at the same time. The $G directive is
+primarily used to group units containing discardable code.
+
+Each $G directive specifies a group of units. $G directives are only valid
+in a program or library, and must appear after the program or library's uses
+clause. The compiler reports an error if you attempt to add a unit to more
+than one group. In addition to any groups created with $G, the compiler
+maintains a default group that includes all units not explicitly grouped.
+
+The linker minimizes the number of code segments in an executable file by
+combining all units that belong to the same group. Two or more units are put
+into the same code segment if they belong to the same group and have the
+same code segment attributes, and if the combined size does not exceed the
+preferred segment size.
+
+The linker will never put units that belong to different groups in the same
+code segment.
+
+ See Also:
+ <a href="048A.html">$C</a>
+ <a href="048F.html">$S</a>
+
+- eof -</pre></body>
+</html>

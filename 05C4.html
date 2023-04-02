@@ -1,0 +1,44 @@
+<html>
+<head><title>Turbo Pascal Help - 05C4</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05C4</i></center></td>
+</tr></table>
+<pre>
+   Record-type constants
+ -----------------------
+The declaration of a record-type constant specifies the identifier and value
+of each field.
+
+The fields must be specified in the same order as they appear in the
+definition of the record type.
+
+  - If a record contains fields of <a href="05F4.html">file</a> types, the constants of that record
+   type cannot be declared.
+  - If a record contains a variant, only fields of the selected variant can
+   be specified.
+  - If the variant contains a tag field, its value must be specified.
+
+ Examples:
+ type
+   Point = record
+     X, Y: Real;
+   end;
+   Vector = array[0..1] of Point;
+   Month = (Jan, Feb, Mar, Apr, May, Jun, Jly, Aug, Sep, Oct, Nov, Dec);
+   Date = record
+     D: 1..31;
+     M: Month;
+     Y: 1900..1999;
+   end;
+ const
+   Origin: Point = (X: 0.0; Y: 0.0);
+   Line: Vector = ((X: -3.1; Y: 1.5), (X: 5.8; Y: 3.0));
+   SomeDay: Date = (D: 2; M: Dec; Y: 1960);
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+<head><title>Turbo Pascal Help - 031E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>031E</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Expression Types
+ ------------------------------------
+Every built-in assembler expression has an associated type.
+
+This type is a size, because the built-in assembler regards the type of an
+expression as the size of its memory location.
+
+The built-in assembler performs type checking whenever possible; an error
+results if the type check fails.
+
+You can use a typecast to change the type of a memory reference. For
+ example, all of these refer to the first (least significant) byte of the
+OutBufPtr variable:
+
+ asm
+   MOV     DL,BYTE PTR OutBufPtr
+   MOV     DL,Byte(OutBufPtr)
+   MOV     DL,OutBufPtr.Byte
+ end;
+
+In some cases, a memory reference is untyped (it has no associated type);
+for example, an immediate value enclosed in square brackets:
+
+ asm
+   MOV     AL,[100H]
+   MOV     BX,[100H]
+ end;
+
+The built-in assembler permits both of these instructions because the
+ expression [100H] has no associated type (it just means "the contents of
+address 100H in the data segment") and the type can be determined from the
+ first operand (byte for AL, word for BX).
+
+In cases where the type cannot be determined from another operand, the
+built-in assembler requires an explicit typecast, like this:
+
+ asm
+   INC     BYTE PTR [100H]
+   IMUL    WORD PTR [100H]
+ end;
+
+
+- eof -</pre></body>
+</html>

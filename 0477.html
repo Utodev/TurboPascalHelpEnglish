@@ -1,0 +1,40 @@
+<html>
+<head><title>Turbo Pascal Help - 0477</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0477</i></center></td>
+</tr></table>
+<pre>
+ $F:  Force Far Calls Switch
+ -----------------------------
+
+Controls which call model to use for subsequently-compiled procedures and
+functions.
+
+   Syntax:        {$F+} or {$F-}
+   Default:       {$F-}
+   Type:          Local
+   Menu Command:  Options|Compiler|<a href="00FB.html">Force Far Calls</a>
+
+ The $F+ State:
+Procedures and functions compiled in the $F+ state always use the FAR call
+model.
+
+ The $F- State:
+In the $F- state, the compiler automatically selects the appropriate model:
+  - FAR if the procedure or function is declared in a unit's interface
+   section
+  - NEAR if the procedure or function is declared somewhere else
+
+Note: For programs that use overlays, place a $F+ directive at the beginning
+of the program and each unit, in order to satisfy the FAR call requirement.
+
+For programs that use procedural variables, all such procedures must use the
+FAR code model.
+
+
+- eof -</pre></body>
+</html>

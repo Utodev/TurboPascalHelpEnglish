@@ -1,0 +1,51 @@
+<html>
+<head><title>Turbo Pascal Help - 0048</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0048</i></center></td>
+</tr></table>
+<pre>
+
+ - Compile|Make  (F9)
+ ---------------------
+The Make command makes an .EXE file.
+
+These are the rules governing which files and
+units are recompiled:
+
+ &raquo; If <a href="004C.html">Compile|Primary File</a> lists a primary
+   file, that file is compiled; otherwise,
+   the file in the active edit window is
+   compiled.
+
+   <i>Turbo</i> Pascal checks all files that the file
+   being compiled depends on.
+
+ &raquo; If the source file for a given unit has
+   been modified since the .TPU, .TPP or .TPW (object code)
+   file was created, that unit is recompiled.
+
+ &raquo; If the interface for a given unit has been
+   changed, all other units that depend upon
+   it are recompiled.
+
+ &raquo; If a unit links in an .OBJ file (external
+   routines), and the .OBJ file is newer than
+   the unit's .TPU, .TPP, or .TPW file, the unit is
+   recompiled.
+
+ &raquo; If a unit includes an Include file and the
+   Include file is newer than that unit's .TPU, .TPP, or .TPW
+   file, the unit is recompiled.
+
+This option is identical to Compile|<a href="0049.html">Build</a>,
+except that it is conditional.
+
+(Build rebuilds all files, regardless of
+whether they're out of date).
+
+- eof -</pre></body>
+</html>

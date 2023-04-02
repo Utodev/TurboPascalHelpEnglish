@@ -1,0 +1,44 @@
+<html>
+<head><title>Turbo Pascal Help - 0615</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0615</i></center></td>
+</tr></table>
+<pre>
+ Real types
+ ----------
+A real type has a set of values that is a subset of real numbers, which can
+be represented in floating-point notation with a fixed number of digits.
+
+A value's floating-point notation normally is made up of three values--M, B,
+and E--such that M x B E = N where B is always 2, and both M and E are
+integral values within the real type's range.
+
+Turbo Pascal provides five predefined real <a href="061D.html">types</a>. Each type has a specific
+range and precision:
+
+   Type     | Range               | Digits | Bytes
+   ===============================================
+   real     | 2.9e-39..1.7e38     | 11-12  |  6
+   single   | 1.5e-45..3.4e38     |  7-8   |  4
+   double   | 5.0e-324..1.7e308   | 15-16  |  8
+   extended | 3.4e-4932..1.1e4932 | 19-20  | 10
+   comp     | -9.2e18..9.2e18     | 19-20  |  8
+
+Note: The comp type is a 64-bit integer. It holds only integral values
+within the range (-2 63 + 1) to (2 63 - 1).
+
+Turbo Pascal supports two models of floating-point code generation:
+  - <a href="05BB.html">Software floating point, {$N-}</a>
+  - <a href="0050.html">80x87 floating point, {$N+}</a>
+
+You use the <a href="047C.html">$N compiler directive</a> to switch between the two models.
+
+In the $N+ state, the $E compiler directive controls whether to include an
+8087 software emulation library in the final program.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,49 @@
+<html>
+<head><title>Turbo Pascal Help - 048A</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>048A</i></center></td>
+</tr></table>
+<pre>
+ $C:  Code Segment Attribute      (Windows and Protected mode)
+ --------------------------------------------------------------
+Controls the attributes of a code segment.
+
+   Syntax:     {$C Attribute Attribute}
+   Default:    {$C MOVEABLE DEMANDLOAD DISCARDABLE}
+   Type:       Global
+
+ Remarks:
+Every code segment in an application or library has a set of attributes that
+determine its behavior when it is loaded into memory.
+
+A $C directive affects only the code segment of the module (unit, program or
+library) in which it is placed.
+
+The code segment attributes occur in groups of two. Each option has an
+opposite toggle:
+
+   Option      | Meaning
+   ========================================================================
+   MOVEABLE    | The system can change the location of the code segment in
+               | memory.
+   FIXED       | The system cannot change the location of the code segment
+               | in memory.
+   PRELOAD     | The code segment loads when your program begins execution.
+   DEMANDLOAD  | The code segment loads only when it is needed.
+   PERMANENT   | The code segment remains in memory once it is loaded.
+   DISCARDABLE | The code segment can be unloaded when it is no longer
+               | needed.
+
+If both options are specified, only the last one will take effect.
+
+For example
+  {$C FIXED MOVABLE DISCARDABLE}
+will make the code segment moveable and it can be discarded when it is no
+longer needed.
+
+- eof -</pre></body>
+</html>

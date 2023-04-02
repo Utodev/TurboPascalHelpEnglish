@@ -1,0 +1,33 @@
+<html>
+<head><title>Turbo Pascal Help - 05B0</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05B0</i></center></td>
+</tr></table>
+<pre>
+ Direct port access
+ --------------------
+For access to the 80x86 CPU data ports, Borland Pascal implements
+two predefined arrays, Port and PortW.
+
+Both are one-dimensional arrays, and each element represents a data port,
+whose port address corresponds to its index.
+
+The index type is the integer type Word. Components of the port array are of
+type Byte and components of the PortW array are of type Word.
+
+When a value is assigned to a component of Port or PortW, the value is
+output to the selected port. When a component of Port or PortW is referenced
+in an expression, its value is input from the selected port.
+
+Use of the Port and PortW arrays is restricted to assignment and reference
+in expressions only; that is, components of Port and PortW cannot be used as
+variable parameters. Also, references to the entire Port or PortW array
+(reference without index) are not allowed.
+
+
+- eof -</pre></body>
+</html>

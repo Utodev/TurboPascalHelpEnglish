@@ -1,0 +1,70 @@
+<html>
+<head><title>Turbo Pascal Help - 0589</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0589</i></center></td>
+</tr></table>
+<pre>
+ GetTextSettings (procedure)     <a href="064F.html">(Graph unit)</a>
+ ---------------------------------------------
+Gets settings for text output in graphics mode.
+
+ Declaration:
+ procedure GetTextSettings(var TextInfo: TextSettingsType);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Returns the current text font, direction, size, and justification as set by
+SetTextStyle and SetTextJustify.
+
+ See Also:
+ <a href="059B.html">InitGraph</a>
+ <a href="04E7.html">SetTextJustify</a>
+ <a href="04E8.html">SetTextStyle</a>
+ <a href="0512.html">TextHeight</a>
+ <a href="0514.html">TextWidth</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Gettxtst.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetTextSettings procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  OldStyle: TextSettingsType;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  GetTextSettings(OldStyle);
+  OutTextXY(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">'Old text style'</font>);
+  SetTextJustify(LeftText, CenterText);
+  SetTextStyle(TriplexFont, VertDir, <font color="#00ffff">4</font>);
+  OutTextXY(GetMaxX <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, GetMaxY <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, <font color="#00ffff">'New Style'</font>);
+  <font color="#ffffff"><b>with</b></font> OldStyle <font color="#ffffff"><b>do</b></font>
+  <font color="#ffffff"><b>begin</b></font>                 <font color="#c0c0c0">{ Restore old text style }</font>
+    SetTextJustify(Horiz, Vert);
+    SetTextStyle(Font, Direction, CharSize);
+  <font color="#ffffff"><b>end</b></font>;
+  OutTextXY(<font color="#00ffff">0</font>, TextHeight(<font color="#00ffff">'H'</font>), <font color="#00ffff">'Old style again'</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

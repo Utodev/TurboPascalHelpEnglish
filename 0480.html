@@ -1,0 +1,39 @@
+<html>
+<head><title>Turbo Pascal Help - 0480</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0480</i></center></td>
+</tr></table>
+<pre>
+ $R:  Range-Checking Switch
+ ----------------------------
+Enables and disables the generation of range-checking code
+
+   Syntax:        {$R+} or {$R-}
+   Default:       {$R-}
+   Type:          Local
+   Menu Command:  Options|Compiler|<a href="0101.html">Range-checking</a>
+
+ The $R+ State:
+In the $R+ state,
+  - all array and string-indexing expressions are verified as being within
+    the defined bounds
+  - all assignments to scalar and subrange variables are checked to be
+    within range
+
+If a range-check fails, the program terminates and displays a run-time error
+message.
+
+$R+ does not apply to Inc. and Dec.
+
+Enabling range-checking slows down your program and makes it larger.
+
+Use this option when debugging, then turn it off once the program is
+bug-free.
+
+
+- eof -</pre></body>
+</html>

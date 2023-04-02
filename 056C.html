@@ -1,0 +1,68 @@
+<html>
+<head><title>Turbo Pascal Help - 056C</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>056C</i></center></td>
+</tr></table>
+<pre>
+ GetAspectRatio (procedure)     <a href="064F.html">(Graph unit)</a>
+ --------------------------------------------
+Returns two components from which the aspect ratio can be computed.
+
+ Declaration:
+ procedure GetAspectRatio(var Xasp, Yasp: Word);
+
+ Target:
+Real, Protected
+
+ Remarks:
+The aspect ratio is (Xasp: Yasp).
+
+ See Also:
+ <a href="0526.html">Arc</a>
+ <a href="0532.html">Circle</a>
+ <a href="054D.html">Ellipse</a>
+ <a href="0581.html">GetMaxX</a>
+ <a href="0582.html">GetMaxY</a>
+ <a href="04B7.html">PieSlice</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getasprt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetAspectRatio procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  Xasp, Yasp: Word;
+  XSideLength, YSideLength: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  GetAspectRatio(Xasp, Yasp);
+  XSideLength := <font color="#00ffff">20</font>;
+
+  <font color="#c0c0c0">{ Adjust Y length for aspect ratio }</font>
+  YSideLength := Round( (Xasp / Yasp) * XSideLength);
+
+  <font color="#c0c0c0">{ Draw a "square" rectangle on the screen }</font>
+  Rectangle(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, XSideLength, YSideLength);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

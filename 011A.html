@@ -1,0 +1,66 @@
+<html>
+<head><title>Turbo Pascal Help - 011A</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>011A</i></center></td>
+</tr></table>
+<pre>
+
+ - Map File
+ -----------
+You use the Map File radio buttons to choose
+the type of map file to be produced at link
+time.
+
+For settings other than Off, the map file is
+placed in the Object directory defined in the
+<a href="0060.html">Options|Directories</a> dialog box.
+
+ +--------------+
+ | (x) Off      |
+ +--------------+
+The Off setting tells the linker not to create
+a map file. This is the default setting.
+
+ +--------------+
+ | ( ) Segments |
+ +--------------+
+The Segments option tells the linker to
+produce a map file that includes a list of
+segments, the program start address, and any
+error messages generated during the link.
+
+ +--------------+
+ | ( ) Public   |
+ +--------------+
+The Public option tells the linker to produce
+the same map file that Segments produces, with
+a list of public symbols added (sorted
+alphabetically).
+
+ +--------------+
+ | ( ) Detailed |
+ +--------------+
+The Detailed option tells the linker to produce
+the same map file that Publics produces, with a
+detailed segment map added.
+
+The detailed segment map includes the address,
+length in bytes, segment name, group, and
+module information.
+
+The Map File options produce complete
+debugging information for a module only
+if that module has been compiled with the
+<a href="010A.html">Options|Compiler Debug Information</a> option checked.
+
+The Map File options produce local symbol
+information for a module only if that module
+has been compiled with the <a href="010B.html">O|C Local Symbols</a>
+option checked.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head><title>Turbo Pascal Help - 0610</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0610</i></center></td>
+</tr></table>
+<pre>
+ Pointer types
+ --------------
+
+A pointer type variable contains the memory address of a dynamic variable of
+a specified base <a href="061D.html">type</a>.
+
+You can assign a value to a pointer variable with:
+  - the <a href="04A4.html">New</a> or <a href="0583.html">GetMem</a> procedures
+  - the <a href="05DA.html">@ operator</a>
+  - the <a href="04BA.html">Ptr</a> function
+
+The reserved word <a href="060A.html">nil</a> denotes a pointer constant that does not point to
+anything.
+
+ Pointer:
+The predefined type Pointer denotes an untyped pointer (a pointer that does
+not point to any specific type).
+
+ PChar:
+The predefined type PChar denotes a pointer to a <a href="0672.html">null-terminated string</a>.
+
+PChar is declared as:
+   type PChar = ^Char;
+
+Borland Pascal for Windows supports a set of extended syntax rules
+(controlled by the <a href="0485.html">$X compiler directive</a>) to facilitate handling of strings
+using the PChar type.
+
+ Example:
+ { Pointer Type Declaration }
+ type
+   BytePtr  = ^Byte;
+   WordPtr  = ^Word;
+   IdentPtr = ^IdentRec;
+   IdentRec = record
+     Ident: string[15];
+     RefCount: Word;
+     Next: IdentPtr;
+   end;
+
+ See Also:
+  <a href="05C2.html">pointer-type constants</a>
+
+- eof -</pre></body>
+</html>

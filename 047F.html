@@ -1,0 +1,46 @@
+<html>
+<head><title>Turbo Pascal Help - 047F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>047F</i></center></td>
+</tr></table>
+<pre>
+ $Q:  Overflow Checking Switch
+ --------------------------------
+Controls the generation of overflow checking code.
+
+   Syntax:        {$Q+} or {$Q-}
+   Default:       {$Q-}
+   Type:          Local
+   Menu Command:  Options|Compiler|<a href="0104.html">Overflow checking</a>
+
+ The $Q+ State:
+In the $Q+ state, certain integer operations are checked for overflow, such
+as:
+      +, -, * Abs, Sqr, Succ, and Pred
+
+The code for each of these arithmetic operations is followed by additional
+code that verifies that the result is within the supported range.
+
+If an overflow check fails, the program terminates and displays a run-time
+error message.
+
+Note that {$Q} does not affect the Inc and Dec standard procedures. These
+procedures are never checked for overflow.
+
+The $Q switch is usually used in conjunction with the <a href="0480.html">$R</a> switch.
+
+Enabling overflow checking slows down your program and makes it larger, so
+use {$Q+} only for debugging.
+
+ The $Q- State:
+In the $Q- State, no overflow checking is done.
+
+ See Also:
+ <a href="0480.html">$R</a>
+
+- eof -</pre></body>
+</html>

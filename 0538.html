@@ -1,0 +1,55 @@
+<html>
+<head><title>Turbo Pascal Help - 0538</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0538</i></center></td>
+</tr></table>
+<pre>
+ ClrScr (procedure)     <a href="0694.html">(Crt unit</a> and WinCrt unit)
+ --------------------------------------------------
+Clears the active windows and returns the cursor to the upper-left corner.
+
+ Declaration:
+ procedure ClrScr;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Sets all character positions to blanks with the currently defined text
+attributes. Thus, if TextBackground is not black, the entire screen becomes
+the background color. This also applies to characters cleared by ClrEol,
+InsLine, and DelLine, and to empty lines created by scrolling.
+
+ClrScr is window-relative. The following program lines define a text window
+and clear a 60X20 rectangle beginning at (1, 1).
+
+ Window(1, 1, 60, 20);
+ ClrScr;
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{ClrScr.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the ClrScr procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>begin</b></font>
+  Writeln(<font color="#00ffff">'Hello.   Please the <enter> key...'</font>);
+  Readln;
+  ClrScr;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

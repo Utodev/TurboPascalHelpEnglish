@@ -1,0 +1,62 @@
+<html>
+<head><title>Turbo Pascal Help - 0534</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0534</i></center></td>
+</tr></table>
+<pre>
+ ClearViewPort (procedure)     <a href="064F.html">(Graph unit)</a>
+ -------------------------------------------
+Clears the current view port (graphics mode only).
+
+ Declaration:
+ procedure ClearViewPort;
+
+ Target:
+Real, Protected
+
+ Remarks:
+ClearViewPort sets the fill color to the background color (Palette[0]) and
+moves the current pointer to (0, 0).
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0533.html">ClearDevice</a>
+ <a href="058C.html">GetViewSettings</a>
+ <a href="04ED.html">SetViewPort</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Clrvwprt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the ClearViewPort procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  Rectangle(<font color="#00ffff">19</font>, <font color="#00ffff">19</font>, GetMaxX - <font color="#00ffff">19</font>, GetMaxY - <font color="#00ffff">19</font>);
+  SetViewPort(<font color="#00ffff">20</font>, <font color="#00ffff">20</font>, GetMaxX - <font color="#00ffff">20</font>, GetMaxY - <font color="#00ffff">20</font>, ClipOn);
+  OutTextXY(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">'<ENTER> clears viewport:'</font>);
+  Readln;
+  ClearViewPort;
+  OutTextXY(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">'<ENTER> to quit:'</font>);
+  Readln;  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

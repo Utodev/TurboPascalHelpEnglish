@@ -1,0 +1,39 @@
+<html>
+<head><title>Turbo Pascal Help - 05AD</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05AD</i></center></td>
+</tr></table>
+<pre>
+ M (Memory-dump format specifier)
+ ---------------------------------
+Displays a memory dump, starting with the address of the indicated
+expression.
+
+The expression must be a construct that would be valid on the left side of
+an assignment statement (a construct that denotes a memory address).
+Otherwise, the M specifier is ignored.
+
+By default, each byte of the variable is shown as two hex digits; you can
+change the display by adding a specifier to the M specifier:
+
+   To Display               | Specifier to Add
+   ==========================================
+   Bytes as decimal         | D
+   Bytes as Hex             | H, X, or $
+   Variable as a string     | S or C
+   (with or without special |
+   characters)              |
+
+The default number of bytes displayed corresponds to the size of the
+variable, but you can use a repeat count to specify an exact number of
+bytes.
+
+ See Also:
+ <a href="05A7.html">Other format specifiers</a>
+
+- eof -</pre></body>
+</html>

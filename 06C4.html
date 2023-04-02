@@ -1,0 +1,32 @@
+<html>
+<head><title>Turbo Pascal Help - 06C4</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06C4</i></center></td>
+</tr></table>
+<pre>
+ TDateTime (type)     <a href="06AA.html">(WinDos unit)</a>
+ -----------------------------------
+Variables of TDateTime type are used in connection with the <a href="0519.html">UnpackTime</a> and
+<a href="04B3.html">PackTime</a> procedures to examine and construct 4-byte, packed date-and-time
+values for the <a href="057A.html">GetFTime</a>, <a href="04E0.html">SetFTime</a>, <a href="0561.html">FindFirst</a>, and <a href="0562.html">FindNext</a> procedures.
+
+ type
+   TDateTime = record
+     Year,Month,Day,Hour,Min,Sec: Word;
+   end;
+
+Valid ranges are:
+ Year   1980..2099
+ Month  1..12
+ Day    1..31
+ Hour   0..23
+ Min    0..59
+ Sec    0..59
+
+
+- eof -</pre></body>
+</html>

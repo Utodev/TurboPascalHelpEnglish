@@ -1,0 +1,34 @@
+<html>
+<head><title>Turbo Pascal Help - 0424</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0424</i></center></td>
+</tr></table>
+<pre>
+ Relocatable vs. Absolute Expressions
+ -------------------------------------
+Typically, an expression that refers to a label, variable, procedure, or
+function is relocatable, and an expression that operates solely on constants
+is absolute.
+
+A relocatable expression denotes a value that requires relocation at link
+time. (Relocation is the process by which the linker assigns absolute
+addresses to symbols.)
+
+An absolute expression denotes a value that requires no such relocation.
+
+At compile time, the compiler does not know the final address of a label,
+variable, procedure, or function.
+
+The final address does not become known until link time, when the linker
+assigns a specific absolute address to the symbol.
+
+The built-in assembler allows you to carry out any operation on an absolute
+value, but it restricts operations on relocatable values to addition and
+subtraction of constants.
+
+- eof -</pre></body>
+</html>

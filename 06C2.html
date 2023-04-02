@@ -1,0 +1,29 @@
+<html>
+<head><title>Turbo Pascal Help - 06C2</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06C2</i></center></td>
+</tr></table>
+<pre>
+ Variables of Type Registers     <a href="06AB.html">(Dos unit)</a>
+ -------------------------------------------
+The <a href="05A2.html">Intr</a> and <a href="04A3.html">MsDos</a> procedures use variables of type Registers to specify
+the input register contents and examine the output register contents of a
+software interrupt.
+
+ type
+     (Registers record used by Intr and MsDos)
+   Registers = record
+     case Integer of
+     0: (AX, BX, CX, DX, BP, SI, DI, DS, ES, Flags: Word);
+     1: (AL, AH, BL, BH, CL, CH, DL, DH: Byte);
+   end;
+
+ See Also:
+ <a href="06AB.html">Dos.TPU</a>
+
+- eof -</pre></body>
+</html>

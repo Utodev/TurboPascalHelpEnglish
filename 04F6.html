@@ -1,0 +1,71 @@
+<html>
+<head><title>Turbo Pascal Help - 04F6</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04F6</i></center></td>
+</tr></table>
+<pre>
+ SSeg (function)
+ ----------------
+Returns the current value of the SS register.
+
+ Declaration:
+ function SSeg: Word;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+The result, of type Word, is the segment address of the stack segment.
+
+ See Also:
+ <a href="053E.html">CSeg</a>
+ <a href="054C.html">DSeg</a>
+ <a href="04F3.html">SPtr</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{CSeg.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the CSeg, DSeg, SSeg, SPtr, Ofs, and Seg functions.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>procedure</b></font> WriteHexWord(w: Word);
+ <font color="#ffffff"><b>const</b></font>
+  hexChars: <font color="#ffffff"><b>array</b></font> [<font color="#00ffff">0</font>..<font color="#00ffff">$F</font>] <font color="#ffffff"><b>of</b></font> Char =
+    <font color="#00ffff">'0123456789ABCDEF'</font>;
+ <font color="#ffffff"><b>begin</b></font>
+  Write(hexChars[Hi(w) <font color="#ffffff"><b>shr</b></font> <font color="#00ffff">4</font>],
+        hexChars[Hi(w) <font color="#ffffff"><b>and</b></font> <font color="#00ffff">$F</font>],
+        hexChars[Lo(w) <font color="#ffffff"><b>shr</b></font> <font color="#00ffff">4</font>],
+        hexChars[Lo(w) <font color="#ffffff"><b>and</b></font> <font color="#00ffff">$F</font>]);
+ <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>var</b></font>
+  i: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Write(<font color="#00ffff">'The current code segment is $'</font>);
+  WriteHexWord(CSeg); Writeln;
+  Write(<font color="#00ffff">'The global data segment is $'</font>);
+  WriteHexWord(DSeg); Writeln;
+  Write(<font color="#00ffff">'The stack segment is $'</font>);
+  WriteHexWord(SSeg); Writeln;
+  Write(<font color="#00ffff">'The stack pointer is at $'</font>);
+  WriteHexWord(SPtr); Writeln;
+  Write(<font color="#00ffff">'i is at offset $'</font>);
+  WriteHexWord(Ofs(i));
+  Write(<font color="#00ffff">' in segment $'</font>);
+  WriteHexWord(Seg(i));
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

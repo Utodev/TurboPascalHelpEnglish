@@ -1,0 +1,48 @@
+<html>
+<head><title>Turbo Pascal Help - 054A</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>054A</i></center></td>
+</tr></table>
+<pre>
+ DosVersion (function)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ -----------------------------------------------------
+Returns the DOS version number.
+
+ Declaration:
+ function DosVersion: Word;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+The result's low byte is the major version number, and the high byte is the
+minor version number.
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{DOSVrsn.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the DOSVersion function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos, WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>var</b></font>
+  Ver: Word;
+ <font color="#ffffff"><b>begin</b></font>
+  Ver := DosVersion;
+  Writeln(<font color="#00ffff">'This is DOS version '</font>, Lo(Ver), <font color="#00ffff">'.'</font>,
+ Hi(Ver));
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

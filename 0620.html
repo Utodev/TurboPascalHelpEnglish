@@ -1,0 +1,40 @@
+<html>
+<head><title>Turbo Pascal Help - 0620</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0620</i></center></td>
+</tr></table>
+<pre>
+  var (reserved word)
+ ---------------------
+A variable (var) declaration associates an <a href="05F9.html">identifier</a> and a <a href="061D.html">type</a> with a
+location in memory where values of that type can be stored.
+
+ Syntax:
+   var
+     identifier, ... identifier: type;
+     ...
+     identifier, ... identifier: type;
+
+ Remarks:
+An <a href="05DC.html">absolute</a> clause can be used to specify an absolute memory address.
+
+The var reserved word is also used to declare variable <a href="060E.html">parameters</a>.
+
+ Examples:
+ { Variable Declarations }
+   var
+     X, Y, Z: real;
+     I, J, K: Integer;
+     Done, Error: Boolean;
+     Vector: array[1..10] of real;
+     Name: string[15];
+     InFile, OutFile: Text;
+     Letters: set of 'A'..'Z';
+
+
+- eof -</pre></body>
+</html>

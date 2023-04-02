@@ -1,0 +1,40 @@
+<html>
+<head><title>Turbo Pascal Help - 01F9</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>01F9</i></center></td>
+</tr></table>
+<pre>
+ +--------------------+
+ | File access denied |
+ +--------------------+
+
+  Reported by | If This Problem Occurs
+ =================================================================
+  Reset or    | If FileMode allows writing and the name assigned
+ <a href="0525.html">  Append     </a>| to the file variable specifies a directory or a
+              | read-only file.
+ <a href="04CB.html"> Rewrite     </a>| The directory is full, or the name assigned to
+              | the file variable specifies a directory or an
+              | existing read-only file.
+ <a href="04C8.html"> Rename      </a>| The name assigned to the file variable specifies
+              | a directory, or the new name specifies an
+              | existing file.
+ <a href="0552.html"> Erase       </a>| The name assigned to the file variable specifies
+              | a directory or a read-only file.
+ <a href="049F.html"> MkDir       </a>| A file with the same name exists in the parent
+              | directory, or there is no room in the parent
+              | directory, or the path specifies a device.
+ <a href="04CC.html"> RmDir       </a>| The directory isn't empty, or the path doesn't
+              | specify a directory, or the path specifies the
+              | root directory.
+  Read or     | (On a typed or untyped file): The file is not
+ <a href="052D.html">  BlockRead  </a>| open for reading.
+ <a href="051F.html"> Write or    </a>| (On a typed or untyped file): The file is not
+ <a href="052E.html">  BlockWrite </a>| open for writing.
+
+- eof -</pre></body>
+</html>

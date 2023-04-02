@@ -1,0 +1,95 @@
+<html>
+<head><title>Turbo Pascal Help - 052D</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>052D</i></center></td>
+</tr></table>
+<pre>
+ BlockRead (procedure)
+ ----------------------
+Reads one or more records into a variable.
+
+ Declaration:
+ procedure BlockRead(var F: File; var Buf; Count: Word [; var Result:
+    Word]);
+where:
+   F        untyped file variable
+   Buf      any variable
+   Count    an expression of type Word
+   Result   a variable of type Word
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+F is an untyped file variable, Buf is any variable, Count is an expression
+of type Word, and Result is a variable of type Word.
+
+BlockRead reads Count or fewer records from the file F into memory, starting
+at the first byte occupied by Buf. The actual number of complete records
+ read (less than or equal to Count) is returned in the optional parameter
+Result. If Result is not specified, an I/O error occurs if the number read
+is not equal to Count.
+
+The entire transferred block occupies at most Count symbol * RecSize bytes,
+where RecSize is the record size specified when the file was opened (or 128
+if the record size was not specified). An error occurs if Count symbol *
+RecSize is greater than 65,535 (64K).
+
+Result is an optional parameter. If the entire block was transferred, Result
+will be equal to Count on return. Otherwise, if Result is less than Count,
+the end of the file was reached before the transfer was completed. In that
+case, if the file's record size is greater than 1, Result returns the number
+of complete records read.
+
+The current file position is advanced by Result records as an effect of
+BlockRead.
+
+With {$I-}, IOResult returns 0 if the operation succeeded; otherwise, it
+returns a nonzero error code.
+
+ Restrictions:
+File must be open.
+
+ See Also:
+ <a href="052E.html">BlockWrite</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Blockrd.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the BlockRead and BlockWrite procedures.}</font>
+
+ <font color="#ffffff"><b>program</b></font> CopyFile;
+
+ <font color="#c0c0c0">{ Simple, fast file copy program with NO error-checking }</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>var</b></font>
+   FromF, ToF: <font color="#ffffff"><b>file</b></font>;
+   NumRead, NumWritten: Word;
+   Buf: <font color="#ffffff"><b>array</b></font>[<font color="#00ffff">1</font>..<font color="#00ffff">2048</font>] <font color="#ffffff"><b>of</b></font> Char;
+ <font color="#ffffff"><b>begin</b></font>
+   Assign(FromF, ParamStr(<font color="#00ffff">1</font>)); <font color="#c0c0c0">{ Open input file }</font>
+   Reset(FromF, <font color="#00ffff">1</font>);  <font color="#c0c0c0">{ Record size = 1 }</font>
+   Assign(ToF, ParamStr(<font color="#00ffff">2</font>)); <font color="#c0c0c0">{ Open output file }</font>
+   Rewrite(ToF, <font color="#00ffff">1</font>);  <font color="#c0c0c0">{ Record size = 1 }</font>
+   Writeln(<font color="#00ffff">'Copying '</font>, FileSize(FromF), <font color="#00ffff">' bytes...'</font>);
+   <font color="#ffffff"><b>repeat</b></font>
+     BlockRead(FromF, Buf, SizeOf(Buf), NumRead);
+     BlockWrite(ToF, Buf, NumRead, NumWritten);
+   <font color="#ffffff"><b>until</b></font> (NumRead = <font color="#00ffff">0</font>) <font color="#ffffff"><b>or</b></font> (NumWritten <> NumRead);
+   Close(FromF);
+   Close(ToF);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head><title>Turbo Pascal Help - 0619</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0619</i></center></td>
+</tr></table>
+<pre>
+ set (reserved word)
+ ---------------------
+
+ Syntax:
+   set of type
+
+ Remarks:
+The base type of a set must be an <a href="060C.html">ordinal</a> type with no more than 256
+possible values.
+
+The ordinal values of the upper and lower bounds of the base type must be
+between 0 and 255.
+
+A set constructor, which denotes a set-type value, is formed by writing
+<a href="05EF.html">expressions</a> within brackets. Each expression denotes a value of the set.
+
+The notation [ ] denotes the empty set, which is compatible with all set
+types.
+
+ Example:
+ { Set types }
+   type
+     Day = (Sun, Mon, Tue, Wed, Thu, Fri, Sat);
+     CharSet = set of Char;
+     Digits = set of 0..9;
+     Days = set of Day;
+
+ { Set constructors }
+
+   ['0'..'9', 'A'..'Z', 'a'..'z', '_']
+   [1, 5, I + 1 .. J - 1]
+   [Mon..Fri]
+
+ See Also:
+ <a href="05C5.html">Set-type constants</a>
+
+- eof -</pre></body>
+</html>

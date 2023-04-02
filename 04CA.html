@@ -1,0 +1,68 @@
+<html>
+<head><title>Turbo Pascal Help - 04CA</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04CA</i></center></td>
+</tr></table>
+<pre>
+ RestoreCrtMode (procedure)     <a href="064F.html">(Graph unit)</a>
+ --------------------------------------------
+Restores the original screen mode before graphics was initialized.
+
+ Declaration:
+ procedure RestoreCrtMode;
+
+ Target:
+Real, Protected
+
+ Remarks:
+Restores the original video mode detected by InitGraph. Can be used in
+conjunction with SetGraphMode to switch back and forth between text and
+graphics modes.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0536.html">CloseGraph</a>
+ <a href="0544.html">DetectGraph</a>
+ <a href="059B.html">InitGraph</a>
+ <a href="04E2.html">SetGraphMode</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Rstcrtmd.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the RestoreCrtMode procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  Mode: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  OutText(<font color="#00ffff">'<ENTER> to leave graphics:'</font>);
+  Readln;
+  RestoreCrtMode;
+  Writeln(<font color="#00ffff">'Now in text mode'</font>);
+  Write(<font color="#00ffff">'<ENTER> to enter graphics mode:'</font>);
+  Readln;
+  SetGraphMode(GetGraphMode);
+  OutTextXY(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">'Back in graphics mode'</font>);
+  OutTextXY(<font color="#00ffff">0</font>, TextHeight(<font color="#00ffff">'H'</font>), <font color="#00ffff">'<ENTER> to quit:'</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

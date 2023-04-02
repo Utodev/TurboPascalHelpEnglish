@@ -1,0 +1,55 @@
+<html>
+<head><title>Turbo Pascal Help - 058F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>058F</i></center></td>
+</tr></table>
+<pre>
+ GotoXY (procedure)     <a href="0694.html">(Crt unit</a> and WinCrt unit)
+ --------------------------------------------------
+Moves the cursor to the given coordinates within the virtual screen.
+
+ Declaration:
+ procedure GotoXY(X, Y: Byte);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+The upper-left corner of the virtual screen corresponds to (1, 1).
+Use CursorTo instead of GotoXY when developing new applications. GotoXY is
+provided for compatibility with the Crt unit of Turbo Pascal for DOS.
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{GotoXY.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GotoXY procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>var</b></font>
+  C: PChar;
+
+ <font color="#ffffff"><b>begin</b></font>
+  GotoXY(<font color="#00ffff">10</font>,<font color="#00ffff">10</font>);
+  Writeln(<font color="#00ffff">'Hello'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+ See Also:
+ <a href="051C.html">WhereX</a>
+ <a href="051D.html">WhereY</a>
+ <a href="051E.html">Window</a>
+- eof -</pre></body>
+</html>

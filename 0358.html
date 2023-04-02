@@ -1,0 +1,42 @@
+<html>
+<head><title>Turbo Pascal Help - 0358</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0358</i></center></td>
+</tr></table>
+<pre>
+ +-------------------------------+
+ | Invalid relocatable reference |
+ +-------------------------------+
+
+Here are some possible sources of this error:
+
+ &raquo; The .OBJ file contains data and relocatable
+   references in segments other than CODE or
+   CSEG.
+
+For example, you might be attempting to
+declare initialized variables in the DATA
+segment.
+
+ &raquo; The .OBJ file contains byte-sized
+   references to relocatable symbols.
+
+This error occurs if you use the HIGH and LOW
+operators with relocatable symbols, or if you
+refer to relocatable symbols in DB directives.
+
+ &raquo; An operand refers to a relocatable symbol
+   that was not defined in the CODE segment
+   or in the DATA segment.
+
+ &raquo; An operand refers to an EXTRN procedure or
+   function with an offset; for example,
+
+     CALL SortProc+8
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<head><title>Turbo Pascal Help - 06C9</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06C9</i></center></td>
+</tr></table>
+<pre>
+ Variables of Type SearchRec
+ ----------------------------
+The FindFirst and FindNext procedures use variables of type SearchRec to
+scan directories:
+
+ type
+   { Search record used by FindFirst }
+   { and FindNext }
+   SearchRec = record
+     Fill : array[1..21] of Byte;
+     Attr : Byte;
+     Time : Longint;
+     Size : Longint;
+     Name : string[12];
+   end;
+
+Information for each file found by FindFirst or FindNext is reported back
+in a SearchRec.
+
+ Field | What It Contains
+ ========================================================================
+ Attr  | File's attributes (constructed from file-attribute constants)
+ Time  | File's packed date and time (use UnpackTime to unpack)
+ Size  | File's size, in bytes
+ Name  | File's name
+
+The Fill field is reserved by DOS and should never be modified.
+
+ See Also:
+ file-name and path string types
+ <a href="06AB.html">Dos unit</a>
+
+- eof -</pre></body>
+</html>

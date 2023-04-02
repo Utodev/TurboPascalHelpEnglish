@@ -1,0 +1,46 @@
+<html>
+<head><title>Turbo Pascal Help - 05E5</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05E5</i></center></td>
+</tr></table>
+<pre>
+ Constant declarations (const: reserved word)
+ ----------------------------------------------
+A constant declaration (const) defines an <a href="05F9.html">identifier</a> that denotes a constant
+value within the block containing the declaration. A constant identifier
+cannot be included in its own declaration.
+
+ Syntax:
+ const
+   identifier = expression;
+   ...
+   identifier = expression;
+
+ Remarks:
+<a href="05EF.html">Expressions</a> used in constant declarations must be written such that the
+compiler can evaluate them at compile time.
+
+Turbo Pascal allows <a href="05E6.html">constant expressions</a> as an extension to standard Pascal.
+
+<a href="05BF.html">Typed constant</a> declarations are used to declare initialized variables.
+Unlike an untyped constant, the declaration of a typed constant specifies
+both the <a href="061D.html">type</a> and the value of the constant. Typed constants can be modified
+just like <a href="0620.html">variables.</a>
+
+ Examples:
+ (* Constant Declarations *)
+ const
+   MaxData  = 1024 * 64 - 16;
+   NumChars = Ord('Z') - Ord('A') + 1;
+   Message  = 'Hello world...';
+ const
+   identifier: type = value;
+   ...
+   identifier: type = value;
+
+- eof -</pre></body>
+</html>

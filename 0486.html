@@ -1,0 +1,40 @@
+<html>
+<head><title>Turbo Pascal Help - 0486</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0486</i></center></td>
+</tr></table>
+<pre>
+ $Y:  Symbol Reference Information Switch     (not in TPC and Turbo)
+ ---------------------------------------------------------------------
+Enables or disables generation of symbol reference information.
+
+   Syntax:        {$Y+} or {$Y-}
+   Default:       {$Y+}
+   Type:          Global
+   Menu Command:  Options|Compiler|<a href="010C.html">Symbol Information </a>
+
+Symbol reference information consists of tables that provide the line
+numbers of all declarations of and references to symbols in a module.
+
+This information is used by the ObjectBrowser.
+
+ The $Y+ State:
+The $Y+ state enables generation of symbol reference information.
+
+The symbol reference information for units is recorded in the .TPU, .TPP or
+.TPW file along with the unit's object code. Symbol reference information
+increases the size of the .TPU, .TPP or .TPW files, but does not affect the
+size or speed of the executable program.
+
+The $Y switch has no effect unless both the <a href="0475.html">$D</a> and <a href="047B.html">$L</a> switches are enabled.
+
+ The $Y- State:
+In the $Y- state, disables generation of symbol reference information.
+
+
+- eof -</pre></body>
+</html>

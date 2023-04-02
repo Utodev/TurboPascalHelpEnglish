@@ -1,0 +1,51 @@
+<html>
+<head><title>Turbo Pascal Help - 0475</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0475</i></center></td>
+</tr></table>
+<pre>
+ $D:  Debug Information Switch
+ -------------------------------
+Enables or disables the generation of debug information.
+   Syntax:        {$D+} or {$D-}
+   Default:       {$D+}
+   Type:          Global
+   Menu Command:  Options|Compiler|<a href="010A.html">Debug Information</a>
+
+ Remarks:
+Debug information consists of a line-number table for each procedure. The
+table maps object-code addresses into source-text line numbers.
+
+When Debug Information is On for a given program or unit, you can use
+Borland's stand-alone or integrated debuggers to single-step and set
+breakpoints in that module.
+
+Then, when a run-time error occurs in a unit or program compiled with {$D+},
+Turbor Pascal can automatically go to the statement that caused the error.
+See Search|<a href="003B.html">Find Error</a> for information about this automatic error tracking.
+
+The Options|Linker|<a href="0118.html">Map File</a> radio buttons produce complete line information
+for a given module only if you've compiled that module in the $D+ state.
+
+For units, the debug information is recorded in the .TPW, .TPP, or .TPU
+file, along with the unit's object code.
+
+Debug information increases the size of .TPW files and takes up additional
+room when you compile programs that use the unit, but it does not affect the
+size or speed of the executable program.
+
+The Debug Information switch is usually used with the <a href="047B.html">Local Symbols</a> switch.
+
+NOTE: If you want to use Turbo Debugger for Windows to debug your program,
+turn on Options|Linker|<a href="02F9.html">Debug Info in Exe</a> or set these options:
+
+ Compile|Destination to Disk
+ Options|Debugger, Debugging to Standalone
+
+
+- eof -</pre></body>
+</html>

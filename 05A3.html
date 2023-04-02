@@ -1,0 +1,62 @@
+<html>
+<head><title>Turbo Pascal Help - 05A3</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05A3</i></center></td>
+</tr></table>
+<pre>
+ IOResult (function)
+ --------------------
+Returns the status of the last I/O operation performed.
+
+ Declaration:
+ function IOResult: Integer;
+
+ Target:
+Windows, Real, Protected
+
+ Return Value:
+0 if successful.
+
+ Remarks:
+I/O-checking must be off--{$I-}--to trap I/O errors using IOResult. If an
+I/O error occurs and I/O-checking is off, all subsequent I/O operations are
+ignored until a call is made to IOResult. A call to IOResult clears the
+internal error flag.
+
+ Remarks:
+A call to IOResult clears its internal error flag. I/O-checking must be off
+<a href="0479.html">{$I-}.</a>
+
+ Sample Code :
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{IOResult.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the IOResult function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>var</b></font> F: <font color="#ffffff"><b>file</b></font> <font color="#ffffff"><b>of</b></font> Byte;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#c0c0c0">{ Get file name command line }</font>
+  Assign(F, ParamStr(<font color="#00ffff">1</font>));
+  <font color="#c0c0c0">{$I-}</font>
+  Reset(F);
+  <font color="#c0c0c0">{$I+}</font>
+  <font color="#ffffff"><b>if</b></font> IOResult = <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Writeln(<font color="#00ffff">'File size in bytes: '</font>, FileSize(F))
+  <font color="#ffffff"><b>else</b></font>
+    Writeln(<font color="#00ffff">'File not found'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

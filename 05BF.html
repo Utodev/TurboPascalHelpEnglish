@@ -1,0 +1,52 @@
+<html>
+<head><title>Turbo Pascal Help - 05BF</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05BF</i></center></td>
+</tr></table>
+<pre>
+  Typed constants
+ -----------------
+ Typed constants are similar to initialized variables (variables whose
+ values are defined on entry to their block).
+
+ Unlike an <a href="05E5.html">untyped constant</a>, the declaration of a typed constant specifies
+ both the <a href="061D.html">type</a> and the value of the constant.
+
+ Typed constants can be used exactly like <a href="05BD.html">variables</a> of the same type, and
+ can appear on the left side in an <a href="05CA.html">assignment statement</a>.
+
+ Note: Typed constants are initialized only once--at the beginning of a
+ program. For each entry to a procedure or function, the locally-declared
+ typed constants are not reinitialized.
+
+ In addition to a normal constant expression, the value of a typed constant
+ can be specified with a <a href="05C9.html">constant address expression</a>.
+
+ Examples:
+ (* Typed Constant Declarations *)
+ type
+   Point = record X, Y: real end;
+ const
+   Minimum: Integer = 0;
+   Maximum: Integer = 9999;
+   Factorial: array[1..7] of Integer = (1, 2, 6, 24, 120, 720, 5040);
+   HexDigits: set of Char = ['0'..'9', 'A'..'Z', 'a'..'z'];
+   Origin: Point = (X: 0.0; Y: 0.0);
+
+ See Also:
+ <a href="05C0.html">Array-type constants</a>
+ <a href="05C1.html">Object-type constants</a>
+ <a href="05C2.html">Pointer-type constants</a>
+ <a href="05C3.html">Procedural-type constants</a>
+ <a href="05C4.html">Record-type constants</a>
+ <a href="05C5.html">Set-type constants</a>
+ <a href="05C6.html">Simple-type constants</a>
+ <a href="05C7.html">String-type constants</a>
+ <a href="05C8.html">Structured-type constants</a>
+
+- eof -</pre></body>
+</html>

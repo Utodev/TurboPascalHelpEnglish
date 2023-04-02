@@ -1,0 +1,75 @@
+<html>
+<head><title>Turbo Pascal Help - 0511</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0511</i></center></td>
+</tr></table>
+<pre>
+ TextColor (procedure)     <a href="0694.html">(Crt unit)</a>
+ -------------------------------------
+Selects the foreground character color.
+
+ Declaration:
+ procedure TextColor(Color: Byte);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Color is an integer expression in the range 0..15, corresponding to one of
+the text color constants defined in Crt.
+
+There is a byte-type variable Crt--TextAttr--that is used to hold the
+current video attribute. TextColor sets bits 0-3 to Color. If Color is
+greater than 15, the blink bit (bit 7) is also set; otherwise, it is
+cleared.
+
+You can make characters blink by adding 128 to the color value. The Blink
+constant is defined for that purpose; in fact, for compatibility with Turbo
+Pascal 3.0, any Color value above 15 causes the characters to blink. The
+foreground of all characters subsequently written will be in the specified
+color.
+
+ See Also:
+ <a href="0597.html">HighVideo</a>
+ <a href="0499.html">LowVideo</a>
+ <a href="04A5.html">NormVideo</a>
+ <a href="0510.html">TextBackground</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{NormVid.PAS}</font>
+
+ <font color="#c0c0c0">{ Example for NormVideo, TextBackGround,
+   and TextColor }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+ <font color="#ffffff"><b>begin</b></font>
+   <font color="#c0c0c0">{ Green characters on black}</font>
+   TextColor(Green);
+   TextBackground(Black);
+   WriteLn(<font color="#00ffff">'Hey there!'</font>);
+   <font color="#c0c0c0">{ Blinking light-red characters }</font>
+   <font color="#c0c0c0">{ on gray }</font>
+   TextColor(LightRed+Blink);
+   TextBackground(LightGray);
+   WriteLn(<font color="#00ffff">'Hi there!'</font>);
+   <font color="#c0c0c0">{ Yellow characters on blue }</font>
+   TextColor(<font color="#00ffff">14</font>); <font color="#c0c0c0">{ Yellow = 14 }</font>
+   TextBackground(Blue);
+   WriteLn(<font color="#00ffff">'Ho there!'</font>);
+   NormVideo; <font color="#c0c0c0">{ Original attribute }</font>
+   WriteLn(<font color="#00ffff">'Back to normal...'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 061B</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>061B</i></center></td>
+</tr></table>
+<pre>
+ String types     (string: reserved word)
+ -----------------------------------------
+A string type variable is a sequence of <a href="05E4.html">characters</a> with a dynamic length,
+and a constant maximum size between 1 and 255.
+
+ Syntax:
+   string [ constant ]
+    OR
+   string
+
+ Remarks:
+A string type declared without a maximum size is given the size 255.
+
+String constants are written in quotes; for example:
+
+  - 'Turbo'
+  - 'That''s all'
+
+Two consecutive single quotes are used to indicate a single quote in a
+string.
+
+These <a href="05D1.html">operators</a> can be used with string type values:
+
+  +    =    &lt;&gt;    &lt;    &gt;    &lt;=    &gt;=
+
+The standard function <a href="0490.html">Length</a> returns the dynamic length of a string.
+
+ Example:
+ { String Type Definitions }
+   const
+     LineLen = 79;
+   type
+     Name = string[25];
+     Line = string[LineLen];
+
+ See Also:
+  <a href="05C7.html">String-type constants</a>
+
+- eof -</pre></body>
+</html>

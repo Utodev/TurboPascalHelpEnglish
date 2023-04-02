@@ -1,0 +1,47 @@
+<html>
+<head><title>Turbo Pascal Help - 0527</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0527</i></center></td>
+</tr></table>
+<pre>
+ ArcTan (function)
+ ------------------
+Returns the arctangent of the argument.
+
+ Declaration:
+ function ArcTan(X: Real): Real;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Turbo Pascal does not have a Tan function, but tangents can be calculated
+with the expression:
+<a href="04F0.html">Sin</a>(x) / <a href="053C.html">Cos</a>(x)
+
+  ArcSin(x) = ArcTan (x/sqrt (1-sqr (x)))
+  ArcCos(x) = ArcTan (sqrt (1-sqr (x)) /x)
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Arctan.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the ArcTan function.}</font>
+
+ <font color="#ffffff"><b>var</b></font>
+  R: Real;
+ <font color="#ffffff"><b>begin</b></font>
+  R := ArcTan(Pi);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

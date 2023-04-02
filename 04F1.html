@@ -1,0 +1,58 @@
+<html>
+<head><title>Turbo Pascal Help - 04F1</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04F1</i></center></td>
+</tr></table>
+<pre>
+ SizeOf (function)
+ ------------------
+Returns the number of bytes occupied by the argument.
+
+ Declaration:
+ function SizeOf: Integer;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+When applied to an instance of an <a href="05F1.html">object</a> type that has a virtual method
+table (VMT), SizeOf returns the size stored in the VMT.
+
+ See Also:
+ <a href="05E7.html">constructor</a>
+ <a href="0621.html">virtual</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Sizeof.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the SizeOf function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>type</b></font>
+  CustRec = <font color="#ffffff"><b>record</b></font>
+    Name: <font color="#ffffff"><b>string</b></font>[<font color="#00ffff">30</font>];
+    Phone: <font color="#ffffff"><b>string</b></font>[<font color="#00ffff">14</font>];
+  <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>var</b></font>
+  P: ^CustRec;
+ <font color="#ffffff"><b>begin</b></font>
+  GetMem(P, SizeOf(CustRec));
+  Writeln (<font color="#00ffff">'The size of the record is '</font>, SizeOf(CustRec));
+  FreeMem (P, SizeOf(CustRec));
+  Readln;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head><title>Turbo Pascal Help - 06A9</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06A9</i></center></td>
+</tr></table>
+<pre>
+ WindowTitle (variable)     (WinCrt unit)
+ -----------------------------------------
+Determines the title of the CRT window.
+
+ var WindowTitle: array[0..79] of Char;
+
+The default value is the full path of the program's .EXE file.
+
+You can change the title by storing a new string in WindowTitle before the
+CRT window is created.
+
+Here is an example:
+
+ StrCopy(WindowTitle, 'Hello World');
+- eof -</pre></body>
+</html>

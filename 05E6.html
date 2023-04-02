@@ -1,0 +1,35 @@
+<html>
+<head><title>Turbo Pascal Help - 05E6</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05E6</i></center></td>
+</tr></table>
+<pre>
+ Constant expressions
+ -----------------------
+A constant expression is an expression that can be evaluated by the compiler
+without actually executing the program.
+
+Because the compiler must be able to completely evaluate a constant
+expression at compile time, these constructs are not allowed in constant
+expressions:
+  - references to variables and typed constants (except in
+    <a href="05C9.html">constant address expressions)</a>
+  - the <a href="05DA.html">@ operator</a> (except in constant address expressions)
+  - function calls (except the following)
+
+These standard functions can be used in constant expressions:
+
+   <a href="0523.html">Abs</a>        <a href="0531.html">Chr</a>
+   <a href="0595.html">Hi</a>         <a href="0490.html">Length</a>
+   <a href="0495.html">Lo</a>         <a href="04A7.html">Odd</a>
+   <a href="04A9.html">Ord</a>        <a href="04B9.html">Pred</a>
+   <a href="04BA.html">Ptr</a>        <a href="04CD.html">Round</a>
+   <a href="04F1.html">SizeOf</a>     <a href="050D.html">Succ</a>
+   <a href="050E.html">Swap</a>       <a href="0516.html">Trunc</a>
+
+- eof -</pre></body>
+</html>

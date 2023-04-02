@@ -1,0 +1,81 @@
+<html>
+<head><title>Turbo Pascal Help - 0514</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0514</i></center></td>
+</tr></table>
+<pre>
+ TextWidth (function)     <a href="064F.html">(Graph unit)</a>
+ --------------------------------------
+Returns the width of a string in pixels.
+
+ Declaration:
+ function TextWidth(TextString: string): Word;
+
+ Target:
+Real, Protected
+
+ Remarks:
+Takes the string length, current font size, and multiplication factor, and
+determines the width of TextString in pixels. This is useful for computing
+view-port widths, sizing a title to make it fit on a graph or in a box, and
+so on.
+
+For example, with the 8x8 bit-mapped font and a multiplication factor of 1
+(set by SetTextStyle), the string Turbo is 40 pixels wide.
+
+It is important to use TextWidth to compute the width of strings, instead
+of doing the computation manually. In that way, no source code
+modifications have to be made when different fonts are selected.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="04AA.html">OutText</a>
+ <a href="04AB.html">OutTextXY</a>
+ <a href="04E8.html">SetTextStyle</a>
+ <a href="0512.html">TextHeight</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Txtwidth.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the TextWidth function.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  Row: Integer;
+  Title: <font color="#ffffff"><b>String</b></font>;
+  Size: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  Row := <font color="#00ffff">0</font>;
+  Title := <font color="#00ffff">'Turbo Graphics'</font>;
+  Size := <font color="#00ffff">1</font>;
+  <font color="#ffffff"><b>while</b></font> TextWidth(Title) < GetMaxX <font color="#ffffff"><b>do</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    OutTextXY(<font color="#00ffff">0</font>, Row, Title);
+    Inc(Row, TextHeight(<font color="#00ffff">'M'</font>));
+    Inc(Size);
+    SetTextStyle(DefaultFont, HorizDir, Size);
+  <font color="#ffffff"><b>end</b></font>;
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

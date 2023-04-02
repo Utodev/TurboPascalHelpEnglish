@@ -1,0 +1,74 @@
+<html>
+<head><title>Turbo Pascal Help - 04A2</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04A2</i></center></td>
+</tr></table>
+<pre>
+ MoveTo (procedure)     <a href="064F.html">(Graph unit)</a>
+ ------------------------------------
+Moves the current pointer (CP) to (X,Y).
+
+ Declaration:
+ procedure MoveTo(X, Y: Integer);
+
+ Target:
+Real, Protected
+
+ Remarks:
+The CP is similar to a text mode cursor except that the CP is not visible.
+The following routines move the CP:
+
+ ClearDevice
+ ClearViewPort
+ GraphDefaults
+ InitGraph
+ LineRel
+ LineTo
+ MoveRel
+ MoveTo
+ OutText
+ SetGraphMode
+ SetViewPort
+
+If a viewport is active, the CP will be viewport-relative (the X and Y
+values will be added to the viewport's X1 and Y1 values). The CP is never
+clipped at the current viewport's boundaries.
+
+ See Also:
+ <a href="0581.html">GetMaxX</a>
+ <a href="0582.html">GetMaxY</a>
+ <a href="058D.html">GetX</a>
+ <a href="058E.html">GetY</a>
+ <a href="04A1.html">MoveRel</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Moveto.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the MoveTo procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  MoveTo(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>); <font color="#c0c0c0">{ Upper left corner of viewport }</font>
+  LineTo(GetMaxX, GetMaxY);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

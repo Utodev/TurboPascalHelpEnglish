@@ -1,0 +1,63 @@
+<html>
+<head><title>Turbo Pascal Help - 0563</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0563</i></center></td>
+</tr></table>
+<pre>
+ FloodFill (procedure)     <a href="064F.html">(Graph unit)</a>
+ ---------------------------------------
+Fills a bounded region with the current fill pattern and color.
+
+ Declaration:
+ procedure FloodFill(X, Y: Integer; Border: Word);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Fills an enclosed area on bitmap devices. (X, Y) is a seed within the
+enclosed area to be filled. The current fill pattern, as set by SetFillStyle
+or SetFillPattern, is used to flood the area bounded by Border color. If the
+seed point is within an enclosed area, then the inside will be filled. If
+the seed is outside the enclosed area, then the exterior will be filled.
+
+If an error occurs while flooding a region, GraphResult returns a value of
+grNoFloodMem
+
+ See Also:
+ <a href="04DE.html">SetFillPattern</a>
+ <a href="04DF.html">SetFillStyle</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{FloodFil.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the FloodFill procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  SetColor(GetMaxColor);
+  Circle(<font color="#00ffff">50</font>, <font color="#00ffff">50</font>, <font color="#00ffff">20</font>);
+  FloodFill(<font color="#00ffff">50</font>, <font color="#00ffff">50</font>, GetMaxColor);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,67 @@
+<html>
+<head><title>Turbo Pascal Help - 058C</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>058C</i></center></td>
+</tr></table>
+<pre>
+ GetViewSettings (procedure)     <a href="064F.html">(Graph unit)</a>
+ ---------------------------------------------
+Gets the current viewport and clipping parameters.
+
+ Declaration:
+ procedure GetViewSettings(var ViewPort: ViewPortType);
+
+ Target:
+Real, Protected
+
+ Remarks:
+GetViewSettings returns a variable of ViewPortType.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0534.html">ClearViewPort</a>
+ <a href="04ED.html">SetViewPort</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getvwset.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetViewSettings procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  ViewPort: ViewPortType;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  GetViewSettings(ViewPort);
+  <font color="#ffffff"><b>with</b></font> ViewPort <font color="#ffffff"><b>do</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    Rectangle(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, X2 - X1, Y2 - Y1);
+    <font color="#ffffff"><b>if</b></font> Clip <font color="#ffffff"><b>then</b></font>
+      OutText(<font color="#00ffff">'Clipping is active.'</font>)
+    <font color="#ffffff"><b>else</b></font>
+      OutText(<font color="#00ffff">'No clipping today.'</font>);
+  <font color="#ffffff"><b>end</b></font>;
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

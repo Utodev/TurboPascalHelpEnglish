@@ -1,0 +1,82 @@
+<html>
+<head><title>Turbo Pascal Help - 04E3</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04E3</i></center></td>
+</tr></table>
+<pre>
+ SetIntVec (procedure)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ -----------------------------------------------------
+Sets a specified interrupt vector to a specified address.
+
+ Declaration:
+ procedure SetIntVec(IntNo: Byte; Vector: Pointer);
+
+ Target:
+Windows
+
+ Remarks:
+IntNo specifies the interrupt vector number (0..255), and Vector specifies
+the address.
+
+Vector is often constructed with the @ operator to produce the address of
+an inter-rupt procedure. Assuming Int1BSave is a variable of type Pointer,
+and Int1BHandler is an interrupt procedure identifier, the following
+statement sequence installs a new interrupt $1B handler and later restores
+the original handler:
+
+ GetIntVec($1B, Int1BSave);
+  SetIntVec($1B, @@Int1BHandler);
+  .
+  .
+  .
+  SetIntVec($1B, Int1BSave);
+
+ Restrictions:
+In DOS protected mode and Windows standard and enhanced modes, SetIntVec
+sets the protected mode interrupt vector with the given interrupt vector
+number. SetIntVec cannot be used to modify real-mode interrupt vectors or
+protected-mode exception vectors.
+
+ See Also:
+ <a href="057D.html">GetIntVec</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{GetIntVc.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetIntVec and SetIntVec procedures.}</font>
+ <font color="#c0c0c0">{$C FIXED PRELOAD PERMANENT}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos, WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos, Crt;
+
+ <font color="#ffffff"><b>var</b></font>
+   Int1CSave : Pointer;
+ <font color="#c0c0c0">{$F+,S-,W-}</font>
+ <font color="#ffffff"><b>procedure</b></font> TimerHandler; <font color="#ffffff"><b>interrupt</b></font>;
+   <font color="#ffffff"><b>begin</b></font>
+     <font color="#c0c0c0">{ Timer ISR }</font>
+     <font color="#c0c0c0">{*** Refer to DDK and DPMI Specs for creating ISR's ***}</font>
+   <font color="#ffffff"><b>end</b></font>;
+ <font color="#c0c0c0">{$F-,S+}</font>
+ <font color="#ffffff"><b>begin</b></font>
+   GetIntVec(<font color="#00ffff">$1C</font>,Int1CSave);
+   SetIntVec(<font color="#00ffff">$1C</font>,Addr(TimerHandler));
+   writeln(<font color="#00ffff">'Press ANYKEY to exit'</font>);
+   <font color="#ffffff"><b>repeat</b></font> <font color="#ffffff"><b>until</b></font> Keypressed;
+   SetIntVec(<font color="#00ffff">$01C</font>,Int1CSave);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 0489</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0489</i></center></td>
+</tr></table>
+<pre>
+ $M:  Memory Allocation Sizes Directive
+ ----------------------------------------
+Specifies a program's memory allocation parameters.
+
+   Syntax:        $M StackSize, HeapSize
+   Defaults:      {$M stack size, local heap size}   (Windows)
+                  {$M stack size}                    (Protected mode)
+                  {$M stack size, heapmin, heapmax}  (Real mode)
+   Type:          Global
+   Menu Command:  Options|Compiler|<a href="005C.html">Memory Sizes</a>
+
+ Remarks:
+The $M directive specifies an application or library's memory allocation
+parameters. StackSize must be an integer number in the range 1,024 to 65,520
+which specifies the size of the stack segment.
+
+For DOS real mode, HeapMin and HeapMax specify the minimum and maximum sizes
+of the heap, respectively. HeapMin must be in the range 0 to 655360, and
+HeapMax must be in the range HeapMin to 655360.
+
+For Windows, HeapSize specifies the size of the local heap area in the data
+segment. HeapSize must be an integer number in the range 0 to 65520.
+The stack, local heap, and global data of a program must be less than 64K.
+
+NOTE: The $M directive has no effect when used in a unit. The StackSize
+parameter in a $M directive is ignored in a library (a library always uses
+the stack of the applications that call it).
+
+ See Also:
+ <a href="0111.html">StackSize</a>
+ <a href="0116.html">HeapSize</a>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,37 @@
+<html>
+<head><title>Turbo Pascal Help - 0462</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0462</i></center></td>
+</tr></table>
+<pre>
+ Parameter Directives
+ ----------------------
+Parameter directives specify parameters that affect how a program is
+compiled.
+
+   Parameter Directive   | Meaning
+   =========================================================================
+   <a href="048A.html">$C Attribute</a>          | Code Segment Attribute (Windows and Protected
+                         | mode)
+   <a href="048B.html">$D Text</a>               | Description (Windows and Protected mode)
+   <a href="0487.html">$I FileName</a>           | Include File
+   <a href="048E.html">$G UnitName</a>           | Group Unit Segments (Windows and Protected mode)
+   <a href="0488.html">$L FileName</a>           | Link Object File
+   <a href="0489.html">$M StackSize,HeapSize</a> | Memory Allocation Sizes
+   <a href="048C.html">$O UnitName</a>           | Overlay Unit Name (Real mode only)
+   <a href="048D.html">$R FileName</a>           | Resource File (Windows and Protected mode)
+   <a href="048F.html">$S SegSize</a>            | Segment Size Preference (Windows and Protected
+                         | mode)
+
+They must have at least one blank space between the directive name and its
+parameters. For example:
+
+ {$I TYPES.INC}
+ {$O MOONUNIT}
+
+- eof -</pre></body>
+</html>

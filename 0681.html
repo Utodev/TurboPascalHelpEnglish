@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 0681</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0681</i></center></td>
+</tr></table>
+<pre>
+ ErrorAddr, ExitCode, and ExitProc (variables)     <a href="0673.html">(System unit)</a>
+ ----------------------------------------------------------------
+ExitProc, ExitCode, and ErrorAddr variables are used to implement exit
+procedures.
+
+The ExitProc pointer variable allows you to install an exit procedure.The
+exit procedure always gets called as part of a program's termination.
+
+An exit procedure takes no parameters and must be compiled with a far
+procedure directive to force it to use the far call model.
+
+When implemented properly, an exit procedure actually becomes part of a
+chain of exit procedures.The procedures on the exit chain get executed in
+reverse order of installation.
+
+To keep the exit chain intact, you must save the current contents of
+ExitProc before changing it to the address of your own exit procedure.
+
+The first statement in your exit procedure must reinstall the saved value
+of ExitProc.
+
+An exit procedure may learn the cause of termination by examining the
+ExitCode integer variable and the ErrorAddr pointer variable.
+
+ - In case of normal termination, ExitCode is 0 and ErrorAddr is nil.
+ - In case of termination through a call to <a href="0594.html">Halt</a>, ExitCode contains the
+   value passed to Halt and ErrorAddr is nil.
+ - In case of termination due to a run-time error, ExitCode contains the
+   error code and ErrorAddr contains the address of the statement in error.
+
+The last exit procedure (the one installed by the run-time library) closes
+the Input and Output files. If ErrorAddr is not nil, it outputs a run-time
+error message.
+
+Once the run-time library has called all exit procedures, it returns to
+Windows, passing as a return code the value stored in ExitCode.
+
+
+- eof -</pre></body>
+</html>

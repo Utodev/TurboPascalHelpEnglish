@@ -1,0 +1,87 @@
+<html>
+<head><title>Turbo Pascal Help - 05C0</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05C0</i></center></td>
+</tr></table>
+<pre>
+  Array-type constants
+ ----------------------
+The declaration of an array-type constant specifies the values of the
+components.
+
+The component type of an array-type constant can be any type except a
+<a href="05F4.html">file type</a>.
+
+ Example:
+ type
+   Status = (Active, Passive, Waiting);
+   StatusMap = array[Status] of string[7];
+ const
+   StatStr: StatusMap = ('Active', 'Passive', 'Waiting');
+
+ { These are the components of StatStr:
+
+   StatStr[Active] = 'Active'
+   StatStr[Passive] = 'Passive'
+   StatStr[Waiting] = 'Waiting' }
+
+ Character arrays:
+Packed string-type constants (character arrays) can be specified both as
+single characters and as strings. For example, this definition:
+
+   const
+     Digits: array[0..9] of Char = ('0', '1', '2', '3', '4', '5',
+       '6', '7', '8', '9');
+
+can be expressed more conveniently as:
+
+   const
+     Digits: array[0..9] of Char = '0123456789';
+
+ Zero-based character arrays:
+A zero-based character array is one in which the first element is 0 and the
+last element is a positive non-zero integer. For example:
+
+   array[0..X] of Char
+
+When you enable the extended syntax (with a <a href="0485.html">{$X+} compiler directive</a>), a
+zero-based character array can be initialized with a string that is shorter
+than the declared length of the array. For example:
+
+   const
+     FileName = array[0..79] of Char = 'TEST.PAS';
+
+When the string is shorter than the array's length, the remaining characters
+are set to NULL (0) and the array will effectively contain a
+ <a href="0672.html">null-terminated string.</a>
+
+ Multidimensional array constants:
+Multidimensional array constants are defined by enclosing the constants of
+each dimension in separate sets of parentheses, separated by commas.
+
+The innermost constants correspond to the rightmost dimensions.
+
+For example, this declaration:
+
+   type
+     Cube = array[0..1, 0..1, 0..1] of Integer;
+   const
+     Maze: Cube = (((0, 1), (2, 3)), ((4, 5), (6, 7)));
+
+provides an initialized array Maze with the following values:
+
+   Maze[0, 0, 0] = 0
+   Maze[0, 0, 1] = 1
+   Maze[0, 1, 0] = 2
+   Maze[0, 1, 1] = 3
+   Maze[1, 0, 0] = 4
+   Maze[1, 0, 1] = 5
+   Maze[1, 1, 0] = 6
+   Maze[1, 1, 1] = 7
+
+- eof -</pre></body>
+</html>

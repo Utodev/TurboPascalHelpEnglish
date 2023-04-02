@@ -1,0 +1,37 @@
+<html>
+<head><title>Turbo Pascal Help - 063E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>063E</i></center></td>
+</tr></table>
+<pre>
+  $CONFIG
+ ------------
+This macro is the complete file name of the current configuration file.
+
+This is a null string if no configuration file is defined. This macro is
+intended for use by programs that access or modify the configuration file.
+
+Besides providing the name of the file, this macro causes the current
+configuration to be saved (if modified) and reloaded when control returns
+to the IDE.
+
+Use this macro with the <a href="062A.html">.TEML</a> compiler. With it, you can edit the TEML
+script file in an editor and then invoke <a href="0624.html">TEMC</a> to process the script.
+
+When the configuration file is reloaded, your new or modified editor
+commands will be in effect.
+
+When installing TEMC as a transfer item, use the following command line:
+
+ $EDNAME
+ $CONFIG
+
+This assumes the current edit window contains the TEML script file to be
+processed.
+
+- eof -</pre></body>
+</html>

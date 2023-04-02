@@ -1,0 +1,47 @@
+<html>
+<head><title>Turbo Pascal Help - 059C</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>059C</i></center></td>
+</tr></table>
+<pre>
+ InitWinCrt (procedure)     (WinCrt unit)
+ -----------------------------------------
+Creates the CRT window if it has not already been created.
+
+ Declaration:
+ procedure InitWinCrt;
+
+ Target:
+Windows
+
+ Remarks:
+InitWinCrt is automatically called if you have used Read, Readln, Write, or
+Writeln in a file that has been assigned to the CRT.
+InitWinCrt uses the <a href="069A.html">WindowOrg</a>, <a href="069B.html">WindowSize</a>, and <a href="069C.html">ScreenSize</a> constants, and the
+<a href="06A9.html">WindowTitle</a> variable to determine the characteristics of the CRT window.
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{InitWCrt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the InitWinCrt procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Strings, WinCrt;
+
+ <font color="#ffffff"><b>begin</b></font>
+   StrCopy(WindowTitle,<font color="#00ffff">'InitWinCRT created CRT Window'</font>);
+   Writeln(<font color="#00ffff">'This is my manually created CRT window.'</font>);
+   Writeln(<font color="#00ffff">'Notice the title.'</font>);
+   InitWinCrt;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

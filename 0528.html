@@ -1,0 +1,87 @@
+<html>
+<head><title>Turbo Pascal Help - 0528</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0528</i></center></td>
+</tr></table>
+<pre>
+ Assign (procedure)
+ -------------------
+Assigns the name of an external file to a file variable.
+
+ Declaration:
+ procedure Assign(var f; String);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+F is a file variable of any file type, and String is a string-type
+expression or an expression of type PChar if extended syntax is enabled. All
+further operations on F operate on the external file with the file name
+Name.
+
+After a call to Assign, the association between F and the external file
+continues to exist until another Assign is done on F.
+
+A file name consists of a path of zero or more directory names separated by
+backslashes, followed by the actual file name:
+
+  Drive:\DirName\...\DirName\FileName
+
+If the path begins with a backslash, it starts in the root directory;
+otherwise, it starts in the current directory.
+
+Drive is a disk drive identifier (A-Z). If Drive and the colon are omitted,
+the default drive is used. \DirName\...\DirName is the root directory and
+subdirectory path to the file name. FileName consists of a name of up to
+eight characters, optionally followed by a period and an extension of up to
+three characters. The maximum length of the entire file name is 79
+characters.
+
+A special case arises when String is an empty string; that is, when Length
+(Name) is zero. In that case, F becomes associated with the standard input
+or standard output file. These special files allow a program to utilize the
+I/O redirection feature of the DOS operating system.
+
+If assigned an empty name, after a call to Reset (F), F refers to the
+standard input file, and after a call to Rewrite (F), F refers to the
+standard output file.
+
+ Restrictions:
+Cannot be used on an open file.
+
+ See Also:
+ <a href="0525.html">Append</a>
+ <a href="0535.html">Close</a>
+ <a href="04C9.html">Reset</a>
+ <a href="04CB.html">Rewrite</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Assign.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Assign procedure. Try redirecting this program from
+    DOS to PRN to disk file, etc.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>var</b></font> F: Text;
+ <font color="#ffffff"><b>begin</b></font>
+   Assign(F, <font color="#00ffff">''</font>);  <font color="#c0c0c0">{ Standard output }</font>
+   Rewrite(F);
+   Writeln(F, <font color="#00ffff">'standard output...'</font>);
+   Close(F);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

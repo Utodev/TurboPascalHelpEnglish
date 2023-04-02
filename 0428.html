@@ -1,0 +1,59 @@
+<html>
+<head><title>Turbo Pascal Help - 0428</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0428</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler String Constants
+ ------------------------------------
+In built-in assembler statements, string constants must be enclosed in
+single or double quotes.
+
+Two consecutive quotes of the same type as the enclosing quotes count as
+only one character.
+
+String constants of any length are allowed in DB directives, and cause
+allocation of a sequence of bytes containing the ASCII values of the
+characters in the string.
+
+When not in a DB directive, a string constant can be no longer than four
+characters, and denotes a numeric value that can participate in an
+expression.
+
+The numeric value of a string constant is calculated as
+
+ Ord(Ch1)
+ + Ord(Ch2) shl  8
+   + Ord(Ch3) shl 16
+     + Ord(Ch4) shl 24
+
+where
+  - Ch1 is the rightmost (last) character
+  - Ch4 is the leftmost (first) character
+
+If the string is shorter than four characters, the leftmost (first)
+character(s) are assumed to be 0 (zero).
+
+Here are some examples of string constants and their corresponding numeric
+values:
+
+   String   | Numeric
+   Constant | Value
+   ====================
+   'a'      | 00000061H
+   'ba'     | 00006261H
+   'cba'    | 00636261H
+   'dcba'   | 64636261H
+   'a '     | 00006120H
+   '   a'   | 20202061H
+   'a'*2    | 000000E2H
+   'a'-'A'  | 00000020H
+   NOT 'a'  | FFFFFF9EH
+
+
+- eof -</pre></body>
+</html>

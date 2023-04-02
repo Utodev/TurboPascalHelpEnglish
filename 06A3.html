@@ -1,0 +1,34 @@
+<html>
+<head><title>Turbo Pascal Help - 06A3</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06A3</i></center></td>
+</tr></table>
+<pre>
+ CheckBreak (variable)     (WinCrt unit) and <a href="0694.html">(Crt unit)</a>
+ -------------------------------------------------------
+Controls user termination of an application using the CRT window.
+
+ const CheckBreak: Boolean = True;
+
+When CheckBreak is True, the user can terminate the application at any time
+by
+ - choosing the Close command on the CRT window's Control menu
+ - double-clicking the window's Control-menu box
+ - pressing Alt+F4
+   pressing Ctrl-Break
+
+The user can also press Ctrl+C or Ctrl+Break at any time to halt the
+application and force the CRT window into its inactive state.
+
+All of these features are disabled when CheckBreak is False.
+
+At run time, Crt stores the old Ctrl-Break interrupt vector, $1B, in a
+global pointer called SaveInt1B.
+
+
+- eof -</pre></body>
+</html>

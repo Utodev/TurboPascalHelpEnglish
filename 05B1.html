@@ -1,0 +1,32 @@
+<html>
+<head><title>Turbo Pascal Help - 05B1</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05B1</i></center></td>
+</tr></table>
+<pre>
+ Memory Regions Where Segments Are Located
+ ------------------------------------------
+ Memory Region                   | Contents
+ ========================================================================
+ 0000:0000 - 0000:03FF           | Interrupt vector table
+ 0000:0400 - 0000:04FF           | BIOS data area
+ 0000:0500 - Turbo Pascal        | MS-DOS/TSRs
+ Turbo Pascal - User Program PSP | Turbo Pascal
+ User Program PSP - UserProgram  | Process PSP
+ User Program - Top of RAM       | Name of a static user variable if its
+                                 | address falls inside the memory
+                                 | allocated to the variable; otherwise
+                                 | nothing
+ A000:0000 - AFFF:FFFF           | EGA Video RAM
+ B000:0000 - B7FF:FFFF           | Monochrome Display RAM
+ B800:0000 - BFFF:FFFF           | Color Display RAM
+ C000:0000 - EFFF:FFFF           | EMS Pages/Adaptor BIOS ROMs
+ F000:0000 - FFFF:FFFF           | BIOS ROMs
+
+
+- eof -</pre></body>
+</html>

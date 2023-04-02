@@ -1,0 +1,39 @@
+<html>
+<head><title>Turbo Pascal Help - 06A1</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06A1</i></center></td>
+</tr></table>
+<pre>
+  Constants Used as Parameters to TextMode <a href="0694.html">(Crt unit)</a>
+ -----------------------------------------------------
+
+ Constant | Value | Mode             | Adapter
+ ==================================================
+ BW40     |   0   | 40x25 B/W        |   CGA
+ CO40     |   1   | 40x25 Color      |   CGA
+ BW80     |   2   | 80x25 B/W        |   CGA
+ CO80     |   3   | 80x25 Color      |   CGA
+ Mono     |   7   | 80x25 B/W on MDA |   HGC
+ Font8x8  |  256  | 43-/50-line mode |   EGA/VGA
+
+Mode constants for 3.0 compatibility
+    C40  = CO40;
+    C80  = CO80;
+
+BW40, CO40, BW80, and CO80 represent the four color text modes supported by
+the IBM PC Color/Graphics Adapter (CGA).
+
+Mono represents the single black-and-white text mode supported by the IBM
+PC Monochrome Adapter.
+
+After you use graphics, <a href="06A8.html">LastMode</a> returns to the last active text mode.
+
+ See Also:
+ <a href="0694.html">CRT.TPU</a>
+
+- eof -</pre></body>
+</html>

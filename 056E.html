@@ -1,0 +1,63 @@
+<html>
+<head><title>Turbo Pascal Help - 056E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>056E</i></center></td>
+</tr></table>
+<pre>
+ GetCBreak (procedure)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ -----------------------------------------------------
+Returns the state of Ctrl-Break checking in DOS.
+
+ Target:
+Windows, Real, Protected
+
+ Declaration:
+ procedure GetCBreak(var Break: Boolean);
+
+ Remarks:
+GetCBreak sets the value of Break depending on the state of Ctrl+Break
+ checking in DOS. When off (False), DOS only checks for Ctrl+Break during I/O
+ to console, printer, or communication devices. When on (True), checks are
+made at every system call.
+
+ See Also:
+ <a href="04D9.html">SetCBreak</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{GetCBrk.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetCBreak and SetCBreak procedures.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos, WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>const</b></font>
+   OffOn : <font color="#ffffff"><b>array</b></font> [Boolean] <font color="#ffffff"><b>of</b></font> <font color="#ffffff"><b>String</b></font>[<font color="#00ffff">3</font>] =
+     (<font color="#00ffff">'off'</font>,<font color="#00ffff">'on'</font>);
+ <font color="#ffffff"><b>var</b></font>
+   cb : Boolean;
+ <font color="#ffffff"><b>begin</b></font>
+   GetCBreak(cb);
+   Writeln(<font color="#00ffff">'Control-Break checking is '</font>,
+           OffOn[cb]);
+   cb := <font color="#ffffff"><b>not</b></font>(cb);
+   Writeln(<font color="#00ffff">'Turning Control-Break checking '</font>,
+           OffOn[cb]);
+   SetCBreak(cb);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

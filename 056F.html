@@ -1,0 +1,68 @@
+<html>
+<head><title>Turbo Pascal Help - 056F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>056F</i></center></td>
+</tr></table>
+<pre>
+ GetColor (function)     <a href="064F.html">(Graph unit)</a>
+ -------------------------------------
+Returns the current drawing color.
+
+ Declaration:
+ function GetColor: Word;
+
+ Target:
+Real, Protected
+
+ Remarks:
+Drawing colors range from 0 to 15, depending on the current graphics driver
+and current graphics mode.
+
+ See Also:
+ <a href="056D.html">GetBkColor</a>
+ <a href="0586.html">GetPalette</a>
+ <a href="059B.html">InitGraph</a>
+ <a href="04D6.html">SetAllPalette</a>
+ <a href="04DA.html">SetColor</a>
+ <a href="04E5.html">SetPalette</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getcolor.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetColor function.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph, Crt;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  Color: Word;
+  Pal: PaletteType;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  Randomize;
+  GetPalette(Pal);
+  <font color="#ffffff"><b>repeat</b></font>
+    Color := Succ(GetColor);
+    <font color="#ffffff"><b>if</b></font> Color > Pal.Size - <font color="#00ffff">1</font> <font color="#ffffff"><b>then</b></font>
+      Color := <font color="#00ffff">0</font>;
+    SetColor(Color);
+    LineTo(Random(GetMaxX), Random(GetMaxY));
+  <font color="#ffffff"><b>until</b></font> KeyPressed;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

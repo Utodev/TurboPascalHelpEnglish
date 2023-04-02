@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 048F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>048F</i></center></td>
+</tr></table>
+<pre>
+ $S  Segment Size Preference Directive     (Windows and Protected mode)
+ ------------------------------------------------------------------------
+Specifies the preferred size of code segments for grouped units.
+
+   Syntax:        {$S SegSize}
+   Default:       {$S 16384}
+   Type:          Global
+
+ Target:
+Windows and Protected mode
+
+ Remarks:
+The $S parameter directive is only valid in a main program or library. The
+directive specifies the preferred size of code segments for grouped units.
+The specified size must be in the range 0..65,535. Units that exceed the
+specified size are placed in their own code segments.
+
+When grouping units, the linker puts units with the same code segment
+attributes into the same code segment, up to the size specified. The limit
+also applies to groups specified by the $G directive.
+
+The $S directive never produces warnings or error messages. If a unit can't
+fit into a code segment with other units, it automatically gets a separate
+segment.
+
+Setting the preferred segment size to 0 guarantees that every unit goes in a
+separate code segment, which was the behavior in previous versions
+of the compiler.
+
+ See Also:
+ <a href="048E.html">$G</a>
+
+
+- eof -</pre></body>
+</html>

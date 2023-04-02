@@ -1,0 +1,31 @@
+<html>
+<head><title>Turbo Pascal Help - 05F0</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05F0</i></center></td>
+</tr></table>
+<pre>
+ far (reserved word)
+ ---------------------
+The far directive specifies the far call method, which calls instructions in
+another code segment.
+
+ Syntax:
+ procedure Name; far;
+
+ Remarks:
+Procedures declared in the <a href="0601.html">interface</a> section of a <a href="061E.html">unit</a> are far so they can
+be called from other units.
+
+The <a href="0477.html">$F compiler directive</a> can override the compiler's automatic call model
+selection. Procedures and functions declared in the {$F+} state are always
+far.
+
+ See Also:
+ <a href="0609.html">near</a>
+
+- eof -</pre></body>
+</html>

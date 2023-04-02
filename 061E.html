@@ -1,0 +1,75 @@
+<html>
+<head><title>Turbo Pascal Help - 061E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>061E</i></center></td>
+</tr></table>
+<pre>
+ unit (reserved word)
+ --------------------
+Units are the basis of modular programming in Borland Pascal. You use units
+to create libraries and to divide large programs into logically related
+modules.
+
+ Syntax:
+  unit identifier;  { Heading }
+
+ interface  { Public symbols }:
+  uses      { <a href="061F.html">Uses clause</a> }
+  const     { <a href="05E5.html">Constants</a> }
+  type      { <a href="061D.html">Types</a> }
+  var       { <a href="0620.html">Variables</a> }
+  procedure { <a href="0612.html">Procedures</a> }
+  function  { <a href="05F7.html">Functions</a> }
+
+
+ implementation   { Private symbols }:
+  uses            { <a href="061F.html">Uses clause</a> }
+  label           { <a href="0603.html">Labels</a> }
+  const           { <a href="05E5.html">Constants</a> }
+  type            { <a href="061D.html">Types</a> }
+  var             { <a href="0620.html">Variables</a> }
+  procedure       { <a href="0612.html">Procedures</a>}
+  function        { <a href="05F7.html">Functions</a> }
+  begin           { Initialization }
+  statement;      { <a href="061A.html">Statements</a> }
+    statement
+ end.
+
+These are the parts of a unit,:
+  - unit heading
+  - interface part
+  - implementation part
+  - initialization part
+
+ Unit heading:
+The unit heading specifies the unit's name, which you use when referring to
+the unit in a <a href="061F.html">uses</a> clause.
+
+ Interface part:
+The <a href="0601.html">interface part</a> declares constants, types, variables, procedures, and
+functions that are public (available to the users of the unit).
+
+Procedures and functions are listed only as headings in the interface part.
+The bodies of the procedures and functions are in the implementation part.
+
+ Implementation part:
+The <a href="05FB.html">implementation part</a> defines the bodies of all public procedures and
+functions.
+
+In addition, it declares constants, types, variables, procedures, and
+functions that are private and not available to the users of the unit.
+
+ Initialization part:
+The initialization part is the last part of a unit. It consists of either:
+  - the reserved word end (no initialization code),or
+  - a statement part to be executed in order to initialize the unit
+
+ See Also:
+ <a href="01A5.html">Standard units</a>
+
+- eof -</pre></body>
+</html>

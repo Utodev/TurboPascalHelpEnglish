@@ -1,0 +1,37 @@
+<html>
+<head><title>Turbo Pascal Help - 0474</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0474</i></center></td>
+</tr></table>
+<pre>
+ $B:  Boolean Evaluation Switch
+ --------------------------------
+Switches between the two different models of code generation for the AND and
+OR <a href="05D5.html">Boolean operators.</a>
+
+   Syntax:        {$B+} or {$B-}
+   Default:       {$B-}
+   Type:          Local
+   Menu Command:  Options|Compiler|<a href="0106.html">Boolean Evaluation</a>
+
+ The $B+ State:
+In the $B+ state, the compiler generates code for complete boolean
+expression evaluation.
+
+This means that every operand of a boolean expression built from the AND and
+OR operators is guaranteed to be evaluated, even when the result of the
+entire expression is already known.
+
+ The $B- State:
+In the $B- state, the compiler generates code for short-circuit
+boolean-expression evaluation.
+
+This means evaluation stops as soon as the result of the entire expression
+becomes evident.
+
+- eof -</pre></body>
+</html>

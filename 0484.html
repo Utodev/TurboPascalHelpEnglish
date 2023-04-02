@@ -1,0 +1,36 @@
+<html>
+<head><title>Turbo Pascal Help - 0484</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0484</i></center></td>
+</tr></table>
+<pre>
+ $W:  Windows Stack Frame Switch    (Windows only)
+ ---------------------------------------------------
+Generates special prolog and epilog code for far procedures and functions.
+
+   Syntax:        {$W+} or {$W-}
+   Default:       {$W+}
+   Type:          Local
+   Menu Command:  Options|Compiler|<a href="0100.html">Windows Stack Frame</a>
+
+ The $W+ State:
+In the $W+ state, the compiler generates special entry and exit code for far
+procedures and functions.
+
+This code enables the Windows real-mode memory manager to correctly identify
+far stack frames when it adjusts the call chain after moving a code or data
+segment.
+
+ The $W- State:
+In the $W- state, the compiler does not generate this special code.
+
+Disable this option if your program will run in Windows standard mode or
+Windows 386 enhanced mode only.
+
+
+- eof -</pre></body>
+</html>

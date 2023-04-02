@@ -1,0 +1,62 @@
+<html>
+<head><title>Turbo Pascal Help - 0550</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0550</i></center></td>
+</tr></table>
+<pre>
+ Eof (function)
+ ---------------
+Returns the end-of-file status.
+
+ Declaration:
+ Typed or untyped files: function Eof(var F): Boolean;
+ Text files: function Eof [ (var F: Text) ]: Boolean;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+F, if specified, is a text file variable. If F is omitted, the standard file
+variable Input is assumed. Eof(F) returns True if the current file position
+is beyond the last character of the file or if the file contains no
+ components; otherwise, Eof(F) returns False.
+
+With {$I-}, IOResult returns 0 if the operation was successful; otherwise,
+it returns a nonzero error code.
+
+ See Also:
+ <a href="0551.html">Eoln</a>
+ <a href="04D2.html">SeekEof</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Eof.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Eof, Read, and Write functions (text files).}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt, WinDos; }</font>
+
+ <font color="#ffffff"><b>var</b></font>
+   F: Text;
+   Ch: Char;
+ <font color="#ffffff"><b>begin</b></font>
+   <font color="#c0c0c0">{ Get file to read from command line }</font>
+   Assign(F, ParamStr(<font color="#00ffff">1</font>));
+   Reset(F);
+   <font color="#ffffff"><b>while</b></font> <font color="#ffffff"><b>not</b></font> Eof(F) <font color="#ffffff"><b>do</b></font>
+   <font color="#ffffff"><b>begin</b></font>
+     Read(F, Ch);
+     Write(Ch);  <font color="#c0c0c0">{ Dump text file }</font>
+   <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

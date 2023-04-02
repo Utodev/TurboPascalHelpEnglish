@@ -1,0 +1,64 @@
+<html>
+<head><title>Turbo Pascal Help - 054B</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>054B</i></center></td>
+</tr></table>
+<pre>
+ DrawPoly (procedure)     <a href="064F.html">(Graph Unit)</a>
+ --------------------------------------
+Draws the outline of a polygon using the current line style and color.
+
+ Declaration:
+ procedure DrawPoly(NumPoints: Word; var PolyPoints);
+
+ Target:
+Real, Protected
+
+ Remarks:
+NumPoints specifies the number of coordinates in PolyPoints.
+A coordinate consists of two words, an X and a Y value.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0560.html">FillPoly</a>
+ <a href="057E.html">GetLineSettings</a>
+ <a href="0593.html">GraphResult</a>
+ <a href="04DA.html">SetColor</a>
+ <a href="04E4.html">SetLineStyle</a>
+ <a href="04EF.html">SetWriteMode</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Drawpoly.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Drawpoly function.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>const</b></font>
+  Triangle: <font color="#ffffff"><b>array</b></font>[<font color="#00ffff">1</font>..<font color="#00ffff">4</font>] <font color="#ffffff"><b>of</b></font> PointType = ((X: <font color="#00ffff">50</font>; Y: <font color="#00ffff">100</font>), (X: <font color="#00ffff">100</font>; Y:<font color="#00ffff">100</font>),
+    (X: <font color="#00ffff">150</font>; Y: <font color="#00ffff">150</font>), (X:  <font color="#00ffff">50</font>; Y: <font color="#00ffff">100</font>));
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  DrawPoly(SizeOf(Triangle) <font color="#ffffff"><b>div</b></font> SizeOf(PointType), Triangle);<font color="#c0c0c0">{ 4 }</font>
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

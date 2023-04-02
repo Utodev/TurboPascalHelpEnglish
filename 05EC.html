@@ -1,0 +1,34 @@
+<html>
+<head><title>Turbo Pascal Help - 05EC</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05EC</i></center></td>
+</tr></table>
+<pre>
+ export (procedure directive)
+ ------------------------------
+The export directive belongs to the same family of procedure directives as
+the near, far, inline, and interrupt directives.
+
+The export directive makes a procedure or function exportable by
+  - forcing the routine to use the far call model
+  - generating special procedure entry and exit code
+
+If procedures and functions are to be exported by a DLL, they must be
+compiled with the export procedure directive. This means that an export
+directive, if present, must be specified on the first introduction of a
+procedure or function; it cannot be supplied in the defining declaration
+of a forward declaration.
+
+The actual export of the procedure or function does not occur until the
+procedure or function is listed in a library's <a href="05ED.html">exports</a> clause.
+
+ See Also:
+  Dynamic-Linked Libraries
+  Using DLLs
+  Writing DLLs
+- eof -</pre></body>
+</html>

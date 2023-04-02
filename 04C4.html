@@ -1,0 +1,125 @@
+<html>
+<head><title>Turbo Pascal Help - 04C4</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04C4</i></center></td>
+</tr></table>
+<pre>
+ RegisterBGIdriver (function)     <a href="064F.html">(Graph unit)</a>
+ ----------------------------------------------
+Passes the graphics system a pointer to a device driver that has been
+linked into an application program.
+
+ Declaration:
+ function RegisterBGIdriver(driver: pointer): Integer;
+
+ Target:
+Real, Protected
+
+ Remarks:
+The driver must be registered before the call to InitGraph.
+
+If an error occurs, the return value is less than 0;otherwise, the internal
+driver number is returned.
+
+This routine enables a user to load a driver file and "register" the driver
+by passing its memory location to RegisterBGIdriver. When that driver is
+used by InitGraph, the registered driver will be used (instead of being
+loaded from disk by the Graph unit). A user-registered driver can be loaded
+from disk onto the heap, or converted to an .OBJ file (using BINOBJ.EXE)
+and linked into the .EXE.
+
+Returns grInvalidDriver if the driver header is not recognized.
+
+The following program loads the CGA driver onto the heap, registers it with
+the graphics system, and calls InitGraph:
+
+ program LoadDriv;
+ uses Graph;
+ var
+   Driver, Mode: Integer;
+   DriverF: file;
+   DriverP: Pointer;
+ begin
+   { Open driver file, read into memory, register it }
+   Assign(DriverF, 'CGA.BGI');
+   Reset(DriverF, 1);
+   GetMem(DriverP, FileSize(DriverF));
+   BlockRead(DriverF, DriverP^, FileSize(DriverF));
+   if RegisterBGIdriver(DriverP) &lt; 0 then
+   begin
+     Writeln('Error registering driver: ',
+       GraphErrorMsg(GraphResult));
+     Halt(1);
+   end;
+   { Init graphics }
+   Driver := CGA;
+   Mode := CGAHi;
+   InitGraph(Driver, Mode, '');
+   if GraphResult &lt; 0 then
+     Halt(1);
+   OutText('Driver loaded by user program');
+   Readln;
+   CloseGraph;
+ end.
+
+The program begins by loading the CGA driver file from disk and registering
+it with the Graph unit. Then a call is made to InitGraph to initialize the
+graphics system. You might wish to incorporate one or more driver files
+directly into your .EXE file. In this way, the graphics drivers that your
+program needs will be built-in and only the .EXE will be needed to run. The
+process for incorporating a driver file into your .EXE is straight forward:
+
+ - Run BINOBJ on the driver file(s).
+ - Link the resulting .OBJ file(s) into your program.
+ - Register the linked-in driver file(s) before calling <a href="059B.html">InitGraph</a>
+
+ See Also:
+ <a href="059B.html">InitGraph</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{RgBGIdrv.PAS}</font>
+
+ <font color="#c0c0c0">{ Example for RegisterBGIDriver function.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+ <font color="#ffffff"><b>var</b></font>
+  Driver, Mode: Integer;
+  DriverF: <font color="#ffffff"><b>file</b></font>;
+  DriverP: pointer;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#c0c0c0">{ Open driver file, read, register }</font>
+  Assign(DriverF, <font color="#00ffff">'CGA.BGI'</font>);
+  Reset(DriverF, <font color="#00ffff">1</font>);
+  GetMem(DriverP, FileSize(DriverF));
+  BlockRead(DriverF, DriverP^,
+            FileSIze(DriverF));
+  <font color="#ffffff"><b>if</b></font> RegisterBGIdriver(DriverP) < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    WriteLn(<font color="#00ffff">'Error registering driver: '</font>,
+            GraphErrorMsg(GraphResult));
+    Halt(<font color="#00ffff">1</font>);
+  <font color="#ffffff"><b>end</b></font>;
+  <font color="#c0c0c0">{ Init graphics }</font>
+  Driver := CGA;
+  Mode := CGAHi;
+  InitGraph(Driver, Mode,<font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  OutText(<font color="#00ffff">'Driver loaded by user program'</font>);
+  ReadLn;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 053F</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>053F</i></center></td>
+</tr></table>
+<pre>
+ CursorTo (procedure)     (WinCrt unit)
+ ---------------------------------------
+Moves the cursor to the given coordinates within the virtual screen.
+
+ Declaration:
+ procedure CursorTo(X, Y: Integer);
+
+ Target:
+Windows
+
+ Remarks:
+The coordinates of the upper left corner of the CRT window are (0, 0).
+CursorTo sets the Cursor variable to (X, Y).
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{CursorTo.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the CursorTo procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> WinCrt;
+
+ <font color="#ffffff"><b>var</b></font>
+   C: PChar;
+
+ <font color="#ffffff"><b>begin</b></font>
+   CursorTo(<font color="#00ffff">15</font>,<font color="#00ffff">10</font>);
+   Writeln(<font color="#00ffff">'Hi there.'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+<head><title>Turbo Pascal Help - 05FB</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05FB</i></center></td>
+</tr></table>
+<pre>
+ implementation (reserved word)
+ --------------------------------
+The implementation part of the unit is where you find the bodies of the
+procedures and functions that are declared in the  <a href="0601.html">interface</a> part of the
+unit.
+
+The implementation part of the unit is the private part. Declarations made
+here can be used only within this section of the unit.
+
+All constants, types, variables, procedures, and functions in the interface
+portion are visible in the implementation.
+
+The implementation can have additional declarations of its own that are not
+visible to any programs using the unit.
+
+A <a href="061F.html">uses</a> clause can appear in the implementation, immediately following the
+reserved word implementation.
+
+If any procedures have been declared external, one or more <a href="0488.html">$L filename</a>
+directive(s) should appear anywhere in the source file before the final <a href="05EB.html">end</a>
+of the unit.
+
+The normal (not inline) procedures and functions declared in the interface
+must reappear in the implementation.
+
+The <a href="0612.html">procedure</a>/<a href="05F7.html">function</a> header in the implementation should be either:
+  - identical to the declaration in the interface, or
+  - in the <a href="05FC.html">short form</a>
+
+
+- eof -</pre></body>
+</html>

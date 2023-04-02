@@ -1,0 +1,80 @@
+<html>
+<head><title>Turbo Pascal Help - 0174</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0174</i></center></td>
+</tr></table>
+<pre>
+
+ +--------------------------+
+ | [X] Dual Monitor Support |
+ +--------------------------+
+
+[X] When you check Dual Monitor Support (and
+click OK in the Startup Options dialog box),
+the IDE comes up in dual-monitor mode the
+next time you start it, if it detects
+appropriate hardware.
+
+If the appropriate hardware is not available,
+this option is ignored.
+
+ +--------------------------------------+
+ | Default setting: Off ([ ] or no /D)  |
+ |<a href="01BB.html"> Command-line equivalent: /D          </a>|
+ +--------------------------------------+
+
+Dual monitor mode is used for running or
+debugging a program, or for shelling to DOS
+(File|DOS Shell).
+
+If your system has two monitors, DOS treats
+one monitor as the active monitor. Use the
+DOS MODE command to switch between the two
+monitors (MODE CO80, for example, or MODE
+MONO).
+
+In dual monitor mode, the normal IDE screen
+appears on the inactive monitor, and your
+program's output goes to the active monitor.
+
+When Dual Monitor Support is saved in your
+options file and you type TURBO, TPX or BP at the
+DOS prompt on one monitor, <i>Turbo</i> Pascal will
+come up on the other monitor.
+
+When you want to test your program on a
+particular monitor, you must
+
+ 1) Exit the IDE.
+ 2) Switch the active monitor to the one you
+    want to test with.
+ 3) Issue the TURBO or BP command again.
+
+Program output will then go to the monitor
+where you typed the TURBO command.
+
+ ----------
+  Warnings
+ ----------
+Do not change the active monitor (by using
+the DOS MODE command, for example) while you
+are in a DOS shell (File|DOS Shell).
+
+Programs that directly access ports on the
+inactive monitor's video card are not
+supported, and can cause unpredictable
+results.
+
+When you run or debug programs that use dual
+monitors, do not use dual monitor mode.
+
+&raquo; NOTE: The Debug|User Screen command,
+which normally displays the program output
+screen, has no effect in dual monitor mode.
+
+- eof -</pre></body>
+</html>

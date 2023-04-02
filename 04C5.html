@@ -1,0 +1,110 @@
+<html>
+<head><title>Turbo Pascal Help - 04C5</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04C5</i></center></td>
+</tr></table>
+<pre>
+ RegisterBGIfont (function)     <a href="064F.html">(Graph unit)</a>
+ --------------------------------------------
+Passes the graphics system a pointer to a font that has been linked into an
+application program.
+
+ Declaration:
+ function RegisterBGIfont(Font: pointer): Integer;
+
+ Target:
+Real, Protected
+
+ Remarks:
+The return value is less than 0 if an error occurs. Possible error codes
+are grError, grInvalidFont, and grInvalidFontNum. If no error occurs, the
+internal font number is returned. This routine enables a user to load a
+font file and "register" the font by passing its memory location to
+RegisterBGIfont. When that font is selected with a call to SetTextStyle,
+the registered font will be used (instead of being loaded from disk by the
+Graph unit). A user-registered font can be loaded from disk onto the heap,
+or converted to an .OBJ file (using BINOBJ.EXE) and linked into the .EXE.
+
+There are several reasons to load and register font files. First, Graph
+only keeps one stroked font in memory at a time. If you have a program that
+needs to quickly alternate between stroked fonts, you might want to load
+and register the fonts yourself at the beginning of your program. Then
+Graph will not load and unload the fonts each time a call to SetTextStyle
+is made.
+
+Second, you might wish to incorporate the font files directly into your
+.EXE file. This way, the font files that your program needs will be
+built-in, and only the .EXE and driver files will be needed to run. The
+process for incorporating a font file into your .EXE is straight forward:
+
+ 1. Run BINOBJ on the font file(s).
+ 2. Link the resulting .OBJ file(s) into your program.
+ 3. Register the linked-in font file(s) before calling InitGraph.
+
+For a detailed explanation and example of the preceding, see the comments
+at the top of the BGILINK.PAS example program on the distribution disks.
+Documentation on the BINOBJ utility is available in the file UTIL.DOC (in
+ONLINE.ZIP) on your distribution disks.
+
+ See Also:
+ <a href="059B.html">InitGraph</a>
+ <a href="04E8.html">SetTextStyle</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{RgBGIfnt.PAS}</font>
+
+ <font color="#c0c0c0">{ Example for RegisterBGIFont }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+ <font color="#ffffff"><b>var</b></font>
+   Driver, Mode: Integer;
+   FontF: <font color="#ffffff"><b>file</b></font>;
+   FontP: pointer;
+ <font color="#ffffff"><b>begin</b></font>
+   <font color="#c0c0c0">{ Open font file, read, register }</font>
+   Assign(FontF, <font color="#00ffff">'TRIP.CHR'</font>);
+   Reset(FontF, <font color="#00ffff">1</font>);
+   GetMem(FontP, FileSize(FontF));
+   BlockRead(FontF, FontP^,
+             FileSize(FontF));
+   <font color="#ffffff"><b>if</b></font> RegisterBGIfont(FontP) < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+   <font color="#ffffff"><b>begin</b></font>
+     WriteLn(<font color="#00ffff">'Error registering font: '</font>,
+             GraphErrorMsg(GraphResult));
+     Halt(<font color="#00ffff">1</font>);
+   <font color="#ffffff"><b>end</b></font>;
+   <font color="#c0c0c0">{ Init graphics }</font>
+   Driver := Detect;
+   InitGraph(Driver, Mode, <font color="#00ffff">' '</font>);
+   <font color="#ffffff"><b>if</b></font> GraphResult < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+     Halt(<font color="#00ffff">1</font>);
+   ReadLn;
+   <font color="#c0c0c0">{ Select registered font }</font>
+   SetTextStyle(TriplexFont, HorizDir, <font color="#00ffff">4</font>);
+   OutText(<font color="#00ffff">'Triplex loaded by user program'</font>);
+   MoveTo(<font color="#00ffff">0</font>, TextHeight(<font color="#00ffff">'a'</font>));
+   ReadLn;
+   <font color="#c0c0c0">{ Select font to be loaded from disk }</font>
+   SetTextStyle(SansSerifFont, HorizDir, <font color="#00ffff">4</font>);
+   OutText(<font color="#00ffff">'Your disk should be spinning..'</font>);
+   MoveTo(<font color="#00ffff">0</font>, GetY + TextHeight(<font color="#00ffff">'a'</font>));
+   ReadLn;
+   <font color="#c0c0c0">{ Re-select font (already in memory) }</font>
+   SetTextStyle(TriplexFont, HorizDir, <font color="#00ffff">4</font>);
+   OutText(<font color="#00ffff">'Back to Triplex'</font>);
+   ReadLn;
+   CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

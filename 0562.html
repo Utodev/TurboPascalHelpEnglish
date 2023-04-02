@@ -1,0 +1,58 @@
+<html>
+<head><title>Turbo Pascal Help - 0562</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0562</i></center></td>
+</tr></table>
+<pre>
+ FindNext (procedure)     <a href="06AB.html">(Dos unit</a> and <a href="06AA.html">WinDos unit)</a>
+ ----------------------------------------------------
+Finds the next entry that matches the name and attributes specified in an
+earlier call to FindFirst.
+
+ Declaration:
+ procedure FindNext(var F: TSearchRec);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Errors are reported in <a href="06C7.html">DosError</a>. The only possible error code is 18 (no more
+files).
+
+ See Also:
+ <a href="06BD.html">File-attribute constants</a>
+ <a href="0559.html">FileExpand</a>
+ <a href="0561.html">FindFirst</a>
+ <a href="06C6.html">TSearchRec</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Findfrst.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the FindFirst and FindNext procedures.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinDos,WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>var</b></font>
+  DirInfo: SearchRec;         <font color="#c0c0c0">{ For Windows, use TSearchRec }</font>
+ <font color="#ffffff"><b>begin</b></font>                          <font color="#c0c0c0">{ For Windows, use faArchive }</font>
+  FindFirst(<font color="#00ffff">'*.PAS'</font>, Archive, DirInfo); <font color="#c0c0c0">{ Same as DIR *.PAS }</font>
+  <font color="#ffffff"><b>while</b></font> DosError = <font color="#00ffff">0</font> <font color="#ffffff"><b>do</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    Writeln(DirInfo.Name);
+    FindNext(DirInfo);
+  <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<head><title>Turbo Pascal Help - 04CE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04CE</i></center></td>
+</tr></table>
+<pre>
+ RunError (procedure)
+ ---------------------
+Stops program execution.
+
+ Declaration:
+ procedure RunError [ ( Errorcode: Byte ) ];
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+Generates a run-time error with the given number at the current statement.
+
+ See Also:
+ <a href="0555.html">Exit</a>
+ <a href="0594.html">Halt</a>
+ <a href="01A8.html">Run-time error messages</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Runerror.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the RunError procedure.}</font>
+
+ <font color="#ffffff"><b>begin</b></font>
+ <font color="#c0c0c0">{$IFDEF Debug}</font>
+  <font color="#ffffff"><b>if</b></font> P = <font color="#ffffff"><b>nil</b></font> <font color="#ffffff"><b>then</b></font>
+    RunError(<font color="#00ffff">204</font>);
+ <font color="#c0c0c0">{$ENDIF}</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head><title>Turbo Pascal Help - 0317</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0317</i></center></td>
+</tr></table>
+<pre>
+
+  {Instudrv.PAS}
+
+  {Sample code for the InstallUserDriver function.}
+
+ uses Graph;
+
+ var
+   Driver, Mode,
+   TestDriver,
+   ErrCode: Integer;
+  {$F+}
+ function TestDetect: Integer;
+  { Autodetect function: assume hardware is always present; return value =
+    recommended default mode }
+ begin
+   TestDetect := 1;   { Default mode = 1 }
+ end;
+  {$F-}
+ begin
+   { Install the driver }
+   TestDriver := InstallUserDriver('TEST', @TestDetect);
+   if GraphResult &lt;&gt; grOk then
+   begin
+     Writeln('Error installing TestDriver');
+     Halt(1);
+   end;
+   Driver := Detect;   { Put in graphics mode }
+   InitGraph(Driver, Mode, ' ');
+   ErrCode := GraphResult;
+   if ErrCode &lt;&gt; grOk then
+   begin
+     Writeln('Error during Init: ', ErrCode);
+     Halt(1);
+   end;
+   OutText('Installable drivers supported...');
+   Readln;
+   CloseGraph;
+ end.
+
+
+- eof -</pre></body>
+</html>

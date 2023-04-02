@@ -1,0 +1,54 @@
+<html>
+<head><title>Turbo Pascal Help - 059E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>059E</i></center></td>
+</tr></table>
+<pre>
+ InsLine (procedure)     <a href="0694.html">(Crt unit)</a>
+ -----------------------------------
+Inserts an empty line at the cursor position.
+
+ Declaration:
+ procedure InsLine;
+
+ Target:
+Real, Protected
+
+ Remarks:
+All lines below the inserted line are moved down one line, and the bottom
+line scrolls off the screen (using the BIOS scroll routine).
+
+All character positions are set to blanks with the currently defined text
+attributes. Thus, if TextBackground is not black, the new line becomes the
+background color.
+
+ See Also:
+ <a href="0543.html">DelLine</a>
+ <a href="051E.html">Window</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Insline.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the InsLine procedure.}</font>
+
+ <font color="#c0c0c0">{InsLine is window-relative. The following example inserts a line 60 columns
+   wide at absolute coordinates (1, 10):}</font>
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>begin</b></font>
+  Window(<font color="#00ffff">1</font>, <font color="#00ffff">10</font>, <font color="#00ffff">60</font>, <font color="#00ffff">20</font>);
+  InsLine;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

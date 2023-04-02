@@ -1,0 +1,44 @@
+<html>
+<head><title>Turbo Pascal Help - 05FA</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05FA</i></center></td>
+</tr></table>
+<pre>
+ if...then...else (reserved words)
+ -----------------------------------
+If, then, and else specify the conditions under which a statement will be
+executed.
+
+ Syntax:
+ if expr then statement
+ OR
+ if expr then statement else statement
+
+ Remarks:
+If the Boolean <a href="05EF.html">expression</a> after if is True, the <a href="061A.html">statement</a> after then is
+executed.
+
+Otherwise, if the else part is present, the statement after else is
+executed.
+
+ Example:
+ (* "if" statements *)
+ if (I &lt; Min) or (I &gt; Max) then I := 0;
+
+ if ParamCount &lt;&gt; 2 then
+ begin
+   WriteLn('Bad command line');
+   Halt(1);
+ end
+ else
+ begin
+   ReadFile(ParamStr(1));
+   WriteFile(ParamStr(2));
+ end;
+
+- eof -</pre></body>
+</html>

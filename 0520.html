@@ -1,0 +1,52 @@
+<html>
+<head><title>Turbo Pascal Help - 0520</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0520</i></center></td>
+</tr></table>
+<pre>
+ WriteBuf (procedure)     (WinCrt unit)
+ ---------------------------------------
+Writes a block of characters to the CRT window.
+
+ Declaration:
+ procedure WriteBuf(Buffer: PChar; Count: Word);
+
+ Target:
+Windows
+
+ Remarks:
+Two parameters are passed to this procedure: Buffer and Count.
+
+Buffer points to the first character in the block. Count contains the
+number of characters to write.
+
+If AutoTracking is turned on, the CRT window scrolls if necessary to ensure
+that the cursor is visible after writing the block of characters.
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{WriteBuf.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the WriteBuf procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> WinCrt;
+
+ <font color="#ffffff"><b>var</b></font>
+   MyBuffer: PChar;
+
+ <font color="#ffffff"><b>begin</b></font>
+   GetMem(MyBuffer, <font color="#00ffff">80</font>);
+   MyBuffer := <font color="#00ffff">'This is an example of WriteBuf'</font>;
+   WriteBuf(MyBuffer, <font color="#00ffff">30</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

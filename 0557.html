@@ -1,0 +1,89 @@
+<html>
+<head><title>Turbo Pascal Help - 0557</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0557</i></center></td>
+</tr></table>
+<pre>
+ Fail (procedure)
+ -----------------
+Called from within a constructor, Fail causes the constructor to deallocate
+a dynamic object it has just allocated.
+
+ Declaration:
+ procedure Fail;
+
+ Target:
+Real, Protected, Windows
+
+ Remarks:
+Fail is called only if one of the constructor's operations fails.
+
+ See Also:
+ <a href="05E7.html">constructor</a>
+ <a href="04A4.html">New</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Fail.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the Fail procedure. }</font>
+
+ <font color="#c0c0c0">{ For  Windows:}</font>
+ <font color="#c0c0c0">{ uses Objects, Wincrt; }</font>
+
+ <font color="#c0c0c0">{ uses Objects; }</font>
+
+ <font color="#ffffff"><b>type</b></font>
+  PBase = ^TBase;
+  TBase = <font color="#ffffff"><b>object</b></font>(TObject)
+    <font color="#ffffff"><b>constructor</b></font> Init(FailMe: Boolean);
+  <font color="#ffffff"><b>end</b></font>;
+
+  PDerived = ^TDerived;
+  TDerived = <font color="#ffffff"><b>object</b></font>(TBase)
+    <font color="#ffffff"><b>constructor</b></font> Init(FailMe: Boolean);
+  <font color="#ffffff"><b>end</b></font>;
+
+ <font color="#ffffff"><b>constructor</b></font> TBase.Init(FailMe: Boolean);
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>inherited</b></font> Init;
+  <font color="#ffffff"><b>if</b></font> FailMe <font color="#ffffff"><b>then</b></font> Fail;
+ <font color="#ffffff"><b>end</b></font>;
+
+ <font color="#ffffff"><b>constructor</b></font> TDerived.Init(FailMe: Boolean);
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>if</b></font> <font color="#ffffff"><b>not</b></font> <font color="#ffffff"><b>inherited</b></font> Init(FailMe) <font color="#ffffff"><b>then</b></font>
+    <font color="#c0c0c0">{ Ancestor failed to construct, we must fail too }</font>
+    Fail;
+  <font color="#c0c0c0">{ Otherwise, proceed with construction }</font>
+  <font color="#c0c0c0">{...}</font>
+ <font color="#ffffff"><b>end</b></font>;
+
+ <font color="#ffffff"><b>var</b></font>
+  P: PObject;
+  X: Boolean;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>for</b></font> X := False <font color="#ffffff"><b>to</b></font> True <font color="#ffffff"><b>do</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    P := New(PDerived, Init(X));
+    <font color="#ffffff"><b>if</b></font> P <> <font color="#ffffff"><b>nil</b></font> <font color="#ffffff"><b>then</b></font>
+    <font color="#ffffff"><b>begin</b></font>
+      writeln(<font color="#00ffff">'Object constructed sucessfully'</font>);
+      Dispose(P, Done);
+    <font color="#ffffff"><b>end</b></font>
+    <font color="#ffffff"><b>else</b></font>
+      writeln(<font color="#00ffff">'Object failed to construct'</font>);
+  <font color="#ffffff"><b>end</b></font>;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

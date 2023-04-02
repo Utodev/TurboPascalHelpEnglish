@@ -1,0 +1,37 @@
+<html>
+<head><title>Turbo Pascal Help - 048D</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>048D</i></center></td>
+</tr></table>
+<pre>
+ $R:  Resource File Directive     (Windows and Protected mode)
+ ---------------------------------------------------------------
+
+Specifies the name of the resource file to be included in an application or
+library.
+
+   Syntax:        {$R FileName}
+   Type:          Local
+
+ Remarks:
+The default extension for FileName is .RES. It must be a Windows resource
+file.
+
+If FileName does not specify a directory, the compiler searches for the file
+  - first in the current directory
+  - then in the directories specified in the Resource Directories input box
+
+When used in a unit, the resource file is simply recorded in the resulting
+unit file; no checks are made to ensure that the file exists at that point.
+
+When an application or library is linked, the resource files specified in
+all units and in the program or library itself are processed and Each
+resource in each resource file is copied to the .EXE or .DLL file being
+produced.
+
+- eof -</pre></body>
+</html>

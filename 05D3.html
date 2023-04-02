@@ -1,0 +1,49 @@
+<html>
+<head><title>Turbo Pascal Help - 05D3</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05D3</i></center></td>
+</tr></table>
+<pre>
+ Unary Arithmetic Operators
+ ----------------------------
+   Operator|Operation    |Operand types|Result type
+ ====================================================
+   +       |Sign identity|integer type |integer type
+           |             |real type    |real type
+   -       |Sign negation|integer type |integer type
+           |             |real type    |real type
+
+Note: Any operand whose type is a <a href="061C.html">subrange</a> of an <a href="060C.html">ordinal</a> type is treated as
+if it were of the ordinal type.
+
+If both operands of a +, -, *, div, or mod operator are of an <a href="0600.html">integer</a> type,
+the result type is of the common type of the two operands.
+
+If one or both operands of a +, -, or * operator are of a <a href="0615.html">real</a> type, the
+result type of the is Real in the <a href="047C.html">{$N-} state</a> or Extended in the
+ <a href="047C.html">{$N+} state.</a>
+
+If the operand of the sign identity or sign negation operator is of an
+integer type, the result is of the same integer type. If the operand is of a
+real type, the result type of the is Real or Extended.
+
+The value of  X/Y  is always of type Real or Extended regardless of the
+operand types. An error occurs if Y is 0.
+
+The value of  I div J  is the mathematical quotient of I / J, rounded in the
+direction of 0 to an integer-type value. An error occurs if J is 0.
+
+The mod operator returns the remainder obtained by dividing its two
+operands:
+
+   I mod J = I - (I div J) * J
+
+The sign of the result of mod is the same as the sign of I. An error occurs
+if J is 0.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<head><title>Turbo Pascal Help - 049A</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>049A</i></center></td>
+</tr></table>
+<pre>
+ Mark (procedure)
+ -----------------
+Records the state of the heap in a pointer variable.
+
+ Declaration:
+ procedure Mark(var p: pointer);
+
+ Restrictions:
+Should not be used with FreeMem or Dispose.
+
+ Target:
+Real, Protected
+
+ See Also:
+ <a href="0547.html">Dispose</a>
+ <a href="0566.html">FreeMem</a>
+ <a href="0583.html">GetMem</a>
+ <a href="04A4.html">New</a>
+ <a href="04C6.html">Release</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Mark.PAS}</font>
+
+ <font color="#c0c0c0">{ Example for Mark and Release }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>var</b></font>
+   p : pointer;
+   p1,p2,p3 : ^Integer;
+ <font color="#ffffff"><b>begin</b></font>
+   ClrScr;
+   New(p1); <font color="#c0c0c0">{ Allocate an Integer }</font>
+   Mark(p); <font color="#c0c0c0">{ Save heap state }</font>
+   New(p2); <font color="#c0c0c0">{ Allocate two more Integers }</font>
+   New(p3);
+   Release(p); <font color="#c0c0c0">{ Memory reserved for p2^ and
+                 p3^ has been released; p1^
+                 may still be used }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

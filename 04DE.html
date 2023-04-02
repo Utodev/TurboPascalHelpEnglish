@@ -1,0 +1,74 @@
+<html>
+<head><title>Turbo Pascal Help - 04DE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04DE</i></center></td>
+</tr></table>
+<pre>
+ SetFillPattern (procedure)     <a href="064F.html">(Graph unit)</a>
+ --------------------------------------------
+Selects a user-defined fill pattern.
+
+ Declaration:
+ procedure SetFillPattern(Pattern: FillPatternType; Color: Word);
+
+ Target:
+Real, Protected
+
+ Remarks:
+FillPatternType is predefined as follows:
+
+ type
+    FillPatternType = array[1..8] of byte;
+
+ See Also:
+ <a href="052B.html">Bar</a>
+ <a href="052C.html">Bar3D</a>
+ <a href="0560.html">FillPoly</a>
+ <a href="0578.html">GetFillPattern</a>
+ <a href="0579.html">GetFillSettings</a>
+ <a href="0593.html">GraphResult</a>
+ <a href="04B7.html">PieSlice</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{GetFPatt.PAS}</font>
+
+ <font color="#c0c0c0">{ Example for GetFillPattern and
+   SetFillPattern }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+ <font color="#ffffff"><b>const</b></font>
+   Gray50 : FillPatternType = (<font color="#00ffff">$AA</font>, <font color="#00ffff">$55</font>, <font color="#00ffff">$AA</font>,
+     <font color="#00ffff">$55</font>, <font color="#00ffff">$AA</font>, <font color="#00ffff">$55</font>, <font color="#00ffff">$AA</font>, <font color="#00ffff">$55</font>);
+ <font color="#ffffff"><b>var</b></font>
+   Gd, Gm : Integer;
+   OldPattern : FillPatternType;
+ <font color="#ffffff"><b>begin</b></font>
+   Gd := Detect; InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+   <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font> Halt(<font color="#00ffff">1</font>);
+   GetFillPattern(OldPattern);
+   SetFillPattern(Gray50, White);
+
+
+   <font color="#c0c0c0">{ Draw bar 50% gray }</font>
+   Bar(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">100</font>, <font color="#00ffff">100</font>);
+   ReadLn;
+   SetFillPattern(OldPattern,White);
+   <font color="#c0c0c0">{ Draw bar with old pattern }</font>
+   <font color="#c0c0c0">{ (normally filled with $FF }</font>
+   <font color="#c0c0c0">{ on startup)               }</font>
+   Bar(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">100</font>, <font color="#00ffff">100</font>);
+   ReadLn;
+   CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

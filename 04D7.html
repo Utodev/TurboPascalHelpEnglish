@@ -1,0 +1,76 @@
+<html>
+<head><title>Turbo Pascal Help - 04D7</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04D7</i></center></td>
+</tr></table>
+<pre>
+ SetAspectRatio (function)     <a href="064F.html">(Graph unit)</a>
+ -------------------------------------------
+Changes the default aspect-ratio correction factor.
+
+ Declaration:
+ function SetAspectRatio(Xasp, Yasp: Word): Word;
+
+ Target:
+Real, Protected
+
+ Remarks:
+SetAspectRatio is used to change the default aspect ratio of the current
+graphics mode. The aspect ratio is used to draw circles. If circles appear
+elliptical, the monitor is not aligned properly. This can be corrected in
+the hardware by realigning the monitor, or can be corrected in the software
+by changing the aspect ratio using SetAspectRatio. To read the current
+aspect ratio from the system, use GetAspectRatio.
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="056C.html">GetAspectRatio</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Setasprt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the SetAspectRatio procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt, Graph;
+
+ <font color="#ffffff"><b>const</b></font> R = <font color="#00ffff">50</font>;
+ <font color="#ffffff"><b>var</b></font>
+  Driver, Mode: Integer;
+  Xasp, Yasp: Word;
+ <font color="#ffffff"><b>begin</b></font>
+  DirectVideo := False;
+  Driver := Detect;   <font color="#c0c0c0">{ Put in graphics mode }</font>
+  InitGraph(Driver, Mode, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult < <font color="#00ffff">0</font> <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  GetAspectRatio(Xasp, Yasp);   <font color="#c0c0c0">{ Get default aspect ratio }</font>
+  <font color="#ffffff"><b>if</b></font> Xasp = Yasp <font color="#ffffff"><b>then</b></font>
+  <font color="#c0c0c0">{ Adjust for VGA and 8514. They have 1:1 aspect }</font>
+    Yasp := <font color="#00ffff">5</font> * Xasp;
+  <font color="#ffffff"><b>while</b></font> (Xasp < Yasp) <font color="#ffffff"><b>and</b></font> <font color="#ffffff"><b>not</b></font> KeyPressed <font color="#ffffff"><b>do</b></font>
+  <font color="#c0c0c0">{ Keep modifying aspect ratio until 1:1 or key is pressed }</font>
+  <font color="#ffffff"><b>begin</b></font>
+    SetAspectRatio(Xasp, Yasp);
+    Circle(GetMaxX <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, GetMaxY <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, R);
+    Inc(Xasp, <font color="#00ffff">20</font>);
+  <font color="#ffffff"><b>end</b></font>;
+  SetTextJustify(CenterText, CenterText);
+  OutTextXY(GetMaxX <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, GetMaxY <font color="#ffffff"><b>div</b></font> <font color="#00ffff">2</font>, <font color="#00ffff">'Done!'</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

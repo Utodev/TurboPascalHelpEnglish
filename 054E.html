@@ -1,0 +1,50 @@
+<html>
+<head><title>Turbo Pascal Help - 054E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>054E</i></center></td>
+</tr></table>
+<pre>
+ EnvCount (function)     <a href="06AB.html">(Dos unit)</a>
+ -----------------------------------
+Returns the number of strings contained in the DOS environment.
+
+ Declaration:
+ function EnvCount: Integer;
+
+ Target:
+Real, Protected
+
+ Remarks:
+EnvCount returns the number of strings contained in the DOS environment.
+Each environment string is of the form VAR=VALUE. The strings can be
+examined with the <a href="054F.html">EnvStr</a> function.
+
+ See Also:
+ <a href="054F.html">EnvStr</a>
+ <a href="0575.html">GetEnv</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Envcount.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the EnvCount function.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Dos;
+
+ <font color="#ffffff"><b>var</b></font> I: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  <font color="#ffffff"><b>for</b></font> I := <font color="#00ffff">1</font> <font color="#ffffff"><b>to</b></font> EnvCount <font color="#ffffff"><b>do</b></font>
+     Writeln(EnvStr(I));
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

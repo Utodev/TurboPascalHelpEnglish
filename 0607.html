@@ -1,0 +1,33 @@
+<html>
+<head><title>Turbo Pascal Help - 0607</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0607</i></center></td>
+</tr></table>
+<pre>
+ Dynamic Methods
+ ---------------
+A dynamic method is a method whose call is linked to its code at run time by
+a process called late binding.
+
+It differs from a <a href="0621.html">virtual</a> method in that its declaration includes a dynamic
+method index.
+
+ Syntax:
+ procedure MethodName (&lt;parameter list&gt;); virtual DynamicMethodIndex
+
+ Remarks:
+DynamicMethodIndex is an integer, an integer constant, or an expression that
+evaluates to an integer.
+
+Like virtual methods, dynamic methods allow methods with the same name to be
+implemented in different ways up and down a hierarchy of object types. If
+you derive types from other types with many virtual methods, using dynamic
+methods might require less memory.
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,99 @@
+<html>
+<head><title>Turbo Pascal Help - 04ED</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04ED</i></center></td>
+</tr></table>
+<pre>
+ SetViewPort (procedure)     <a href="064F.html">(Graph unit)</a>
+ -----------------------------------------
+Sets the current output viewport or window for graphics output
+
+ Declaration:
+ procedure SetViewPort(x1, y1, x2, y2: Integer; Clip: Boolean);
+
+ Target:
+Real, Protected
+
+ Remarks:
+(X1, Y1) define the upper left corner of the viewport, and (X2, Y2) define
+the lower right corner (0 &lt;= X1 &lt; X2 and 0 &lt;= Y1 &lt; Y2). The upper left
+corner of a viewport is (0, 0).
+
+The Boolean parameter Clip determines whether drawings are clipped at the
+current viewport boundaries. SetViewPort(0, 0, GetMaxX, GetMaxY, True)
+always sets the viewport to the entire graphics screen. If invalid input is
+passed to SetViewPort, GraphResult returns grError, and the current view
+settings will be unchanged.
+
+All graphics commands (for example, GetX, OutText, Rectangle, MoveTo, and
+so on) are viewport-relative. In the following example, the coordinates of
+the dot in the middle are relative to the boundaries of the viewport.
+
+If the Boolean parameter Clip is set to True when a call to SetViewPort is
+made, all drawings will be clipped to the current viewport. Note that the
+current pointer is never clipped. The following will not draw the complete
+line requested because the line will be clipped to the current viewport:
+
+  SetViewPort(10, 10, 20, 20, ClipOn);
+  Line(0, 5, 15, 5);
+
+The line would start at absolute coordinates (10,15) and terminate at
+absolute coordinates (25, 15) if no clipping was performed. But because
+clipping was performed, the actual line that would be drawn would start at
+absolute coordinates (10, 15) and terminate at coordinates (20, 15).
+
+InitGraph, GraphDefaults, and SetGraphMode all reset the viewport to the
+entire graphics screen. The current viewport settings are available by
+calling the procedure GetViewSettings, which accepts a parameter of
+ViewPortType.
+
+SetViewPort moves the current pointer to (0, 0).
+
+ Restrictions:
+Must be in graphics mode.
+
+ See Also:
+ <a href="0534.html">ClearViewPort</a>
+ <a href="058C.html">GetViewSettings</a>
+ <a href="0593.html">GraphResult</a>
+ <a href="0658.html">Clipping Constants</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{SetVwPrt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the SetViewPort procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font> Gd, Gm: Integer;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  <font color="#ffffff"><b>if</b></font> (Gd = HercMono) <font color="#ffffff"><b>or</b></font> (Gd = EGA) <font color="#ffffff"><b>or</b></font> (Gd = EGA64) <font color="#ffffff"><b>or</b></font> (Gd = VGA) <font color="#ffffff"><b>then</b></font>
+  <font color="#ffffff"><b>begin</b></font>
+    SetVisualPage(<font color="#00ffff">0</font>);
+    SetActivePage(<font color="#00ffff">1</font>);
+    Rectangle(<font color="#00ffff">10</font>, <font color="#00ffff">20</font>, <font color="#00ffff">30</font>, <font color="#00ffff">40</font>);
+    SetVisualPage(<font color="#00ffff">1</font>);
+  <font color="#ffffff"><b>end</b></font>
+  <font color="#ffffff"><b>else</b></font>
+    OutText(<font color="#00ffff">'No paging supported.'</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

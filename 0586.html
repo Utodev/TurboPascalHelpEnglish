@@ -1,0 +1,68 @@
+<html>
+<head><title>Turbo Pascal Help - 0586</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0586</i></center></td>
+</tr></table>
+<pre>
+ GetPalette (procedure)     <a href="064F.html">(Graph unit)</a>
+ ----------------------------------------
+Returns the current palette and its size.
+
+ Declaration:
+ procedure GetPalette(var Palette: PaletteType);
+
+ Target:
+Real, Protected
+
+ Remarks:
+Returns the current palette and its size in a variable of type PaletteType.
+
+ Restrictions:
+Must be in graphics mode, and can be used only with EGA, EGA 64, or VGA (not
+the IBM 8514 or the VGA in 256-color mode).
+
+ See Also:
+ <a href="04D6.html">SetAllPalette</a>
+ <a href="04E5.html">SetPalette</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{Getplt.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the GetPalette procedure.}</font>
+
+ <font color="#ffffff"><b>uses</b></font> Graph;
+
+ <font color="#ffffff"><b>var</b></font>
+  Gd, Gm: Integer;
+  Color: Word;
+  Palette: PaletteType;
+ <font color="#ffffff"><b>begin</b></font>
+  Gd := Detect;
+  InitGraph(Gd, Gm, <font color="#00ffff">' '</font>);
+  <font color="#ffffff"><b>if</b></font> GraphResult <> grOk <font color="#ffffff"><b>then</b></font>
+    Halt(<font color="#00ffff">1</font>);
+  GetPalette(Palette);
+  <font color="#ffffff"><b>if</b></font> Palette.Size <> <font color="#00ffff">1</font> <font color="#ffffff"><b>then</b></font>
+    <font color="#ffffff"><b>for</b></font> Color := <font color="#00ffff">0</font> <font color="#ffffff"><b>to</b></font> Pred(Palette.Size) <font color="#ffffff"><b>do</b></font>
+    <font color="#ffffff"><b>begin</b></font>
+      SetColor(Color);
+      Line(<font color="#00ffff">0</font>, Color * <font color="#00ffff">5</font>, <font color="#00ffff">100</font>, Color * <font color="#00ffff">5</font>);
+    <font color="#ffffff"><b>end</b></font>
+  <font color="#ffffff"><b>else</b></font>
+    Line(<font color="#00ffff">0</font>, <font color="#00ffff">0</font>, <font color="#00ffff">100</font>, <font color="#00ffff">0</font>);
+  Readln;
+  CloseGraph;
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

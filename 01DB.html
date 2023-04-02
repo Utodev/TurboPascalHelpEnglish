@@ -1,0 +1,45 @@
+<html>
+<head><title>Turbo Pascal Help - 01DB</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>01DB</i></center></td>
+</tr></table>
+<pre>
+
+ - Format Specifiers Recognized in Debugger Expressions
+ -------------------------------------------------------
+When you specify expressions in the <a href="00DF.html">Evaluate</a>
+and <a href="0053.html">Add Watch</a> commands, the debugger uses
+each expression's data type to select an
+appropriate display format for the expression.
+
+The debugger automatically handles the size of
+the expression's result.
+
+For example, it displays an integer in base 10,
+an array as a pointer in base 16 (hexadecimal).
+
+To get a different display format, precede the
+expression with a comma followed by one of
+the following expression format specifiers:
+
+  Format   |
+  Specifier| What it does
+ ===============================================================
+ <a href="05A8.html">  C      </a> | Displays ASCII char
+ <a href="05AA.html">  D      </a> | Integer in decimal
+ <a href="05AC.html">  F[n]   </a> | Floating point. n is an optional number of digits
+ <a href="05AB.html">  H,X,$  </a> | Integer in hexadecimal
+ <a href="05AD.html">  M      </a> | Displays memory dump
+ <a href="05AE.html">  P      </a> | Far pointer; in segment:offset form
+ <a href="05AF.html">  R      </a> | Record; displays each member's name and value
+ <a href="05A9.html">  S      </a> | String; shows control characters as ASCII values,
+           | using Pascal escape sequences
+
+For more information, see <a href="05A7.html">Format Specifiers.</a>
+
+- eof -</pre></body>
+</html>

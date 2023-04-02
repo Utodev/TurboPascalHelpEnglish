@@ -1,0 +1,42 @@
+<html>
+<head><title>Turbo Pascal Help - 0690</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0690</i></center></td>
+</tr></table>
+<pre>
+ Test8086 (variable)     <a href="0673.html">(System unit)</a>
+ --------------------------------------
+Identifies the type of 80x86 processor the system contains.
+
+ Target:
+Protected; Real; Windows
+
+ Declaration:
+  var Test8086: Byte;
+
+ Remarks:
+The run-time library's start-up code contains detection logic that
+automatically determines what kind of 80x86 processor the system contains.
+The result of the CPU detection is stored in Test8086 as one of the
+following values:
+
+  Value   Definition
+   0      Processor is an 8086
+   1      Processor is an 80286
+   2      Processor is an 80386 or later
+
+When the run-time library detects that the processor is an 80386 or later
+CPU, it will use 80386 instructions to speed up certain operations. In
+particular, Longint multiplication, division, and shifts are performed
+using 32-bit instructions when an 80386 isdetected.
+
+ See Also:
+ <a href="068A.html">Test8087</a>
+
+
+- eof -</pre></body>
+</html>

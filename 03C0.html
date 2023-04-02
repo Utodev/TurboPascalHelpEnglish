@@ -1,0 +1,41 @@
+<html>
+<head><title>Turbo Pascal Help - 03C0</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>03C0</i></center></td>
+</tr></table>
+<pre>
+ +------------------------------+
+ | Invalid symbol reference     |
+ +------------------------------+
+
+This symbol cannot be accessed in an
+assembler operand.
+
+Possible causes are:
+
+ &raquo; You are attempting to access a standard
+   procedure, a standard function, or the
+   Mem, MemW, MemL, Port, or PortW special
+   arrays in an assembler operand.
+
+ &raquo; You are attempting to access a string,
+   floating-point, or set constant in an
+   assembler operand.
+
+ &raquo; You are attempting to access an inline
+   procedure or function in an assembler
+   operand.
+
+ &raquo; You are attempting to access the @Result
+   special symbol outside a function.
+
+&raquo;  You are attempting to generate a short JMP
+   instruction that jumps to something other
+   than a label.
+
+- eof -</pre></body>
+</html>

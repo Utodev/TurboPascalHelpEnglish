@@ -1,0 +1,58 @@
+<html>
+<head><title>Turbo Pascal Help - 04FE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>04FE</i></center></td>
+</tr></table>
+<pre>
+ StrLCat (function)     <a href="0671.html">(Strings unit)</a>
+ --------------------------------------
+Appends characters from one string to the end of another and returns the
+concatenated string.
+
+ Declaration:
+ function StrLCat(Dest, Source: PChar; MaxLen: Word): PChar;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+StrLCat appends at most MaxLen - StrLen(Dest) characters from Source to the
+end of Dest and returns Dest. The SizeOf standard function can be used to
+determine the MaxLen parameter.
+
+ See Also:
+ <a href="04F8.html">StrCat</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{StrLCat.PAS}</font>
+
+
+ <font color="#c0c0c0">{Sample code for the StrLCat function.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses Strings, WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Strings;
+
+ <font color="#ffffff"><b>var</b></font>
+   S: <font color="#ffffff"><b>array</b></font>[<font color="#00ffff">0</font>..<font color="#00ffff">9</font>] <font color="#ffffff"><b>of</b></font> Char;
+ <font color="#ffffff"><b>begin</b></font>
+   StrLCopy(S, <font color="#00ffff">'Turbo'</font>, SizeOf(S) - <font color="#00ffff">1</font>);
+   StrLCat(S, <font color="#00ffff">' '</font>, SizeOf(S) - <font color="#00ffff">1</font>);
+   StrLCat(S, <font color="#00ffff">'Pascal'</font>, SizeOf(S) - <font color="#00ffff">1</font>);
+   Writeln(S);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<head><title>Turbo Pascal Help - 05DF</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05DF</i></center></td>
+</tr></table>
+<pre>
+ assembler (procedure directive)
+ ---------------------------------
+In an <a href="05DE.html">assembler directive</a>, you can write complete procedures and functions
+in built-in assembler, without a begin...end statement.
+
+The assembler directive causes the compiler to perform these
+code-generation optimizations:
+
+  - Value Parameters: The compiler does not generate code to copy value
+    parameters into local variables.
+  - Function Result Variable: The compiler does not allocate a function
+    result variable, and a reference to the <a href="0432.html">@Result</a> symbol is an error.
+  - Stack Frame: The compiler generates no stack frame for procedures and
+    functions with no parameters or local variables.
+
+The value-parameters optimization affects all string-type value parameters
+and other value parameters whose size is not 1, 2, or 4 bytes.
+
+Within the procedure or function, such parameters must be treated as var
+parameters.
+
+String functions are an exception to the function-result optimization--they
+always have an @Result pointer allocated by the caller.
+
+ See Also:
+  <a href="0319.html">Built-in Assembler Entry and Exit Code</a>
+
+- eof -</pre></body>
+</html>

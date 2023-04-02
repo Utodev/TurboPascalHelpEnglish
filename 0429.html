@@ -1,0 +1,42 @@
+<html>
+<head><title>Turbo Pascal Help - 0429</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0429</i></center></td>
+</tr></table>
+<pre>
+ Built-in Assembler Numeric Constants
+ -------------------------------------
+Built-in assembler numeric constants must be integers between
+-2,147,483,648 and 4,294,967,295, and they must start with one of the
+digits 0 through 9 or a $ character.
+
+By default, numeric constants use decimal (base 10) notation, but the
+built-in assembler supports binary (base 2), octal (base 8), and
+hexadecimal (base 16) notations as well.
+
+   To select     |
+   this notation | Write a.
+   ===================================================================
+   Binary        | letter B after the number
+   Octal         | letter O after the number
+   Hexadecimal   | letter H after the number, or a $ before the number
+
+Pascal expressions allow only decimal notation and hexadecimal notation
+(using a $ prefix); they do not support the B, O, and H suffixes.
+
+When you write a hexadecimal constant using the H suffix, and the first
+significant digit is one of the hexadecimal digits A through F, an extra
+zero (0) in front of the number is required.
+
+ Examples:
+ 0BAD4H Hexadecimal constant
+ $BAD4 Hexadecimal constant
+ BAD4H Identifier (it starts with a letter B, not a digit)
+
+
+- eof -</pre></body>
+</html>

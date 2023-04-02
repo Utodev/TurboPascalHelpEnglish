@@ -1,0 +1,29 @@
+<html>
+<head><title>Turbo Pascal Help - 02C4</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>02C4</i></center></td>
+</tr></table>
+<pre>
+ +-------------------------------+
+ | Overlay manager not installed |
+ +-------------------------------+
+
+Your program is calling an overlaid procedure
+or function, but the overlay manager is not
+installed.
+
+Most likely, you are not calling <a href="04AF.html">OvrInit</a>, or
+the call to OvrInit failed.
+
+&raquo; NOTE: If you have initialization code in
+any of your overlaid units, you must create
+an additional non-overlaid unit that calls
+OvrInit, and use that unit before any of the
+overlaid units.
+
+- eof -</pre></body>
+</html>

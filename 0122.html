@@ -1,0 +1,75 @@
+<html>
+<head><title>Turbo Pascal Help - 0122</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0122</i></center></td>
+</tr></table>
+<pre>
+
+ - Display Swapping
+ -------------------
+The Display Swapping set of options in the
+Options|Debugger dialog box governs when the
+integrated debugger changes display windows
+while running a program.
+
+  Display  |
+  Swapping | When the integrated debugger
+  Option   | swaps the displays
+ =============================================
+  None     | Never
+           |
+  Always   | Every time a statement executes
+           |
+  Smart    | (the default) If the code being
+           | executed generates output to the
+           | screen, or if it calls a function
+           | or procedure
+
+ +----------+
+ | ( ) None |
+ +----------+
+Use None for debugging sections of code that
+you're certain do not output to the screen.
+
+ +------------+
+ | ( ) Always |
+ +------------+
+Use Always any time your running program is
+likely to overwrite the Edit window or any
+other part of the <i> Turbo </i> Pascal development
+environment screen.
+
+ +-----------+
+ | ( ) Smart |
+ +-----------+
+When you choose Smart, the debugger swaps the
+screen from the Edit window to the User Screen
+long enough for output to take place, then
+swaps back. Otherwise, no swapping occurs.
+
+The Smart setting is not foolproof. Be aware
+of the following:
+
+ &raquo; Smart swaps on any procedure call, even if
+   the procedure does no screen output.
+
+ &raquo; In some situations, the Edit window might
+   be modified without being swapped; for
+   example, if a timer interrupt routine
+   writes to the screen.
+
+&raquo; NOTE: If you're debugging in dual-monitor
+mode (using the <a href="01BB.html">/D command-line switch</a>),
+you can see your program's output on one
+monitor and the <i>Turbo</i> Pascal screen on the
+other.
+
+In this case, <i>Turbo</i> Pascal never swaps screens
+and the Display Swapping setting has no effect.
+
+- eof -</pre></body>
+</html>

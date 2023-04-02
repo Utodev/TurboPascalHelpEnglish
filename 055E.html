@@ -1,0 +1,46 @@
+<html>
+<head><title>Turbo Pascal Help - 055E</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>055E</i></center></td>
+</tr></table>
+<pre>
+ FillChar (procedure)
+ ---------------------
+Fills a specified number (Count) of contiguous bytes with a specified value
+(can be type Byte or Char).
+
+ Declaration:
+ procedure FillChar(var X; Count: Word; value);
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+This function does not perform any range-checking.
+
+ See Also:
+ <a href="04A0.html">Move</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Fillchar.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the FillChar procedure.}</font>
+
+ <font color="#ffffff"><b>var</b></font>
+   S: <font color="#ffffff"><b>string</b></font>[<font color="#00ffff">80</font>];
+ <font color="#ffffff"><b>begin</b></font>
+   <font color="#c0c0c0">{ Set a string to all spaces }</font>
+   FillChar(S, SizeOf(S), <font color="#00ffff">' '</font>);
+   S[<font color="#00ffff">0</font>] := <font color="#00ffff">#80</font>;  <font color="#c0c0c0">{ Set length byte }</font>
+ <font color="#ffffff"><b>end</b></font>.
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

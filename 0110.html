@@ -1,0 +1,98 @@
+<html>
+<head><title>Turbo Pascal Help - 0110</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0110</i></center></td>
+</tr></table>
+<pre>
+
+ - Help on the Compiler Options dialog box
+ ------------------------------------------
+The Compiler Options dialog box consists of
+four check boxes, and the standard OK, Cancel, and Help buttons.
+
+If you are using BP, there is a pick list to determine which target
+platform the compile settings apply to, and added check boxes in the
+option groups.
+
+  Compiler Settings for:  (BP and BPW Only)
+The following options are available in the list box:
+  +---------------------------------+
+  |<a href="00F7.html">   Real mode target              </a>|
+  |<a href="00F8.html">   Protected mode target         </a>|
+  |<a href="00F9.html">   Windows target                </a>|
+  |<a href="00FA.html">   All targets                   </a>|
+  +---------------------------------+
+The Compiler Settings For option is used to specify which target
+you are setting the compiler options for.
+
+If you set the Compiler Settings For options to All Targets,
+you may see [?] in some of the other check boxes.
+
+ +---------------------------------------------------+
+ | Code generation                                   |
+ |<a href="00FB.html">  [ ] Force Far Calls  </a>   <a href="00FD.html">  [X] Word Align Data    </a>|
+ |<a href="00FC.html">  [ ] Overlays Allowed </a>   <a href="00FE.html">  [ ] 286 Instructions   </a>|
+ |<a href="00FF.html">  [ ] Smart Callbacks     (Windows target)         </a>|
+ |<a href="0100.html">  [ ] Windows stack frames (Windows target         </a>|
+ +---------------------------------------------------+
+The Code Generation group of options tells
+the compiler how to compile your code.
+
+Some of these options may be dimmed
+depending on the options specified in the
+Target Platform Options.
+
+ +------------------------+
+ | Run-time errors        |
+ |<a href="0101.html">  [ ] Range             </a>|
+ |<a href="0102.html">  [X] Stack             </a>|
+ |<a href="0103.html">  [X] I/O               </a>|
+ |<a href="0104.html">  [ ] Overflow checking </a>|
+ +------------------------+
+The Run-time Errors group of options specify
+the type of error checking the compiler performs.
+
+ +----------------------------+
+ | Syntax options             |
+ |<a href="0105.html">  [X] Strict Var-strings    </a>|
+ |<a href="0106.html">  [ ] Complete boolean eval </a>|
+ |<a href="0107.html">  [ ] Extended syntax       </a>|
+ |<a href="0108.html">  [ ] Typed @ Operator      </a>|
+ |<a href="0109.html">  [ ] Open parameters       </a>|
+ +----------------------------+
+The Syntax Options group of options specify
+the type of syntax options you want the compiler
+to use.
+
+ +--------------------+
+ | Numeric processing |
+ |<a href="010D.html">  [ ] 8087/80287    </a>|
+ |<a href="010E.html">  [X] Emulation     </a>|
+ +--------------------+
+The Numeric Processing group of options define
+how you want the compiler to handle
+floating-point numbers.
+
+ +-------------------------+
+ | Debugging               |
+ |<a href="010A.html">  [X] Debug information  </a>|
+ |<a href="010B.html">  [X] Local symbols      </a>|
+ |<a href="010C.html">  [X] Symbol information </a>|
+ +-------------------------+
+The Debugging group of options turn on or off
+the generation of information used for
+debugging.
+
+ +-<a href="010F.html"> Conditional defines </a>----------------------+
+ |                                            |
+ +--------------------------------------------+
+The Conditional Defines input box is where you
+define symbols to be referenced in conditional
+compilation directives.
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+<head><title>Turbo Pascal Help - 01AD</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>01AD</i></center></td>
+</tr></table>
+<pre>
+ Command-Line Options
+ ----------------------
+
+The command-line compilers BPC.EXE and TPC.EXE let you invoke all the
+functions of the IDE compilers (BP.EXE, TURBO.EXE, and BPW.EXE) from the DOS
+command line.
+
+You have a choice of two command-line compilers, BPC.EXE or TPC.EXE.
+  - BPC.EXE runs in DOS protected mode and targets DOS real-mode, Windows,
+    and DOS protected-mode applications.
+  - TPC.EXE runs only in DOS real mode and targets only DOS real-mode
+    applications.
+
+You run the command-line compilers from the DOS prompt using the following
+syntax:
+ BPC [options] filename [options]
+ TPC [options] filename [options]
+
+where:
+  - options are zero or more optional parameters that provide additional
+    information to the compiler.
+  - filename is the name of the source file to compile.
+     - If filename does not have an extension, the command-line compiler
+       assumes .PAS.
+     - If you don't want the file you're compiling to have an extension,
+       append a period (.) to the end of the filename.
+
+ TPC.EXE
+For TPC.EXE, if the source text contained in filename is a program, the
+compiler creates an executable file named filename.EXE, and if filename
+contains a unit, the compiler creates a unit file named filename.TPU.
+
+ BPC.EXE
+For BPC.EXE, if the source text contained in filename is a program, the
+compiler creates an executable file named filename.EXE, and if filename
+contains a library, the compiler creates a file named filename.DLL.
+
+If filename contains a unit, the compiler creates a unit file named
+filename.TPU, filename.TPP, or filename.TPW, depending on the selected
+target platform. This table illustrates the relationship between the
+target platform and the unit file extension the compiler uses.
+
+     Target platform    |  Unit file extension
+     ==========================================
+     DOS real mode      | .TPU
+     DOS protected mode | .TPP
+     Windows            | .TPW
+
+ Options:
+Here are the command-line compiler options:
+
+ Compiler mode options:
+   Option               Meaning
+   <a href="045B.html">/B</a>                   Build All
+   <a href="045F.html">/C</a>                   Compile
+   <a href="045D.html">/F</a>                   Find Error
+   <a href="0453.html">/L</a>                   Link Buffer
+   <a href="045C.html">/M</a>                   Make
+   <a href="0452.html">/Q</a>                   Quiet (no IDE equivalent)
+
+ Conditional defines option:
+   <a href="045A.html">/D</a>                   Conditional Defines
+
+ Debug options:
+   Option               Meaning
+   <a href="0454.html">/G</a>                   .MAP File
+   <a href="0451.html">/V</a>                   Debug Info in EXE Option
+
+ Directory options:
+   Option               Meaning
+   <a href="045E.html">/E</a>                   EXE and TPU Directory
+   <a href="0458.html">/I</a>                   Include Directories
+   <a href="0456.html">/O</a>                   Object Files Directories
+   <a href="0455.html">/R</a>                   Resource Directories
+   <a href="0459.html">/T</a>                   Turbo Directory
+   <a href="0457.html">/U</a>                   Unit Directories
+
+Most of the command-line options have equivalent menu commands. See the
+<a href="0450.html">Command-Line Options and IDE Equivalents</a> Help screen for a summary.
+
+ See Also:
+ <a href="0460.html">Compiler directives</a>
+
+- eof -</pre></body>
+</html>

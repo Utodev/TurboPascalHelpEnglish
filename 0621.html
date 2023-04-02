@@ -1,0 +1,34 @@
+<html>
+<head><title>Turbo Pascal Help - 0621</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0621</i></center></td>
+</tr></table>
+<pre>
+ virtual (procedure directive)
+ -------------------------------
+A virtual <a href="0606.html">method</a> is a method whose call is linked to its code at run time,
+by a process called late binding.
+
+ Syntax:
+ procedure Method(&lt;parameter list&gt;); virtual;
+
+ Remarks:
+Declaring a method as virtual makes it possible for methods with the same
+name to be implemented in different ways within a hierarchy of object types.
+
+To make a method virtual, follow its declaration in the object type with a
+semicolon, the reserved word "virtual", and another semicolon, like this:
+
+ procedure Method(param1, Param2: Integer); virtual;
+
+
+ See Also:
+ <a href="0607.html">Dynamic methods</a>
+ <a href="0618.html">Self</a>
+
+- eof -</pre></body>
+</html>

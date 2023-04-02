@@ -1,0 +1,60 @@
+<html>
+<head><title>Turbo Pascal Help - 0537</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0537</i></center></td>
+</tr></table>
+<pre>
+ ClrEol (procedure)     <a href="0694.html">(Crt unit</a> and WinCrt unit)
+ --------------------------------------------------
+Clears all characters from the cursor position to the end of the line
+without moving the cursor.
+
+ Declaration:
+ procedure ClrEol;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+All character positions are set to blanks with the currently defined text
+attributes. Thus, if TextBackground is not black, the current cursor
+position to the right edge becomes the background color.
+
+ClrEol is window-relative. The following program lines define a text window
+and clear the current line from the cursor position (1, 1) to the right edge
+of the active window (60, 1).
+
+  Window(1, 1, 60, 20);
+  ClrEol;
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+ <font color="#c0c0c0">{ClrEol.PAS}</font>
+
+ <font color="#c0c0c0">{Sample code for the ClrEol procedure.}</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>uses</b></font> Crt;
+
+ <font color="#ffffff"><b>begin</b></font>
+  ClrScr;
+  Writeln(<font color="#00ffff">'Hello there, how are you today?'</font>);
+  Writeln(<font color="#00ffff">'Press <enter> key...'</font>);
+  Readln;
+  GotoXY(<font color="#00ffff">1</font>,<font color="#00ffff">2</font>);
+  ClrEol;
+  Writeln (<font color="#00ffff">'Glad to hear it!'</font>);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+- eof -</pre></body>
+</html>

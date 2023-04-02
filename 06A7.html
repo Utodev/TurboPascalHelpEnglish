@@ -1,0 +1,36 @@
+<html>
+<head><title>Turbo Pascal Help - 06A7</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>06A7</i></center></td>
+</tr></table>
+<pre>
+ WindMin and WindMax (variables)     <a href="0694.html">(Crt unit)</a>
+ -----------------------------------------------
+Stores the screen coordinates of the current window
+
+These variables are set by calls to the <a href="051E.html">Window</a> procedure.
+
+WindMin defines the upper left corner.
+WindMax defines the lower right corner.
+
+The X coordinate is stored in the low byte, and the Y coordinate is stored
+in the high byte.
+
+For example, <a href="0495.html">Lo</a>(WindMin) produces the X coordinate of the left edge, and
+<a href="0595.html">Hi</a>(WindMax) produces the Y coordinate of the bottom edge.
+
+The screen's upper left corner corresponds to (X,Y) = (0,0).
+
+ Note:
+For coordinates passed to Window and <a href="058F.html">GotoXY,</a> the upper left corner is at
+(1,1).
+
+ See Also:
+ <a href="0694.html">CRT.TPU</a>
+
+- eof -</pre></body>
+</html>

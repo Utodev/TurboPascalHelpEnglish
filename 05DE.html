@@ -1,0 +1,52 @@
+<html>
+<head><title>Turbo Pascal Help - 05DE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05DE</i></center></td>
+</tr></table>
+<pre>
+ asm (reserved word)
+ ---------------------
+Accesses the built-in assembler.
+
+ Syntax:
+   asm
+     AssemblerStmt &lt;Separator AssemblerStmt&gt;
+   end
+
+ where
+  - AssemblerStmt is an <a href="0430.html">assembler statement</a>
+  - Separator is a semicolon, a new-line, or a Pascal comment
+
+ Remarks:
+When placing multiple assembler statements on a single line, separate
+them with semicolons. Multiple assembler statements on separate lines do
+not require a semicolon.
+
+In an asm statement, a semicolon does not indicate that the rest of
+the line is a comment. Comments must be Pascal style, using { and }
+or (* and *).
+
+ Register Use:
+The rules of register use in an asm statement are the same as those of an
+<a href="05F3.html">external</a> procedure or function.
+
+An asm statement must preserve these registers:
+ BP   SP
+ SS   DS
+
+An asm statement can freely modify these registers:
+ AX   BX
+ CX   DX
+ SI   DI
+ ES   Flags
+
+On entry to the asm statement, the built-in assembler knows only the BP,
+SP, SS, and DS registers; it can assume nothing else about register
+contents.
+
+- eof -</pre></body>
+</html>

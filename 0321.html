@@ -1,0 +1,51 @@
+<html>
+<head><title>Turbo Pascal Help - 0321</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0321</i></center></td>
+</tr></table>
+<pre>
+ +---------------+
+ | Out of memory |
+ +---------------+
+
+This error occurs when the compiler has run
+out of memory.
+
+Try these possible solutions, in this order:
+
+1) Fix the problem outside the IDE:
+   &raquo; Remove TSRs from memory.
+   &raquo; Modify CONFIG.SYS to remove unnecessary
+     drivers; also reduce files and buffers
+     (SET FILES = 20, SET BUFFERS = 20).
+
+2) Reconfigure <i> Turbo </i> Pascal:
+   &raquo; Set Compile|Destination set to Disk.
+   &raquo; Set Options|Linker|<a href="011C.html">Link buffer</a> to Disk.
+     &raquo;&raquo; Turn <a href="0175.html">Graphics Screen Save</a> OFF
+
+3) Modify your source code:
+   &raquo; Overlay units in your program
+   &raquo; In Options|Memory Sizes, reduce
+     <a href="0111.html">Stack Size</a> and <a href="0112.html">Low Heap Limit</a>
+   &raquo; In Options|Compiler Options:
+     &raquo;&raquo; Turn both <a href="0101.html">Range Checking</a> and
+        <a href="0102.html">Stack Checking</a> OFF
+     &raquo;&raquo; Turn <a href="010E.html">Emulation</a> OFF during debugging
+
+4) Try using the IDE to edit your program,
+   then use the command-line compiler
+   (TPC.EXE or TPCX.EXE) to compile it and
+   Turbo Debugger to debug it.
+
+If none of these suggestions help, your
+program or unit might just be too large to
+compile in the amount of memory available;
+you might have to break it into two or more
+smaller <a href="061E.html">units</a>.
+- eof -</pre></body>
+</html>

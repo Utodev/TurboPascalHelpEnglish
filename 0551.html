@@ -1,0 +1,55 @@
+<html>
+<head><title>Turbo Pascal Help - 0551</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0551</i></center></td>
+</tr></table>
+<pre>
+ Eoln (function)
+ ----------------
+Returns the end-of-line status of a text file.
+
+ Declaration:
+ function Eoln [(var F: Text) ]: Boolean;
+
+ Target:
+Windows, Real, Protected
+
+ Remarks:
+F, if specified, is a text file variable. If F is omitted, the standard file
+variable Input is assumed. Eoln(F) returns True if the current file position
+ is at an end-of-line marker or if Eof(F) is True; otherwise, Eoln(F) returns
+False.
+
+With {$I-}, IOResult returns 0 if the operation was successful; otherwise,
+it returns a nonzero error code.
+
+ See Also:
+ <a href="0550.html">Eof</a>
+ <a href="04D3.html">SeekEoln</a>
+
+ Sample Code:
+
+<table width="100%" bgcolor="#00007f" ><tr><td><font color="#ffff00"><pre>
+<font color="#ffff00">
+  <font color="#c0c0c0">{Eoln.PAS}</font>
+
+ <font color="#c0c0c0">{ Example for Eoln }</font>
+
+ <font color="#c0c0c0">{ For Windows: }</font>
+ <font color="#c0c0c0">{ uses WinCrt; }</font>
+
+ <font color="#ffffff"><b>begin</b></font>
+ <font color="#c0c0c0">{ Tells program to wait for keyboard input }</font>
+   WriteLn(Eoln);
+ <font color="#ffffff"><b>end</b></font>.
+
+
+</font></font></td></tr></table>
+
+
+- eof -</pre></body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<head><title>Turbo Pascal Help - 0478</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>0478</i></center></td>
+</tr></table>
+<pre>
+ $G:  Generate 80286 Code Switch
+ ---------------------------------
+Enables or disables 80286 code generation .
+
+   Syntax:        {$G+} or {$G-}
+   Default:       {$G-} for real mode; {$G+} for protected mode and Windows
+   Type:          Global
+   Menu Command:  Options|Compiler|<a href="00FE.html">286 Code</a>
+
+ The $G- State:
+In the $G- state, only generic 8086 instructions are generated.
+
+Programs compiled in this state can run on any 80x86 family processor.
+Effects storage of literals and set literals in Windows applications.
+
+ The $G+ State:
+In the $G+ state, the compiler uses the additional instructions of the 80286
+to improve code generation.
+
+Programs compiled in this state cannot run on 8088 and 8086 processors.
+
+Additional instructions used in the $G+ state include:
+  - ENTER
+  - LEAVE
+  - PUSH immediate
+  - extended IMUL
+  - extended SHL
+  - extended SHR
+
+Note: (Windows) If a program or library, or any unit used by the program or
+library, is compiled in the {$G+} state, the resulting .EXE or .DLL will
+have the protected mode flag set in the executable header, and Windows will
+not run it in real mode.
+
+- eof -</pre></body>
+</html>

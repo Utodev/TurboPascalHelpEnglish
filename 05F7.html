@@ -1,0 +1,54 @@
+<html>
+<head><title>Turbo Pascal Help - 05F7</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05F7</i></center></td>
+</tr></table>
+<pre>
+ function (reserved word)
+ --------------------------
+A function is a program part that computes and returns a value.
+
+ Syntax:
+ function ident : type;
+ OR
+ function ident (parameters) : type;
+
+ Remarks:
+The function heading specifies the <a href="05F9.html">identifier</a> for the function, the formal
+<a href="060E.html">parameters</a> (if any), and the function result <a href="061D.html">type</a>.
+
+Valid result types are <a href="060C.html">ordinal</a>, <a href="0615.html">real</a>, <a href="061B.html">string</a>, and <a href="0610.html">pointer</a>.
+
+A function is activated by the evaluation of a function call in an
+<a href="05EF.html">expression</a>.
+
+The function heading is followed by:
+  - a declaration part that declares local objects
+  - the statement part, which specifies the statements to be executed when
+    the function is called
+
+The statement part should contain at least one statement that assigns a
+value to the function identifier; the result of the function is the last
+value assigned.
+
+Instead of the declaration and statement parts, a function declaration can
+specify a <a href="05F6.html">forward</a>, <a href="05F3.html">external</a>, far, or <a href="05FF.html">inline</a> directive.
+
+ Example:
+ (* Function declaration *)
+ function UpCaseStr(S: string): string;
+ var
+   I: Integer;
+ begin
+   for I := 1 to Length(S) do
+   if (S[I] &gt;= 'a') and (S[I] &lt;= 'z') then
+   Dec(S[I], 32);
+   UpCaseStr := S;
+ end;
+
+- eof -</pre></body>
+</html>

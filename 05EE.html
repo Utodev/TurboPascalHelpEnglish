@@ -1,0 +1,49 @@
+<html>
+<head><title>Turbo Pascal Help - 05EE</title>
+<meta name="GENERATOR" content="Dreadnaut's Tph2Html Converter">
+<style type="text/css"><!--a:hover {background-color: #000090; color: #ffff00; text-decoration: none}--></style></head>
+<body bgcolor="#009999" text="#000000" link="#ffff00" alink="#ffff70" vlink="#d0ff00">
+<table width="100%" border="1"><tr><td width="33%"><center><b>Turbo Pascal Help (turbo.tph)</b></center></td>
+<td width="60%">&nbsp;<a href="index.html">Index</a></td>
+<td><center><i>05EE</i></center></td>
+</tr></table>
+<pre>
+ Enumerated types
+ ------------------
+Enumerated types define ordered sets of values by enumerating the
+identifiers that denote these values. Their ordering follows the sequence in
+which the identifiers are enumerated.
+
+ Syntax:
+ type
+   name = (identifier,
+     identifier, ...,
+     identifier );
+
+ Remarks:
+The <a href="05F9.html">identifiers</a> in the type definition become constants of the enumerated
+type.
+
+The first constant has an ordinality of 0, the second has an ordinality
+of 1, the third an ordinality of 2, and so on.
+
+Enumerated types are a subclass of the <a href="060C.html">ordinal</a> types.
+
+ Example:
+ type
+   Suit = (Club, Diamond, Heart, Spade);
+
+Given this declaration, Heart is a constant of type Suit.
+
+The <a href="04A9.html">Ord</a> standard function returns the ordinality of an enumerated constant.
+In this example,
+
+   Ord(Club)     =  0
+   Ord(Diamond)  =  1
+   Ord(Heart)    =  2
+
+and so on.
+
+
+- eof -</pre></body>
+</html>
